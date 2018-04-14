@@ -1,5 +1,5 @@
 <Danh_sach_san_pham>
-    <Danh_muc Ten="Túi đeo chéo nữ">
+    <Danh_muc Ten="Túi đeo chéo nữ" Ma="_001">
         <San_pham Ma="DC_001" Thuong_hieu="Vascara" Ten="Túi Đeo Chéo SHO 0103 - Màu Đen" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
         <San_pham Ma="DC_002" Thuong_hieu="Vascara" Ten="Túi Đeo Chéo SHO 0103 - Màu Xanh Da Trời" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
         <San_pham Ma="DC_003" Thuong_hieu="Vascara" Ten="Túi Đeo Chéo SHO 0103 - Màu Be" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
@@ -10,18 +10,18 @@
         <San_pham Ma="DC_008" Thuong_hieu="Vascara" Ten="Túi Đeo Chéo SHO 0103 - Màu Đỏ" Gia="675000" Chat_lieu="Da tổng hợp" Kich_thuoc="17 x 7.5 x 14 cm" Trong_luong="400 gram"/>
         <San_pham Ma="DC_009" Thuong_hieu="Vascara" Ten="Túi Đeo Chéo SHO 0103 - Màu Đen" Gia="675000" Chat_lieu="Da tổng hợp" Kich_thuoc="17 x 7.5 x 14 cm" Trong_luong="400 gram"/>
     </Danh_muc>
-    <Danh_muc Ten="Túi xách nữ">
+    <Danh_muc Ten="Túi xách nữ" Ma="_002">
     </Danh_muc>
-    <Danh_muc Ten="Balo thời trang">
+    <Danh_muc Ten="Balo thời trang" Ma="_003">
     </Danh_muc>
-    <Danh_muc Ten="Ví/Bóp nữ">
+    <Danh_muc Ten="Ví/Bóp nữ" Ma="_004">
     </Danh_muc>
-    <Danh_muc Ten="Cặp văn phòng">
+    <Danh_muc Ten="Cặp văn phòng" Ma="_005">
     </Danh_muc>
-    <Danh_muc Ten="Túi đựng tiện ích">
+    <Danh_muc Ten="Túi đựng tiện ích" Ma="_006">
     </Danh_muc>
-    <Danh_muc Ten="Túi vải/Túi tote">
+    <Danh_muc Ten="Túi vải/Túi tote" Ma="_007">
     </Danh_muc>
-    <Danh_muc Ten="Phụ kiện túi ví khác">
+    <Danh_muc Ten="Phụ kiện túi ví khác" Ma="_008">
     </Danh_muc>
 </Danh_sach_san_pham>
