@@ -1,27 +1,50 @@
-<Danh_sach_san_pham>
-    <Danh_muc Ten="Túi đeo chéo nữ" Ma="_001">
-        <San_pham Ma="DC_001" Thuong_hieu="Vascara" Ten="Túi Đeo Chéo SHO 0103 - Màu Đen" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
-        <San_pham Ma="DC_002" Thuong_hieu="Vascara" Ten="Túi Đeo Chéo SHO 0103 - Màu Xanh Da Trời" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
-        <San_pham Ma="DC_003" Thuong_hieu="Vascara" Ten="Túi Đeo Chéo SHO 0103 - Màu Be" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
-        <San_pham Ma="DC_004" Thuong_hieu="Vascara" Ten="Túi Đeo Chéo SHO 0047 - Màu Xám" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
-        <San_pham Ma="DC_005" Thuong_hieu="Vascara" Ten="Túi Đeo Chéo SHO 0047 - Màu Cam" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
-        <San_pham Ma="DC_006" Thuong_hieu="Vascara" Ten="Túi Đeo Chéo SHO 0047 - Màu Đen" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
-        <San_pham Ma="DC_007" Thuong_hieu="Vascara" Ten="Túi Đeo Chéo SHO 0094 - Màu Nâu" Gia="675000" Chat_lieu="Da tổng hợp" Kich_thuoc="17 x 7.5 x 14 cm" Trong_luong="400 gram"/>
-        <San_pham Ma="DC_008" Thuong_hieu="Vascara" Ten="Túi Đeo Chéo SHO 0103 - Màu Đỏ" Gia="675000" Chat_lieu="Da tổng hợp" Kich_thuoc="17 x 7.5 x 14 cm" Trong_luong="400 gram"/>
-        <San_pham Ma="DC_009" Thuong_hieu="Vascara" Ten="Túi Đeo Chéo SHO 0103 - Màu Đen" Gia="675000" Chat_lieu="Da tổng hợp" Kich_thuoc="17 x 7.5 x 14 cm" Trong_luong="400 gram"/>
-    </Danh_muc>
-    <Danh_muc Ten="Túi xách nữ" Ma="_002">
-    </Danh_muc>
-    <Danh_muc Ten="Balo thời trang" Ma="_003">
-    </Danh_muc>
-    <Danh_muc Ten="Ví/Bóp nữ" Ma="_004">
-    </Danh_muc>
-    <Danh_muc Ten="Cặp văn phòng" Ma="_005">
-    </Danh_muc>
-    <Danh_muc Ten="Túi đựng tiện ích" Ma="_006">
-    </Danh_muc>
-    <Danh_muc Ten="Túi vải/Túi tote" Ma="_007">
-    </Danh_muc>
-    <Danh_muc Ten="Phụ kiện túi ví khác" Ma="_008">
-    </Danh_muc>
-</Danh_sach_san_pham>
+<Du_lieu>
+    <Danh_sach_san_pham>
+        <Danh_muc Ten="Túi đeo chéo nữ" Ma="_001">
+            <San_pham Ma="DC_001" Thuong_hieu="Vascara" Ten="Túi DC_001" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
+            <San_pham Ma="DC_002" Thuong_hieu="Vascara" Ten="Túi DC_002" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
+            <San_pham Ma="DC_003" Thuong_hieu="Vascara" Ten="Túi DC_003" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
+            <San_pham Ma="DC_004" Thuong_hieu="Vascara" Ten="Túi DC_004" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
+            <San_pham Ma="DC_005" Thuong_hieu="Vascara" Ten="Túi DC_005" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
+            <San_pham Ma="DC_006" Thuong_hieu="Vascara" Ten="Túi DC_006" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
+            <San_pham Ma="DC_007" Thuong_hieu="Vascara" Ten="Túi DC_007" Gia="675000" Chat_lieu="Da tổng hợp" Kich_thuoc="17 x 7.5 x 14 cm" Trong_luong="400 gram"/>
+            <San_pham Ma="DC_008" Thuong_hieu="Vascara" Ten="Túi DC_008" Gia="675000" Chat_lieu="Da tổng hợp" Kich_thuoc="17 x 7.5 x 14 cm" Trong_luong="400 gram"/>
+            <San_pham Ma="DC_009" Thuong_hieu="Vascara" Ten="Túi DC_009" Gia="675000" Chat_lieu="Da tổng hợp" Kich_thuoc="17 x 7.5 x 14 cm" Trong_luong="400 gram"/>
+        </Danh_muc>
+        <Danh_muc Ten="Túi xách nữ" Ma="_002">
+        </Danh_muc>
+        <Danh_muc Ten="Balo thời trang" Ma="_003">
+        </Danh_muc>
+        <Danh_muc Ten="Ví/Bóp nữ" Ma="_004">
+        </Danh_muc>
+        <Danh_muc Ten="Cặp văn phòng" Ma="_005">
+        </Danh_muc>
+        <Danh_muc Ten="Túi vải/Túi tote" Ma="_006">
+        </Danh_muc>
+        <Danh_muc Ten="Phụ kiện túi ví khác" Ma="_007">
+        </Danh_muc>
+    </Danh_sach_san_pham>
+    <Danh_sach_Thong_ke>
+        <Thong_ke Ma="DC_001" Luot_mua="20" Luot_xem="200"/>
+        <Thong_ke Ma="DC_002" Luot_mua="3" Luot_xem="20"/>
+        <Thong_ke Ma="DC_003" Luot_mua="5" Luot_xem="12"/>
+        <Thong_ke Ma="DC_004" Luot_mua="8" Luot_xem="50"/>
+        <Thong_ke Ma="DC_005" Luot_mua="10" Luot_xem="50"/>
+        <Thong_ke Ma="DC_006" Luot_mua="8" Luot_xem="56"/>
+        <Thong_ke Ma="DC_007" Luot_mua="32" Luot_xem="53"/>
+        <Thong_ke Ma="DC_008" Luot_mua="8" Luot_xem="100"/>
+        <Thong_ke Ma="DC_009" Luot_mua="7" Luot_xem="78"/>
+    </Danh_sach_Thong_ke>
+    <Hang_moi_ve>
+        <Moi Ma="DC_006"/>
+        <Moi Ma="DC_001"/>
+        <Moi Ma="DC_005"/>
+        <Moi Ma="DC_006"/>
+        <Moi Ma="DC_001"/>
+        <Moi Ma="DC_005"/>
+        <Moi Ma="DC_006"/>
+        <Moi Ma="DC_001"/>
+        <Moi Ma="DC_005"/>
+        <Moi Ma="DC_006"/>
+    </Hang_moi_ve>
+</Du_lieu>
