@@ -47,4 +47,8 @@
         <Moi Ma="DC_005"/>
         <Moi Ma="DC_006"/>
     </Hang_moi_ve>
+    <Danh_sach_Sap_ve>
+        <Sap_ve Ma="SV_001" Ten="GG Marmont matelassé" Gioi_thieu=""/>
+        <Sap_ve Ma="SV_002" Ten="GG Monogram Boston" Gioi_thieu=""/>
+    </Danh_sach_Sap_ve>
 </Du_lieu>
