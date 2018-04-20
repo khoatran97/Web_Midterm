@@ -26,8 +26,7 @@
 
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-
+    <link href="../dist/css/style.css" rel="stylesheet">
     <style type="text/css">
         .red {
             color: red;
@@ -281,6 +280,10 @@
                         <li>
                             <a href="index.html"><i class="glyphicon glyphicon-home"></i> DASHBOARD</a>
                             <!--ul class="nav nav-second-level"-->
+
+                                <li>
+                                    <a href="index.html"><i class="fa fa-child fa-2x"></i>Số lượt ghé thăm</a>
+                                </li>
                                 <li>
                                     <a href="#"><i class="glyphicon glyphicon-lock"></i>Quản lý sản phẩm<span class="fa arrow"></span></a>
                                     <ul class="nav nav-second-level">
@@ -309,9 +312,6 @@
                                 <li>
                                     <a href="quanlyphanphoi.html"><i class="fa fa-odnoklassniki fa-2x"></i>Quản lý nhà phân phối</a>
                                 </li>
-                                <li>
-                                    <a href="soluongkhachhang.html"><i class="fa fa-child fa-2x"></i>Số lượng khách hàng</a>
-                                </li>
                             <!--/ul-->
                         </li>
                     </ul>
@@ -332,37 +332,79 @@
                             <div id="box"></div>
                             <script type="text/javascript">
                             var orders = [
-                                {title: 'The Godfather', date: '10/03/2018', status: 'Đang giao'},
-                                {title: 'The Godfather: Part II', date: '8/3/2018', status: 'Đã giao'},
-                                {title: 'The Shawshank Redemption', date: '30/4/2018', status: 'Chưa giao'},
+                                {code: '123', date: '03/10/2018', total: '100.000', status: 'Đang vận chuyển'},
+                                {code: '234', date: '03/08/2018', total: '200.000', status: 'Giao thành công'},
+                                {code: '345', date: '04/30/2018', total: '300.000', status: 'Đã tiếp nhận'},
+                                {code: '456', date: '03/29/2018', total: '300.000', status: 'Đã hủy'},
+                                {code: '567', date: '03/13/2018', total: '300.000', status: 'Đang vận chuyển'},
+                                {code: '678', date: '04/17/2018', total: '300.000', status: 'Giao thành công'}
                             ];
                             //sắp xếp giảm theo ngày
                             orders.sort(function(a, b) {
                                  var dateA = new Date(a.date), dateB = new Date(b.date);
-                                 return dateA - dateB;
+                                 return dateB-dateA;
                             });
+                            //đưa chuỗi vào bảng
+                             var html = "<table id='t01'>";
+                             var tempt;
+                             html+="<tr>";
+                                 html+="<th id='c1'>Mã đơn hàng</th>";
+                                 html+="<th>Ngày đặt</th>";
+                                 html+="<th>Tổng tiền</th>";
+                                 html+="<th>Tình trạng</th>";
+                                 html+="<th>Xem chi tiết</th>";
+                                 html+="</tr>";
 
-                            var html = "<table border='1|1'>";
-                            for (var i = 0; i < orders.length; i++) {
-                                html+="<tr>";
-                                html+="<td>"+orders[i].title+"</td>";
-                                html+="<td>"+orders[i].date+"</td>";
-                                html+="<td>"+orders[i].status+"</td>";
-
-                                html+="</tr>";
-
-                            }
-                            html+="</table>";
-                            document.getElementById("box").innerHTML = html;
+                             for (var i = 0; i < orders.length; i++) {
+                                 if(orders[i].status==="Đã tiếp nhận"){
+                                    html+="<tr class='green'>";
+                                    tempt="<td><select id='mySelect'>"+
+                                            '<option value="1" selected="selected">Đã tiếp nhận</option>'+
+                                            '<option value="2">Đang vận chuyển</option>'+
+                                            '<option value="3">Giao thành công</option>'+
+                                            '<option value="4">Đã hủy</option>'+
+                                        "</select></td>";
+                                 }
+                                 if(orders[i].status==="Đang vận chuyển"){
+                                    html+="<tr class='blue'>";
+                                    tempt="<td><select id='mySelect'>"+
+                                            '<option value="1">Đã tiếp nhận</option>'+
+                                            '<option value="2" selected="selected">Đang vận chuyển</option>'+
+                                            '<option value="3">Giao thành công</option>'+
+                                            '<option value="4">Đã hủy</option>'+
+                                        "</select></td>";
+                                 }
+                                 if(orders[i].status==="Giao thành công"){
+                                    html+="<tr class='red'>";
+                                    tempt="<td><select id='mySelect'>"+
+                                            '<option value="1">Đã tiếp nhận</option>'+
+                                            '<option value="2">Đang vận chuyển</option>'+
+                                            '<option value="3" selected="selected">Giao thành công</option>'+
+                                            '<option value="4">Đã hủy</option>'+
+                                        "</select></td>";
+                                 }
+                                 if(orders[i].status==="Đã hủy"){
+                                    html+="<tr class='black'>";
+                                    tempt="<td><select id='mySelect'>"+
+                                            '<option value="1">Đã tiếp nhận</option>'+
+                                            '<option value="2">Đang vận chuyển</option>'+
+                                            '<option value="3">Giao thành công</option>'+
+                                            '<option value="4" selected="selected">Đã hủy</option>'+
+                                        "</select></td>";
+                                 }
+                                html+="<td>"+orders[i].code+"</td>";
+                                 html+="<td>"+orders[i].date+"</td>";
+                                 html+="<td>"+orders[i].total+"</td>";
+                                 html+=tempt;
+                                 html+="<td><a href='#abc'>Xem chi tiết</a></td>";
+                                 html+="</tr>";
+                             }
+                             html+="</table>";
+                             document.getElementById("box").innerHTML = html;
                         </script>
-
                     </div>
                 </div>
                 <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-       </div>
-   </div>
    <!-- Newsletter -->
 
     <div class="newsletter">
@@ -370,9 +412,9 @@
             <div class="row">
                 <div class="col">
                     <div class="newsletter_container d-flex flex-lg-row flex-column align-items-lg-center align-items-center justify-content-lg-start justify-content-center">
-                        <div class="newsletter_title_container">
+                        <div class="newsletter_code_container">
                             <div class="newsletter_icon"><img src="images/send.png" alt=""></div>
-                            <div class="newsletter_title">Sign up for Newsletter</div>
+                            <div class="newsletter_code">Sign up for Newsletter</div>
                             <div class="newsletter_text"><p>...and receive %20 coupon for first shopping.</p></div>
                         </div>
                         <div class="newsletter_content clearfix">
@@ -398,7 +440,7 @@
                         <div class="logo_container">
                             <div class="logo"><a href="#">OneTech</a></div>
                         </div>
-                        <div class="footer_title">Got Question? Call Us 24/7</div>
+                        <div class="footer_code">Got Question? Call Us 24/7</div>
                         <div class="footer_phone">+38 068 005 3570</div>
                         <div class="footer_contact_text">
                             <p>17 Princess Road, London</p>
@@ -418,7 +460,7 @@
 
                 <div class="col-lg-2 offset-lg-2">
                     <div class="footer_column">
-                        <div class="footer_title">Find it Fast</div>
+                        <div class="footer_code">Find it Fast</div>
                         <ul class="footer_list">
                             <li><a href="#">Computers & Laptops</a></li>
                             <li><a href="#">Cameras & Photos</a></li>
@@ -426,7 +468,7 @@
                             <li><a href="#">Smartphones & Tablets</a></li>
                             <li><a href="#">TV & Audio</a></li>
                         </ul>
-                        <div class="footer_subtitle">Gadgets</div>
+                        <div class="footer_subcode">Gadgets</div>
                         <ul class="footer_list">
                             <li><a href="#">Car Electronics</a></li>
                         </ul>
@@ -447,7 +489,7 @@
 
                 <div class="col-lg-2">
                     <div class="footer_column">
-                        <div class="footer_title">Customer Care</div>
+                        <div class="footer_code">Customer Care</div>
                         <ul class="footer_list">
                             <li><a href="#">My Account</a></li>
                             <li><a href="#">Order Tracking</a></li>

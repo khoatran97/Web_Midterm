@@ -1,0 +1,52 @@
+#myList ul{
+	list-style: none;
+	display: inline-block;
+}
+#myList ul li ul li{
+	list-style: none;
+	display: inline-block;
+	width: 250px;
+	list-style-position:inside;
+}
+#box table {
+	width: 100%;
+}
+#box table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 15px;
+    text-align: left;
+}/*
+#box table#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+#box table#t01 tr:nth-child(odd) {
+   background-color: #fff;
+}*/
+#box table#t01 th {
+    color: black;
+    font-weight: 2px;
+}
+table #c1{
+	width: 200px;
+}
+table #mySelect{
+	border: 1px solid black;
+ 	-webkit-appearance: menulist;
+ 	color: black;
+}
+.red{
+	color: red;
+}
+.blue{
+	color: blue;
+}
+.green{
+	color: green;
+}
+.black{
+	color: black;
+	font-weight: bold;
+}
