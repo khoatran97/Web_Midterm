@@ -24,6 +24,18 @@
         <Danh_muc Ten="Phụ kiện túi ví khác" Ma="_007">
         </Danh_muc>
     </Danh_sach_san_pham>
+    <Danh_sach_Thuong_hieu>
+        <Thuong_hieu Ten="Gucci"/>
+        <Thuong_hieu Ten="SaveMyBag"/>
+        <Thuong_hieu Ten="Briton Bag"/>
+        <Thuong_hieu Ten="Versace"/>
+        <Thuong_hieu Ten="Jockey"/>
+        <Thuong_hieu Ten="Prada"/>
+        <Thuong_hieu Ten="Givenchy"/>
+        <Thuong_hieu Ten="Duro Bag"/>
+        <Thuong_hieu Ten="TopBag"/>
+        <Thuong_hieu Ten="Bella Bag"/>
+    </Danh_sach_Thuong_hieu>
     <Danh_sach_Thong_ke>
         <Thong_ke Ma="DC_001" Luot_mua="20" Luot_xem="200"/>
         <Thong_ke Ma="DC_002" Luot_mua="3" Luot_xem="20"/>

@@ -2,6 +2,7 @@ var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
         Load_Danh_muc(this);
+        Load_Pho_bien(this);
         Load_Hang_moi(this);
         Load_Ban_chay(this);
         Load_Xem_nhieu(this);
@@ -33,6 +34,30 @@ function Load_Danh_muc(xml) {
     }
 
     // Load Popular Cat
+}
+
+function Load_Pho_bien(xml) {
+    var data = xhttp.responseXML
+    var pho_bien = document.getElementById("Pho_bien")
+    var san_pham = data.getElementsByTagName("San_pham")
+
+    for (var i = 0; i<16 && i<san_pham.length; i++) {
+        var tmp = `<div class="featured_slider_item">
+                    <div class="border_active"></div>
+                    <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="../../Hinh_anh/San_pham/`+san_pham[i].getAttribute("Ma")+`.jpg" alt=""></div>
+                        <div class="product_content">
+                            <div class="product_price discount">`+san_pham[i].getAttribute("Gia")+`</div>
+                            <div class="product_name"><div><a href="product.html">`+san_pham[i].getAttribute("Ten")+`</a></div></div>
+                            <div class="product_extras">
+                                <button class="product_cart_button">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>`
+        pho_bien.innerHTML += tmp;
+    }
+    
 }
 
 function Load_Hang_moi(xml) {
