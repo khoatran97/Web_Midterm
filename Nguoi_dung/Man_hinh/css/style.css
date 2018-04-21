@@ -1,5 +1,4 @@
-#cart{
-	background: #0e8ce4;
-	color: white;
-	font-size: 30px;
+img.brand {
+	max-width: 100px;
+	max-height: 400px;
 }
