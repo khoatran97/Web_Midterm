@@ -21,24 +21,13 @@
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
     <link href="../../../Ho_tro/styles/main_styles.css" rel="stylesheet">
 
-    <!-- Morris Charts CSS -->
-    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="../dist/css/style.css" rel="stylesheet">
-    <style type="text/css">
-        .red {
-            color: red;
-        }
-
-        .blue {
-            color: blue;
-        }
-        .green {
-            color: green;
-        }
-    </style>
+    <!-- gọi hàm tạo bảng -->
+    <script src="../../Xu_ly/script_donhang.js"></script>
+    
+    
 
 </head>
 
@@ -301,12 +290,6 @@
                                         <li>
                                             <a href="danhsachdonhang.html">Danh sách đơn hàng</a>
                                         </li>
-                                        <li>
-                                            <a href="">Đơn hàng đã giao</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Đơn hàng chưa giao</a>
-                                        </li>
                                     </ul>
                                 </li>
                                 <li>
@@ -324,274 +307,25 @@
                 <div class="col-lg-12">
                     <h1 class="page-header">Danh sách đơn hàng</h1>
                 </div>
-
-
-
-
-            <!--script language="javascript">
-            function change_background()
-            {
-               document.getElementById("message").style.background = 'red';
-            }
- 
-            function change_color()
-            {
-               document.getElementById("message").style.color = 'blue';
-            }
- 
-            function change_height()
-            {
-               document.getElementById("message").style.height = '500px';
-            }
- 
-            function change_font_size()
-            {
-               document.getElementById("message").style.fontSize = '500px';
-            }
-        </script>
-
-        <div id="message">
-          Chào mừng các bạn đến với freetuts.net
-        </div>
-        <input type="button" value="Change backgroud" onclick="change_background()"/>
-        <input type="button" value="Change color" onclick="change_color()"/>
-        <input type="button" value="Change height" onclick="change_height()"/>
-        <input type="button" value="Change fontsize" onclick="change_font_size()"/-->
-
-
-
                 <!-- /.col-lg-12 -->
-                
+            </div> <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <div id="box">
-                                <table id="t01">
-                                    <tbody>
-                                        <tr>
-                                            <th id="c1">Mã đơn hàng</th>
-                                            <th>Ngày đặt</th>
-                                            <th>Tổng tiền</th>
-                                            <th>Tình trạng</th>
-                                            <th>Xem chi tiết</th>
-                                        </tr>
-                                        <script language="javascript">
-                                             function genderChange_color1(obj)
-                                            {
-                                                if(obj.value='1')
-                                                    document.getElementById("re").style.color = 'red';
-                                                if(obj.value='2')
-                                                  document.getElementById("re").style.color = 'blue';
-                                                if(obj.value='3')
-                                                    document.getElementById("re").style.color = 'orange';
-                                                if(obj.value='4')
-                                                    document.getElementById("re").style.color = 'grey';
-                                            }
-                                        </script>
-                                        
-                                        <tr id="re" >
-                                            
-                                            <td>345</td>
-                                            <td>04/30/2018</td>
-                                            <td>300.000</td>
-                                            <td>
-                                                <select id="mySelect"  onchange = "genderChange_color1(this)">
-                                                <option value="1" selected="selected">Đã tiếp nhận</option>
-                                                <option value="2">Đang vận chuyển</option>
-                                                <option value="3">Giao thành công</option>
-                                                <option value="4">Đã hủy</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <a href="#abc">Xem chi tiết</a>
-                                        </td>
-                                    </tr>
-                                     <script language="javascript">
-                                             function genderChange_color2(obj)
-                                            {
-                                                if(obj.value='1')
-                                                    document.getElementById("blue").style.color = 'red';
-                                                if(obj.value='2')
-                                                  document.getElementById("blue").style.color = 'blue';
-                                                if(obj.value='3')
-                                                    document.getElementById("blue").style.color = 'orange';
-                                                if(obj.value='4')
-                                                    document.getElementById("blue").style.color = 'grey';
-                                            }
-                                        </script>
-                                    
-                                    <tr id ="blue">
-                                        <td>678</td>
-                                        <td>04/17/2018</td>
-                                        <td>300.000</td>
-                                        <td>
-                                            <select id="mySelect" onchange="genderChange_color2(this)">
-                                                <option value="1">Đã tiếp nhận</option>
-                                                <option value="2">Đang vận chuyển</option>
-                                                <option value="3" selected="selected">Giao thành công</option>
-                                                <option value="4">Đã hủy</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <a href="#abc">Xem chi tiết</a>
-                                        </td>
-                                    </tr>
-                                    <tr id ="red">
-                                        <td>456</td>
-                                        <td>03/29/2018</td>
-                                        <td>300.000</td> 
-                                        <td>
-                                            <select id="mySelect" onchange="genderChange(this)">
-                                                <option value="1">Đã tiếp nhận</option>
-                                                <option value="2">Đang vận chuyển</option>
-                                                <option value="3">Giao thành công</option>
-                                                <option value="4" selected="selected">Đã hủy</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <a href="#abc">Xem chi tiết</a>
-                                        </td>
-                                    </tr>
-                                    <tr id ="blue">
-                                        <td>567</td>
-                                        <td>03/13/2018</td>
-                                        <td>300.000</td>
-                                        <td>
-                                            <select id="mySelect" onchange="genderChange(this)">
-                                                <option value="1">Đã tiếp nhận</option>
-                                                <option value="2" selected="selected">Đang vận chuyển</option>
-                                                <option value="3">Giao thành công</option>
-                                                <option value="4">Đã hủy</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <a href="#abc">Xem chi tiết</a>
-                                        </td>
-                                    </tr>
-                                    <tr class="blue">
-                                        <td >123</td>
-                                        <td>03/10/2018</td>
-                                        <td>100.000</td>
-                                        <td>
-                                            <select id="mySelect" >
-                                                <option value="1">Đã tiếp nhận</option>
-                                                <option value="2" selected="selected">Đang vận chuyển</option>
-                                                <option value="3">Giao thành công</option>
-                                                <option value="4">Đã hủy</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <a href="#abc">Xem chi tiết</a>
-                                        </td>
-                                    </tr>
-                                    <tr class="r">
-                                         <td>234</td>
-                                         <td>03/08/2018</td>
-                                         <td>200.000</td>
-                                         <td>
-                                            <select id="mySelect" onchange="genderChange(this)">
-                                                <option value="1">Đã tiếp nhận</option>
-                                                <option value="2">Đang vận chuyển</option>
-                                                <option value="3" selected="selected">Giao thành công</option>
-                                                <option value="4">Đã hủy</option>
-                                            </select>
-                                        </td>
-                                        <td>
-                                            <a href="#abc">Xem chi tiết</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        
-                            <!--script type="text/javascript">
-                            var orders = [
-                                {code: '123', date: '03/10/2018', total: '100.000', status: 'Đang vận chuyển'},
-                                {code: '234', date: '03/08/2018', total: '200.000', status: 'Giao thành công'},
-                                {code: '345', date: '04/30/2018', total: '300.000', status: 'Đã tiếp nhận'},
-                                {code: '456', date: '03/29/2018', total: '300.000', status: 'Đã hủy'},
-                                {code: '567', date: '03/13/2018', total: '300.000', status: 'Đang vận chuyển'},
-                                {code: '678', date: '04/17/2018', total: '300.000', status: 'Giao thành công'}
-                            ];
-                            //sắp xếp giảm theo ngày
-                            orders.sort(function(a, b) {
-                                 var dateA = new Date(a.date), dateB = new Date(b.date);
-                                 return dateB-dateA;
-                            });
-                            //đưa chuỗi vào bảng
-                             var html = "<table id='t01'>";
-                             var tempt;
-                             html+="<tr>";
-                                 html+="<th id='c1'>Mã đơn hàng</th>";
-                                 html+="<th>Ngày đặt</th>";
-                                 html+="<th>Tổng tiền</th>";
-                                 html+="<th>Tình trạng</th>";
-                                 html+="<th>Xem chi tiết</th>";
-                                 html+="</tr>";
-
-                             for (var i = 0; i < orders.length; i++) {
-                                 if(orders[i].status==="Đã tiếp nhận"){
-                                    html+="<tr class='green'>";
-                                    tempt="<td><select id='mySelect'>"+
-                                            '<option value="1" selected="selected">Đã tiếp nhận</option>'+
-                                            '<option value="2">Đang vận chuyển</option>'+
-                                            '<option value="3">Giao thành công</option>'+
-                                            '<option value="4">Đã hủy</option>'+
-                                        "</select></td>";
-                                 }
-                                 if(orders[i].status==="Đang vận chuyển"){
-                                    html+="<tr class='blue'>";
-                                    tempt="<td><select id='mySelect'>"+
-                                            '<option value="1">Đã tiếp nhận</option>'+
-                                            '<option value="2" selected="selected">Đang vận chuyển</option>'+
-                                            '<option value="3">Giao thành công</option>'+
-                                            '<option value="4">Đã hủy</option>'+
-                                        "</select></td>";
-                                 }
-                                 if(orders[i].status==="Giao thành công"){
-                                    html+="<tr class='red'>";
-                                    tempt="<td><select id='mySelect'>"+
-                                            '<option value="1">Đã tiếp nhận</option>'+
-                                            '<option value="2">Đang vận chuyển</option>'+
-                                            '<option value="3" selected="selected">Giao thành công</option>'+
-                                            '<option value="4">Đã hủy</option>'+
-                                        "</select></td>";
-                                 }
-                                 if(orders[i].status==="Đã hủy"){
-                                    html+="<tr class='black'>";
-                                    tempt="<td><select id='mySelect'>"+
-                                            '<option value="1">Đã tiếp nhận</option>'+
-                                            '<option value="2">Đang vận chuyển</option>'+
-                                            '<option value="3">Giao thành công</option>'+
-                                            '<option value="4" selected="selected">Đã hủy</option>'+
-                                        "</select></td>";
-                                 }
-                                html+="<td>"+orders[i].code+"</td>";
-                                 html+="<td>"+orders[i].date+"</td>";
-                                 html+="<td>"+orders[i].total+"</td>";
-                                 html+=tempt;
-                                 html+="<td><a href='#abc'>Xem chi tiết</a></td>";
-                                 html+="</tr>";
-                             }
-                             html+="</table>";
-                             document.getElementById("box").innerHTML = html;
-                             function genderChange(obj)
-                             {
-                                var paragrap = document.getElementById('MSDagiao');
-                                var value = obj.value;
-                                if(value==='Đang vận chuyển')
-                                    paragrap.setAttribute('style','background-color: green');
-
-
-                             }
-                        </script-->
-                    </div>
-                </div>
+                            <div id="box"></div>
+                            <script language="javascript">
+                               createTable();
+                            </script>
+                        </div><!-- /.panel-body -->
+                    </div><!-- /.panel panel-default -->
+                </div><!-- /.col-lg-12 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <button type="button" id="update" class="btn btn-info">Cập nhật</button>
             </div>
-        </div>
-       
-                <!-- /.col-lg-12 -->
+        </div><!-- /.page-wrapper -->
+                
    <!-- Newsletter -->
 
     <div class="newsletter">
@@ -599,24 +333,25 @@
             <div class="row">
                 <div class="col">
                     <div class="newsletter_container d-flex flex-lg-row flex-column align-items-lg-center align-items-center justify-content-lg-start justify-content-center">
-                        <div class="newsletter_code_container">
+                        <div class="newsletter_title_container">
                             <div class="newsletter_icon"><img src="images/send.png" alt=""></div>
-                            <div class="newsletter_code">Sign up for Newsletter</div>
-                            <div class="newsletter_text"><p>...and receive %20 coupon for first shopping.</p></div>
+                            <div class="newsletter_title">Đăng ký nhận e-mail</div>
+                            <div class="newsletter_text"><p>để cập nhật thông tin nhanh nhất</p></div>
                         </div>
                         <div class="newsletter_content clearfix">
                             <form action="#" class="newsletter_form">
-                                <input type="email" class="newsletter_input" required="required" placeholder="Enter your email address">
-                                <button class="newsletter_button">Subscribe</button>
+                                <input type="email" class="newsletter_input" required="required" placeholder="Nhập e-mail của bạn">
+                                <button class="newsletter_button">Đăng ký</button>
                             </form>
-                            <div class="newsletter_unsubscribe_link"><a href="#">unsubscribe</a></div>
+                            <div class="newsletter_unsubscribe_link"><a href="#">Huỷ đăng ký</a></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-        <!-- Footer -->
+
+    <!-- Footer -->
 
     <footer class="footer">
         <div class="container">
@@ -625,13 +360,13 @@
                 <div class="col-lg-3 footer_col">
                     <div class="footer_column footer_contact">
                         <div class="logo_container">
-                            <div class="logo"><a href="#">OneTech</a></div>
+                            <div class="logo"><a href="#">iBags</a></div>
                         </div>
-                        <div class="footer_code">Got Question? Call Us 24/7</div>
-                        <div class="footer_phone">+38 068 005 3570</div>
+                        <div class="footer_title">Hỗ trợ tư vấn</div>
+                        <div class="footer_phone">+84 028 888 8888</div>
                         <div class="footer_contact_text">
-                            <p>17 Princess Road, London</p>
-                            <p>Grester London NW18JR, UK</p>
+                            <p>227 Nguyễn Văn Cừ</p>
+                            <p>Phường 4, Quận 5, TP.HCM</p>
                         </div>
                         <div class="footer_social">
                             <ul>
@@ -645,46 +380,16 @@
                     </div>
                 </div>
 
-                <div class="col-lg-2 offset-lg-2">
-                    <div class="footer_column">
-                        <div class="footer_code">Find it Fast</div>
-                        <ul class="footer_list">
-                            <li><a href="#">Computers &amp; Laptops</a></li>
-                            <li><a href="#">Cameras &amp; Photos</a></li>
-                            <li><a href="#">Hardware</a></li>
-                            <li><a href="#">Smartphones &amp; Tablets</a></li>
-                            <li><a href="#">TV &amp; Audio</a></li>
-                        </ul>
-                        <div class="footer_subcode">Gadgets</div>
-                        <ul class="footer_list">
-                            <li><a href="#">Car Electronics</a></li>
-                        </ul>
-                    </div>
-                </div>
-
                 <div class="col-lg-2">
                     <div class="footer_column">
-                        <ul class="footer_list footer_list_2">
-                            <li><a href="#">Video Games &amp; Consoles</a></li>
-                            <li><a href="#">Accessories</a></li>
-                            <li><a href="#">Cameras &amp; Photos</a></li>
-                            <li><a href="#">Hardware</a></li>
-                            <li><a href="#">Computers &amp; Laptops</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-2">
-                    <div class="footer_column">
-                        <div class="footer_code">Customer Care</div>
+                        <div class="footer_title">Chăm sóc khách hàng</div>
                         <ul class="footer_list">
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Order Tracking</a></li>
-                            <li><a href="#">Wish List</a></li>
-                            <li><a href="#">Customer Services</a></li>
-                            <li><a href="#">Returns / Exchange</a></li>
-                            <li><a href="#">FAQs</a></li>
-                            <li><a href="#">Product Support</a></li>
+                            <li><a href="#">Tài khoản</a></li>
+                            <li><a href="#">Theo dõi đặt hàng</a></li>
+                            <li><a href="#">Danh sách yêu thích</a></li>
+                            <li><a href="#">Dịch vụ khách hàng</a></li>
+                            <li><a href="#">Đổi trả</a></li>
+                            <li><a href="#">Hỗ trợ sản phẩm</a></li>
                         </ul>
                     </div>
                 </div>
@@ -694,179 +399,31 @@
     </footer>
 
     <!-- Copyright -->
-        <div class="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        
-                        <div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
-                            <div class="copyright_content"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-    Copyright ©<script>document.write(new Date().getFullYear());</script>2018 All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            </div>
-                            <div class="logos ml-sm-auto">
-                                <ul class="logos_list">
-                                    <li><a href="#"><img src="images/logos_1.png" alt=""></a></li>
-                                    <li><a href="#"><img src="images/logos_2.png" alt=""></a></li>
-                                    <li><a href="#"><img src="images/logos_3.png" alt=""></a></li>
-                                    <li><a href="#"><img src="images/logos_4.png" alt=""></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-    <!-- jQuery -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="../vendor/raphael/raphael.min.js"></script>
-    <script src="../vendor/morrisjs/morris.min.js"></script>
-    <script src="../data/morris-data.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
-
-
-
-
-</div></div></div>
-                <!-- /.col-lg-12 -->
-            
-                <!-- /.col-lg-12 -->
-   <!-- Newsletter -->
-
-    <div class="newsletter">
+    <div class="copyright">
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <div class="newsletter_container d-flex flex-lg-row flex-column align-items-lg-center align-items-center justify-content-lg-start justify-content-center">
-                        <div class="newsletter_code_container">
-                            <div class="newsletter_icon"><img src="images/send.png" alt=""></div>
-                            <div class="newsletter_code">Sign up for Newsletter</div>
-                            <div class="newsletter_text"><p>...and receive %20 coupon for first shopping.</p></div>
-                        </div>
-                        <div class="newsletter_content clearfix">
-                            <form action="#" class="newsletter_form">
-                                <input type="email" class="newsletter_input" required="required" placeholder="Enter your email address">
-                                <button class="newsletter_button">Subscribe</button>
-                            </form>
-                            <div class="newsletter_unsubscribe_link"><a href="#">unsubscribe</a></div>
+                    
+                    <div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
+                        <div class="copyright_content"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+</div>
+                        <div class="logos ml-sm-auto">
+                            <ul class="logos_list">
+                                <li><a href="#"><img src="images/logos_1.png" alt=""></a></li>
+                                <li><a href="#"><img src="images/logos_2.png" alt=""></a></li>
+                                <li><a href="#"><img src="images/logos_3.png" alt=""></a></li>
+                                <li><a href="#"><img src="images/logos_4.png" alt=""></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-        <!-- Footer -->
-
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-3 footer_col">
-                    <div class="footer_column footer_contact">
-                        <div class="logo_container">
-                            <div class="logo"><a href="#">OneTech</a></div>
-                        </div>
-                        <div class="footer_code">Got Question? Call Us 24/7</div>
-                        <div class="footer_phone">+38 068 005 3570</div>
-                        <div class="footer_contact_text">
-                            <p>17 Princess Road, London</p>
-                            <p>Grester London NW18JR, UK</p>
-                        </div>
-                        <div class="footer_social">
-                            <ul>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                                <li><a href="#"><i class="fab fa-google"></i></a></li>
-                                <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-2 offset-lg-2">
-                    <div class="footer_column">
-                        <div class="footer_code">Find it Fast</div>
-                        <ul class="footer_list">
-                            <li><a href="#">Computers & Laptops</a></li>
-                            <li><a href="#">Cameras & Photos</a></li>
-                            <li><a href="#">Hardware</a></li>
-                            <li><a href="#">Smartphones & Tablets</a></li>
-                            <li><a href="#">TV & Audio</a></li>
-                        </ul>
-                        <div class="footer_subcode">Gadgets</div>
-                        <ul class="footer_list">
-                            <li><a href="#">Car Electronics</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-2">
-                    <div class="footer_column">
-                        <ul class="footer_list footer_list_2">
-                            <li><a href="#">Video Games & Consoles</a></li>
-                            <li><a href="#">Accessories</a></li>
-                            <li><a href="#">Cameras & Photos</a></li>
-                            <li><a href="#">Hardware</a></li>
-                            <li><a href="#">Computers & Laptops</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-2">
-                    <div class="footer_column">
-                        <div class="footer_code">Customer Care</div>
-                        <ul class="footer_list">
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Order Tracking</a></li>
-                            <li><a href="#">Wish List</a></li>
-                            <li><a href="#">Customer Services</a></li>
-                            <li><a href="#">Returns / Exchange</a></li>
-                            <li><a href="#">FAQs</a></li>
-                            <li><a href="#">Product Support</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </footer>
-
-    <!-- Copyright -->
-        <div class="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        
-                        <div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
-                            <div class="copyright_content"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            </div>
-                            <div class="logos ml-sm-auto">
-                                <ul class="logos_list">
-                                    <li><a href="#"><img src="images/logos_1.png" alt=""></a></li>
-                                    <li><a href="#"><img src="images/logos_2.png" alt=""></a></li>
-                                    <li><a href="#"><img src="images/logos_3.png" alt=""></a></li>
-                                    <li><a href="#"><img src="images/logos_4.png" alt=""></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
 
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
@@ -876,14 +433,10 @@
 
     <!-- Metis Menu Plugin JavaScript -->
     <script src="../vendor/metisMenu/metisMenu.min.js"></script>
-
-    <!-- Morris Charts JavaScript -->
-    <script src="../vendor/raphael/raphael.min.js"></script>
-    <script src="../vendor/morrisjs/morris.min.js"></script>
-    <script src="../data/morris-data.js"></script>
-
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="../../Xu_ly/jquery_donhang.js"></script>
+    
 
 </body>
 

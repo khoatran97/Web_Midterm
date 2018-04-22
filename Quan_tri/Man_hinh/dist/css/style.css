@@ -18,13 +18,7 @@
 th, td {
     padding: 15px;
     text-align: left;
-}/*
-#box table#t01 tr:nth-child(even) {
-    background-color: #eee;
 }
-#box table#t01 tr:nth-child(odd) {
-   background-color: #fff;
-}*/
 #box table#t01 th {
     color: black;
     font-weight: 2px;
@@ -32,12 +26,12 @@ th, td {
 table #c1{
 	width: 200px;
 }
-table #mySelect{
+table .mySelect{
 	border: 1px solid black;
  	-webkit-appearance: menulist;
  	color: black;
 }
-#re{
+.red{
 	color: red;
 }
 .blue{
@@ -49,4 +43,27 @@ table #mySelect{
 .black{
 	color: black;
 	font-weight: bold;
+}
+
+#table table {
+	width: 100%;
+}
+#table table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+#table table#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+#table table#t01 tr:nth-child(odd) {
+   background-color: #fff;
+}
+img.brand {
+	max-width: 100px;
+	max-height: 400px;
+}
+
+#update{
+	margin-right: 50px;
+	float: right;
 }
