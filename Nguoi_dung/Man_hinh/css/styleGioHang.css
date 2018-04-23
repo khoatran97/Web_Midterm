@@ -1,0 +1,34 @@
+.Hang{
+	border-bottom: solid 2px #e4e4e4;
+	height: 150px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+	.Hang img{
+		margin-left: 45px;
+		height: 110px;
+		width: 110px;
+	}
+
+#TT{
+	height: 50px;
+	line-height: 50px;
+	border-bottom: solid 2px #f8f8f8;
+}
+#ThT{
+	height: 70px;
+	line-height: 70px;
+	border-bottom: solid 2px #f8f8f8;
+	color: #ff0f1e;
+}
+#Money button{
+	margin-top: 10px;
+	width: 200px;
+	background-color: #ff0f1e;
+	color: white; 
+	border: solid #ff0f1e;
+	border-radius: 4px;
+	height: 30px;
+	margin-left: 30px;
+}
+	

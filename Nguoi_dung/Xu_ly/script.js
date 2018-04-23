@@ -48,7 +48,7 @@ function Load_Pho_bien(xml) {
                         <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="../../Hinh_anh/San_pham/`+san_pham[i].getAttribute("Ma")+`.jpg" alt=""></div>
                         <div class="product_content">
                             <div class="product_price discount">`+san_pham[i].getAttribute("Gia")+`</div>
-                            <div class="product_name"><div><a href="product.html">`+san_pham[i].getAttribute("Ten")+`</a></div></div>
+                            <div class="product_name"><div><a href="./Chi_tiet.html?Ma=`+san_pham[i].getAttribute("Ma")+`">`+san_pham[i].getAttribute("Ten")+`</a></div></div>
                             <div class="product_extras">
                                 <button class="product_cart_button">Thêm vào giỏ</button>
                             </div>
@@ -76,7 +76,7 @@ function Load_Hang_moi(xml) {
                                     <div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
                                         <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="../../Hinh_anh/San_pham/`+sp.getAttribute("Ma")+`.jpg" alt=""></div>
                                         <div class="product_content">
-                                            <div class="product_name"><div><a href="product.html">`+sp.getAttribute("Ten")+`</a></div></div>
+                                            <div class="product_name"><div><a href="./Chi_tiet.html?Ma=`+sp.getAttribute("Ma")+`">`+sp.getAttribute("Ten")+`</a></div></div>
                                             <div class="product_price">`+sp.getAttribute("Gia")+`</div>
                                             <div class="product_extras">
                                                 <button class="product_cart_button">Thêm vào giỏ</button>
@@ -98,7 +98,7 @@ function Load_Hang_moi(xml) {
                                             <div class="arrivals_single_content">
                                                 <div class="arrivals_single_category"><a href="#">`+sp.getAttribute("Thuong_hieu")+`</a></div>
                                                 <div class="arrivals_single_name_container clearfix">
-                                                    <div class="arrivals_single_name"><a href="#">`+sp.getAttribute("Ten")+`</a></div>
+                                                    <div class="arrivals_single_name"><a href="./Chi_tiet.html?Ma=`+sp.getAttribute("Ma")+`">`+sp.getAttribute("Ten")+`</a></div>
                                                     <div class="arrivals_single_price text-right">`+sp.getAttribute("Gia")+`</div>
                                                 </div>
                                                 <div class="rating_r rating_r_4 arrivals_single_rating"><i></i><i></i><i></i><i></i><i></i></div>
@@ -145,7 +145,7 @@ function Load_Ban_chay(xml) {
                                 <div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
                                     <div class="bestsellers_image"><img src="../../Hinh_anh/San_pham/`+sp.getAttribute("Ma")+`.jpg" alt=""></div>
                                     <div class="bestsellers_content">
-                                        <div class="bestsellers_name"><a href="product.html">`+sp.getAttribute("Ten")+`</a></div>
+                                        <div class="bestsellers_name"><a href="./Chi_tiet.html?Ma=`+sp.getAttribute("Ma")+`">`+sp.getAttribute("Ten")+`</a></div>
                                         <div class="rating_r rating_r_4 bestsellers_rating"><i></i><i></i><i></i><i></i><i></i></div>
                                         <div>`+sp.getAttribute("Gia")+`</div>
                                     </div>
@@ -186,7 +186,7 @@ function Load_Xem_nhieu(xml) {
                                     <div class="viewed_image"><img src="../../Hinh_anh/San_pham/`+sp.getAttribute("Ma")+`.jpg" alt=""></div>
                                     <div class="viewed_content text-center">
                                         <div class="viewed_price">`+sp.getAttribute("Gia")+`</div>
-                                        <div class="viewed_name"><a href="#">`+sp.getAttribute("Ten")+`</a></div>
+                                        <div class="viewed_name"><a href="./Chi_tiet.html?Ma=`+sp.getAttribute("Ma")+`">`+sp.getAttribute("Ten")+`</a></div>
                                     </div>
                                     <ul class="item_marks">
                                         <li class="item_mark item_new">top view</li>
@@ -232,4 +232,27 @@ function Load_Hang_sap_ve(xml) {
                     </div>`
         Danh_sach_Sap_ve.innerHTML += tmp
     }
+}
+
+function Them_Gio_hang(xml) {
+    var data = xhttp.responseXML
+    var san_pham = data.getElementsByTagName("San_pham")
+
+    for (var i = 0; i<16 && i<san_pham.length; i++) {
+        var tmp = `<div class="featured_slider_item">
+                    <div class="border_active"></div>
+                    <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="../../Hinh_anh/San_pham/`+san_pham[i].getAttribute("Ma")+`.jpg" alt=""></div>
+                        <div class="product_content">
+                            <div class="product_price discount">`+san_pham[i].getAttribute("Gia")+`</div>
+                            <div class="product_name"><div><a href="./Chi_tiet.html?Ma=`+san_pham[i].getAttribute("Ma")+`">`+san_pham[i].getAttribute("Ten")+`</a></div></div>
+                            <div class="product_extras">
+                                <button class="product_cart_button">Thêm vào giỏ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>`
+        pho_bien.innerHTML += tmp;
+    }
+    
 }
