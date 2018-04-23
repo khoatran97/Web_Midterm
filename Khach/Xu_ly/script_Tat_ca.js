@@ -49,7 +49,7 @@ function Load_San_pham(xml) {
                         <div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="../../Hinh_anh/San_pham/`+sp[i].getAttribute("Ma")+`.jpg" alt=""></div>
                         <div class="product_content">
                             <div class="product_price">`+sp[i].getAttribute("Gia")+`</div>
-                            <div class="product_name"><div><a href="#" tabindex="0">`+sp[i].getAttribute("Ten")+`</a></div></div>
+                            <div class="product_name"><div><a href="./Chi_tiet.html?Ma=`+sp[i].getAttribute("Ma")+`" tabindex="0">`+sp[i].getAttribute("Ten")+`</a></div></div>
                         </div>
                     </div>`
         San_pham.innerHTML += tmp;
