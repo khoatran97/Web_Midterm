@@ -67,3 +67,12 @@ img.brand {
 	margin-right: 50px;
 	float: right;
 }
+
+.btn.btn-default.nut{
+	margin: 10px;
+	/*padding: 10px;
+	text-align: center;
+	border: 1px solid #ccc;
+	cursor: pointer;*/
+}
+
