@@ -70,9 +70,46 @@ img.brand {
 
 .btn.btn-default.nut{
 	margin: 10px;
+	background-color: #444444;
+	color: #eeeeee;
+
 	/*padding: 10px;
 	text-align: center;
 	border: 1px solid #ccc;
 	cursor: pointer;*/
 }
 
+#qlsp{
+	color: white;
+	background-color: #444444;
+}
+
+#page-wrapper
+{
+	background-color: #8888;
+}
+
+.table{
+	background-color: white;
+}
+
+#dsdh
+{
+	background-color: #444444;
+	color: white;
+}
+
+thead{
+	background-color: #ffff66;
+}
+
+#trong
+{
+	width: 25%;
+	float: left;
+}
+
+#nutbutton{
+	width: 75%;
+	float: left;
+}
