@@ -1,113 +1,46 @@
 function createTable() {
     var orders = [
-        {code: '123', name: 'Tý', type: 'Túi đeo chéo', price: '100.000', count:'40', producer:'VERCASE'},
-        {code: '234', name: 'Sửu', type: 'Túi đeo lưng', price: '200.000', count:'100', producer: 'GIVENCHY'},
-        {code: '345', name: 'Dần', type: 'Túi xách', price: '300.000', count:'60', producer: 'GUCCI'},
-        {code: '456', name: 'Mẹo',type: 'Túi đeo chéo', price: '300.000', count:'20', producer: 'PRADA'},
-        {code: '567', name: 'Thìn', type: 'Balo', price: '300.000', count:'90', producer: 'TOPBAG'},
-        {code: '678', name: 'Tỵ', type: 'Túi đeo lưng', price: '300.000', count:'140', producer: 'BELLABAG'},
-        {code: '123', name: 'Tý', type: 'Túi đeo chéo', price: '100.000', count:'40', producer:'VERCASE'},
-        {code: '234', name: 'Sửu', type: 'Túi đeo lưng', price: '200.000', count:'100', producer: 'GIVENCHY'},
-        {code: '345', name: 'Dần', type: 'Túi xách', price: '300.000', count:'60', producer: 'GUCCI'},
-        {code: '456', name: 'Mẹo',type: 'Túi đeo chéo', price: '300.000', count:'20', producer: 'PRADA'},
-        {code: '567', name: 'Thìn', type: 'Balo', price: '300.000', count:'90', producer: 'TOPBAG'},
-        {code: '678', name: 'Tỵ', type: 'Túi đeo lưng', price: '300.000', count:'140', producer: 'BELLABAG'}
+        {code: '123', name: 'Tý',  total: '100.000'},
+        {code: '234', name: 'Sửu',  total: '200.000'},
+        {code: '345', name: 'Dần',  total: '300.000'},
+        {code: '456', name: 'Mẹo', total: '300.000'},
+        {code: '567', name: 'Thìn', total: '300.000'},
+        {code: '678', name: 'Tỵ', total: '300.000'}
     ];
     //đưa chuỗi vào bảng
-     var html = "<table id='tatca'>";
-     html+="<tr id='tieude'>";
-         html+="<th id='c1'>Mã sản phẩm</th>";
-         html+="<th>Tên sản phẩm</th>";
-         html+="<th>Loại sản phẩm</th>";
-         html+="<th>Giá sản phẩm</th>";
-         html+="<th>Số lượng sản phẩm</th>";
-         html+="<th>Nhà phân phối</th>";
-   
-         html+="</tr>";
+     var html = "<table id='t01'>";
+     html+="<thead>"+"<tr>";
+         html+="<th id='c1'>Mã loại</th>";
+         html+="<th>Tên loại</th>";
+         html+="<th>Số mặt hàng</th>";
+         html+="<th>Danh sách sản phẩm</th>"
+         html+="</tr>"+"</thead>"+"<tbody>";
 
-     for (var i = 0; i < orders.length; i++) {
-        html+="<tr>";
-        html+="<td>"+orders[i].code+"</td>";
-        html+="<td>"+orders[i].name+"</td>";
-        html+="<td>"+orders[i].type+"</td>";
-        html+="<td>"+orders[i].price+"</td>";
-        html+="<td>"+orders[i].count+"</td>";
-        html+="<td>"+orders[i].producer+"</td>";
-        html+="</tr>";
-     }
-     html+="</table>";
-     document.getElementById("t00").innerHTML = html;
+    for (var i = 0; i < orders.length; i++) {
+       html+="<tr>";
+       html+="<td>"+orders[i].code+"</td>";
+       html+="<td>"+orders[i].name+"</td>";
+       html+="<td>"+orders[i].total+"</td>";
+       html+="<td><a href='#'>Xem chi tiết</a></td>";
+       html+="</tr>";
+    }
+    html+="</tbody>"+"</table>";
+    document.getElementById("table").innerHTML = html;
 }
 
-function Tabletdc() {
-    var orders = [
-        {code: '123', name: 'Tý', type: 'Túi đeo chéo', price: '100.000', count:'40', producer:'VERCASE'},
-        {code: '234', name: 'Sửu', type: 'Túi đeo chéo', price: '200.000', count:'100', producer: 'GIVENCHY'},
-        {code: '345', name: 'Dần', type: 'Túi đeo chéo', price: '300.000', count:'60', producer: 'GUCCI'},
-        {code: '456', name: 'Mẹo',type: 'Túi đeo chéo', price: '300.000', count:'20', producer: 'PRADA'},
-        {code: '567', name: 'Thìn', type: 'Túi đeo chéo', price: '300.000', count:'90', producer: 'TOPBAG'},
-        {code: '678', name: 'Tỵ', type: 'Túi đeo chéo', price: '300.000', count:'140', producer: 'BELLABAG'}
-    ];
-    //đưa chuỗi vào bảng
-     var html = "<table id='tuideocheo'>";
-     html+="<tr>";
-         html+="<th id='c1'>Mã sản phẩm</th>";
-         html+="<th>Tên sản phẩm</th>";
-         html+="<th>Loại sản phẩm</th>";
-         html+="<th>Giá sản phẩm</th>";
-         html+="<th>Số lượng sản phẩm</th>";
-         html+="<th>Nhà phân phối</th>";
-   
-         html+="</tr>";
+function addRow(){
+    var tableRef = document.getElementById('table').getElementsByTagName('tbody')[0];
 
-     for (var i = 0; i < orders.length; i++) {
-        html+="<tr>";
-        html+="<td>"+orders[i].code+"</td>";
-        html+="<td>"+orders[i].name+"</td>";
-        html+="<td>"+orders[i].type+"</td>";
-        html+="<td>"+orders[i].price+"</td>";
-        html+="<td>"+orders[i].count+"</td>";
-        html+="<td>"+orders[i].producer+"</td>";
-        html+="</tr>";
-     }
-     html+="</table>";
-     document.getElementById("t01").innerHTML = html;
+    // Insert a row in the table at the last
+    var newRow   = tableRef.insertRow(tableRef.length);
+
+    for(var i=0;i<3;i++){
+        //insert the textbox first-4-cells
+        var newCell  = newRow.insertCell(i);
+        var field = document.createElement("input");
+        field.className="inputCell";
+        newCell.appendChild(field);
+    }
+    var newCell  = newRow.insertCell(3);
+    newCell.innerHTML=html;
 }
-
-function Tabletdl() {
-    var orders = [
-        {code: '123', name: 'Tý', type: 'Túi đeo lưng', price: '100.000', count:'40', producer:'VERCASE'},
-        {code: '234', name: 'Sửu', type: 'Túi đeo lưng', price: '200.000', count:'100', producer: 'GIVENCHY'},
-        {code: '345', name: 'Dần', type: 'Túi đeo lưng', price: '300.000', count:'60', producer: 'GUCCI'},
-        {code: '456', name: 'Mẹo',type: 'Túi đeo lưng', price: '300.000', count:'20', producer: 'PRADA'},
-        {code: '567', name: 'Thìn', type: 'Túi đeo lưng', price: '300.000', count:'90', producer: 'TOPBAG'},
-        {code: '678', name: 'Tỵ', type: 'Túi đeo lưng', price: '300.000', count:'140', producer: 'BELLABAG'},
-        {code: '123', name: 'Tý', type: 'Túi đeo lưng', price: '100.000', count:'40', producer:'VERCASE'},
-        {code: '234', name: 'Sửu', type: 'Túi đeo lưng', price: '200.000', count:'100', producer: 'GIVENCHY'}
-    ];
-    //đưa chuỗi vào bảng
-     var html = "<table id='tuideolung'>";
-     html+="<tr>";
-         html+="<th id='c1'>Mã sản phẩm</th>";
-         html+="<th>Tên sản phẩm</th>";
-         html+="<th>Loại sản phẩm</th>";
-         html+="<th>Giá sản phẩm</th>";
-         html+="<th>Số lượng sản phẩm</th>";
-         html+="<th>Nhà phân phối</th>";
-   
-         html+="</tr>";
-
-     for (var i = 0; i < orders.length; i++) {
-        html+="<tr>";
-        html+="<td>"+orders[i].code+"</td>";
-        html+="<td>"+orders[i].name+"</td>";
-        html+="<td>"+orders[i].type+"</td>";
-        html+="<td>"+orders[i].price+"</td>";
-        html+="<td>"+orders[i].count+"</td>";
-        html+="<td>"+orders[i].producer+"</td>";
-        html+="</tr>";
-     }
-     html+="</table>";
-     document.getElementById("t02").innerHTML = html;
-}
-

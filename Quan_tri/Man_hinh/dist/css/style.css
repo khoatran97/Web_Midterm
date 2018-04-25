@@ -1,13 +1,3 @@
-#myList ul{
-	list-style: none;
-	display: inline-block;
-}
-#myList ul li ul li{
-	list-style: none;
-	display: inline-block;
-	width: 250px;
-	list-style-position:inside;
-}
 #box table {
 	width: 100%;
 }
@@ -22,6 +12,10 @@ th, td {
 #box table#t01 th {
     color: black;
     font-weight: 2px;
+}
+th, td {
+    padding: 15px;
+    text-align: left;
 }
 table #c1{
 	width: 200px;
@@ -40,11 +34,9 @@ table .mySelect{
 .green{
 	color: green;
 }
-.black{
-	color: black;
-	font-weight: bold;
+.cancel{
+	background-color: grey;
 }
-
 #table table {
 	width: 100%;
 }
@@ -122,10 +114,11 @@ button#nsx:hover{
 	border-width: 1px;
 }
 
-#dsdh
+#title
 {
 	background-color: #444444;
 	color: white;
+	margin-bottom: 20px;
 }
 
 thead{
@@ -135,4 +128,19 @@ thead{
 #tieude{
 	background-color: #6699ff;
 }
-
+ul #task{
+	list-style: none;
+	display: inline-block;
+	margin-right: 20px;
+}
+ul li #new{
+	float: left;
+	margin-bottom: 20px;
+}
+ul li #update{
+	float: right;
+	margin-bottom: 20px;
+}
+#tip{
+	margin-left: 40px;
+}

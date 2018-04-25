@@ -53,7 +53,7 @@ function createTable()
             "</select></td>";
      }
      if(orders[i].status==="Đã hủy"){
-        html+="<tr class='black'>";
+        html+="<tr class='cancel'>";
         tempt="<td><select class='mySelect'>"+
                 '<option>Đã tiếp nhận</option>'+
                 '<option>Đang vận chuyển</option>'+

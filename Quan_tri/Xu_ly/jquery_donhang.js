@@ -18,7 +18,7 @@ $(document).ready(function(){
      }
      if(valueSelected==="Đã hủy"){
         console.log('index', this.parentNode.parentNode.rowIndex);
-        this.parentNode.parentNode.className="black";
+        this.parentNode.parentNode.className="cancel";
      }
      console.log(valueSelected, optionSelected);
  });
