@@ -68,29 +68,58 @@ img.brand {
 	float: right;
 }
 
-.btn.btn-default.nut{
-	margin: 10px;
-	background-color: #444444;
-	color: #eeeeee;
-
-	/*padding: 10px;
-	text-align: center;
-	border: 1px solid #ccc;
-	cursor: pointer;*/
-}
-
 #qlsp{
-	color: white;
-	background-color: #444444;
+	color: #0033cc;
+	width: 60%;
+	float: left;
 }
 
-#page-wrapper
-{
-	background-color: #8888;
+#buttonsp{
+	width: 10%;
+	float: left;
+}
+
+.container-fluid{
+	width: 15%;
+	float: left;
+}
+
+.container-fluid{
+	width: 15%;
+	float: left;
+}
+.btn.btn-default.nut{
+	
+}
+
+button#nuttc{
+	background-color: #eeeeee;
+}
+
+button#nuttc:hover{
+	background-color: #ccffff;
+}
+
+button#lsp{
+	background-color: #eeeeee;
+}
+
+button#lsp:hover{
+	background-color: #ccffcc;
+}
+
+button#nsx{
+	background-color: #eeeeee;
+}
+
+button#nsx:hover{
+	background-color: #99ff99;
 }
 
 .table{
 	background-color: white;
+	border-color: #000000;
+	border-width: 1px;
 }
 
 #dsdh
@@ -100,16 +129,10 @@ img.brand {
 }
 
 thead{
-	background-color: #ffff66;
+	background-color: #ccffff;
 }
 
-#trong
-{
-	width: 25%;
-	float: left;
+#tieude{
+	background-color: #6699ff;
 }
 
-#nutbutton{
-	width: 75%;
-	float: left;
-}

@@ -24,6 +24,7 @@
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="../dist/css/style.css" rel="stylesheet">
+    <script src="../../Xu_ly/script_loaisanpham.js"></script>
     <!-- gọi hàm tạo bảng -->
     <!--script src="../../Xu_ly/script_donhang.js"></script-->
     
@@ -304,59 +305,118 @@
 
         <div id="page-wrapper">
             <div class="row">
-                <div class="col-lg-12" id="qlsp">
-                    <h1 class="page-header" >Quản lý sản phẩm</h1>
+                <div class="col-lg-12" >
+                    <br>
+                    <h1 class="" id="qlsp" >Quản lý sản phẩm</h1>
+                    <div id="nutbutton">
+                        <br>
+                        <br>
+                        <div id="buttonsp">
+                             <button type="button" class="btn btn-default nut" id="nuttc">Sản phẩm</button>
+                    
+                        </div>
+                       
+                            <div class="container-fluid loai">
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="lsp">
+                                        Loại sản phẩm <div class="caret"></div>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <button class="btn btn-default" style="width: 160px" id="nuttdc">Túi đeo chéo</button>
+                                        <button class="btn btn-default" style="width: 160px" id="nuttdl">Túi đeo lưng</button>
+                                        <button class="btn btn-default" style="width: 160px">Túi xách</button>
+                                        <button class="btn btn-default" style="width: 160px">Bóp, ví</button>
+                                        <button class="btn btn-default" style="width: 160px">Balo</button>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="container-fluid nhasx">
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="nsx">
+                                        Nhà sản xuất <div class="caret"></div>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="">GUCCI</a></li>
+                                        <li><a href="">TOPBAG</a></li>
+                                        <li><a href="">BELLABAG</a></li>
+                                        <li><a href="">PRADA</a></li>
+                                        <li><a href="">GIVECHY</a></li>
+                                        <li><a href="">VERCASE</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        
+                    </div>
+                    
+                       
+                
+            
+                    
+
                 </div>
                 <!-- /.col-lg-12 -->
             </div> <!-- /.row -->
-            <div id="trong"></div>
-            <div id="nutbutton">
-                <button type="button" class="btn btn-default nut" id="nuttc">Sản phẩm</button>
-                <button type="button" class="btn btn-default nut" id="nuttdc">Túi đeo chéo</button>
-                <button type="button" class="btn btn-default nut" id="nuttdl">Túi đeo lưng</button>
-                <button type="button" class="btn btn-default nut" id="nuttx">Túi xách</button>
-                <button type="button" class="btn btn-default nut" id="nutbv">Bóp, ví</button>
-                <button type="button" class="btn btn-default nut" id="nutbl">Balo</button>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="t00"> 
+                                <script language="JavaScript">
+                                   createTable();
+                                </script>
+                            </div>
+                            <div id="t01">
+                                <script language="JavaScript">
+                                    Tabletdc();
+                                </script>
+                            </div>
+                            <div id="t02">
+                                <script language="JavaScript">
+                                    Tabletdl();
+                                </script>
+                            </div>
+                            <!-- /.tạo bảng -->
+                            
+
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <br>
-            <br>
-            <br>
 
-           <table class="table" id= "tatca">
+    <!--table class="table table-bordered" id= "tatca">
       <thead>
-        <tr> 
-          <th>Mã số</th>
-          <th>Tên sản phẩm</th>
-          <th>Loại sản phẩm</th>
-          <th>Giá tiềm</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
     </table>
 
 
 
-    <table class="table" id= "tuideotreo">
+    <table class="table table-bordered" id= "tuideotreo">
       <thead>
         <tr>
           <th>Mã số</th>
@@ -387,7 +447,7 @@
       </tbody>
     </table>
 
-    <table class="table" id= "tuideolung">
+    <table class="table table-bordered" id= "tuideolung">
       <thead>
         <tr>
           <th>Mã số</th>
@@ -420,7 +480,7 @@
 
 
 
-    <table class="table" id= "tuixach">
+    <table class="table table-bordered" id= "tuixach">
       <thead>
         <tr>
           <th>Mã số</th>
@@ -452,7 +512,7 @@
     </table>
 
 
-    <table class="table" id= "bopvi">
+    <table class="table table-bordered" id= "bopvi">
       <thead>
         <tr>
           <th>Mã số</th>
@@ -484,7 +544,7 @@
     </table>
 
 
-    <table class="table" id= "balo">
+    <table class="table table-bordered" id= "balo">
       <thead>
         <tr>
           <th>Mã số</th>
@@ -513,7 +573,7 @@
           <td>@twitter</td>
         </tr>
       </tbody>
-    </table>
+    </table-->
             
         </div><!-- /.page-wrapper -->
                 
@@ -627,6 +687,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
     <script src="../../Xu_ly/jquery_loaisanpham.js"></script>
+    
     
 
 </body>

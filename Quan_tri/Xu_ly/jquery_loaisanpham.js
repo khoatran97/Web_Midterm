@@ -1,65 +1,67 @@
 $(document).ready(function() {
 
-	setupTuideoccheo();
-	setupTuideoclung();
-	setupTuixach();
-	setupBopvi();
-	setupBalo();
+	setupTuideocheo();
+	setupTuideolung();
+	//setupTuixach();
+	//setupBopvi();
+	//setupBalo();
 	setupSanpham();
 });
 
+
 function setupSanpham()
 {
-	$('#tuideotreo').hide();
+	$('#tuideocheo').hide();
 	$('#tuideolung').hide();
-	$('#tuixach').hide();
-	$('#bopvi').hide();
-	$('#balo').hide();
+	//$('#tuixach').hide();
+	//$('#bopvi').hide();
+	//$('#balo').hide();
 	$('#nuttc').click(function(){
-		$('#tuideotreo').hide();
+	    $('#tuideocheo').hide();
 	    $('#tuideolung').hide();
-	    $('#tuixach').hide();
-	    $('#bopvi').hide();
-	    $('#balo').hide();
+	    //$('#tuixach').hide();
+	    //$('#bopvi').hide();
+	    //$('#balo').hide();
 		$('#tatca').show();
 	});
 }
 
-function setupTuideoccheo()
+function setupTuideocheo()
 {
-	$('#tuideotreo').hide();
+	$('#tuideocheo').hide();
 	$('#tuideolung').hide();
-	$('#tuixach').hide();
-	$('#bopvi').hide();
-	$('#balo').hide();
+	//$('#tuixach').hide();
+	//$('#bopvi').hide();
+	//$('#balo').hide();
 	$('#nuttdc').click(function(){
-		$('#tuideotreo').show();
+		
 	    $('#tuideolung').hide();
-	    $('#tuixach').hide();
-	    $('#bopvi').hide();
-	    $('#balo').hide();
+	    //$('#tuixach').hide();
+	    //$('#bopvi').hide();
+	    //$('#balo').hide();
 		$('#tatca').hide();
+		$('#tuideocheo').show();
 	});
 }
 
-function setupTuideoclung()
+function setupTuideolung()
 {
-	$('#tuideotreo').hide();
+	$('#tuideocheo').hide();
 	$('#tuideolung').hide();
-	$('#tuixach').hide();
-	$('#bopvi').hide();
-	$('#balo').hide();
+	//$('#tuixach').hide();
+	//$('#bopvi').hide();
+	//$('#balo').hide();
 	$('#nuttdl').click(function(){
-		$('#tuideotreo').hide();
+		$('#tuideocheo').hide();
 	    $('#tuideolung').show();
-	    $('#tuixach').hide();
-	    $('#bopvi').hide();
-	    $('#balo').hide();
+	   // $('#tuixach').hide();
+	    //$('#bopvi').hide();
+	   // $('#balo').hide();
 		$('#tatca').hide();
 	});
 }
 
-function setupTuixach()
+/*function setupTuixach()
 {
 	$('#tuideotreo').hide();
 	$('#tuideolung').hide();
@@ -109,4 +111,4 @@ function setupBalo()
 	    $('#balo').show();
 		$('#tatca').hide();
 	});
-}
+}*/
