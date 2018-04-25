@@ -13,13 +13,6 @@ th, td {
     color: black;
     font-weight: 2px;
 }
-th, td {
-    padding: 15px;
-    text-align: left;
-}
-table #c1{
-	width: 200px;
-}
 table .mySelect{
 	border: 1px solid black;
  	-webkit-appearance: menulist;
@@ -51,15 +44,14 @@ table .mySelect{
    background-color: #fff;
 }
 img.brand {
-	max-width: 100px;
-	max-height: 400px;
+	max-width: 50px;
+	max-height: 50px;
 }
-
-#update{
-	margin-right: 50px;
-	float: right;
+.btn.btn-default.nut{
+	margin: 10px;
+	background-color: #444444;
+	color: #eeeeee;
 }
-
 #qlsp{
 	color: #0033cc;
 	width: 60%;
@@ -79,9 +71,6 @@ img.brand {
 .container-fluid{
 	width: 15%;
 	float: left;
-}
-.btn.btn-default.nut{
-	
 }
 
 button#nuttc{
@@ -108,12 +97,6 @@ button#nsx:hover{
 	background-color: #99ff99;
 }
 
-.table{
-	background-color: white;
-	border-color: #000000;
-	border-width: 1px;
-}
-
 #title
 {
 	background-color: #444444;
@@ -125,9 +108,6 @@ thead{
 	background-color: #ccffff;
 }
 
-#tieude{
-	background-color: #6699ff;
-}
 ul #task{
 	list-style: none;
 	display: inline-block;
@@ -140,6 +120,10 @@ ul li #new{
 ul li #update{
 	float: right;
 	margin-bottom: 20px;
+}
+.inputCell{
+	width: 100%;
+	border-style: none;
 }
 #tip{
 	margin-left: 40px;
