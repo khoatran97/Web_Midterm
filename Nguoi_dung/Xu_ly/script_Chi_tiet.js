@@ -28,6 +28,9 @@ function Load_Chi_tiet(xml) {
             <p>Trọng lượng: `+san_pham[i].getAttribute("Trong_luong")+`</p>`
 
             document.getElementsByName("Hinh").forEach((img) => img.setAttribute("src", "../../Hinh_anh/San_pham/"+san_pham[i].getAttribute("Ma")+".jpg"))
+            var tmp = `<button type="button" class="button cart_button" onclick="sessionStorage.setItem(`+i+`, `+i+`); alert("Thêm vào giỏ hàng thành công!");>Thêm vào giỏ</button>
+                                    <div class="product_fav"><i class="fas fa-heart"></i></div>`;
+            document.getElementById("bton").innerHTML = tmp;
             break;
         }
     }
