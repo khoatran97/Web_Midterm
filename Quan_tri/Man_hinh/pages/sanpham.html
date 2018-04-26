@@ -213,46 +213,47 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12" >
-                    <br>
-                    <h1 class="" id="qlsp" >Quản lý sản phẩm</h1>
-                    <div id="nutbutton">
-                        <br>
-                        <br>
-                        <div id="buttonsp">
-                             <button type="button" class="btn btn-default nut" id="nuttc">Sản phẩm</button>
-                    
-                        </div>
-                            <div class="container-fluid loai">
-                                <div class="dropdown">
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="lsp">
-                                        Loại sản phẩm <div class="caret"></div>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <button class="btn btn-default" style="width: 160px" id="nuttdc">Túi đeo chéo</button>
+                    <h1 id="qlsp" >Quản lý sản phẩm</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12" id="nutbutton">
+                    <ul>
+                        <li class="container-fluid">
+                             <button type="button" class="btn btn-default nut" id="nuttsp">Thêm sản phẩm</button>
+                        </li>
+                        <li class="container-fluid loai">
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="nutlsp">
+                                    Loại sản phẩm <div class="caret"></div>
+                                </button>
+                                <ul class="dropdown-menu" id="lsp">
+                                    <button class="btn btn-default" style="width: 160px" id="nuttdc">Túi đeo chéo</button>
                                         <button class="btn btn-default" style="width: 160px" id="nuttdl">Túi đeo lưng</button>
-                                        <button class="btn btn-default" style="width: 160px">Túi xách</button>
-                                        <button class="btn btn-default" style="width: 160px">Bóp, ví</button>
-                                        <button class="btn btn-default" style="width: 160px">Balo</button>
-                                        <button class="btn btn-default" style="width: 160px">Tất cả</button>
-                                    </ul>
-                                </div>
+                                        <button class="btn btn-default" style="width: 160px" id="nuttx" >Túi xách</button>
+                                        <button class="btn btn-default" style="width: 160px" id="nutbv">Bóp, ví</button>
+                                        <button class="btn btn-default" style="width: 160px" id="nutbl">Balo</button>
+                                        <button class="btn btn-default" style="width: 160px" id="nuttc">Tất cả</button>
+                                </ul>
                             </div>
-                            <div class="container-fluid nhasx">
-                                <div class="dropdown">
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="nsx">
-                                        Nhà sản xuất <div class="caret"></div>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="">GUCCI</a></li>
-                                        <li><a href="">TOPBAG</a></li>
-                                        <li><a href="">BELLABAG</a></li>
-                                        <li><a href="">PRADA</a></li>
-                                        <li><a href="">GIVECHY</a></li>
-                                        <li><a href="">VERCASE</a></li>
-                                    </ul>
-                                </div>
+                        </li>
+                        <li class="container-fluid nhasx">
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="nutnsx">
+                                    Nhà sản xuất <div class="caret"></div>
+                                </button>
+                                <ul class="dropdown-menu"  id="nsx">
+                                    <button class="btn btn-default" style="width: 160px" id="nutgc">GUCCI</button>
+                                        <button class="btn btn-default" style="width: 160px" id="nuttb">TOPBAG</button>
+                                        <button class="btn btn-default" style="width: 160px" id="nutblb" >BELLABAG</button>
+                                        <button class="btn btn-default" style="width: 160px" id="nutpd">PRADA</button>
+                                        <button class="btn btn-default" style="width: 160px" id="nutgc">GIVECHY</button>
+                                        <button class="btn btn-default" style="width: 160px" id="nutvc">VERCASE</button>
+                                        <button class="btn btn-default" style="width: 160px" id="nuttc">Tất cả</button>
+                                </ul>
                             </div>
-                    </div>
+                        </li>
+                    </ul>
                 </div>
                 <!-- /.col-lg-12 -->
             </div> <!-- /.row -->
@@ -260,22 +261,12 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <div id="t00"> 
-                                <!-- <script language="JavaScript">
-                                   createTable();
-                                </script> -->
-                            </div>
-                            <!-- <div id="t01">
-                                <script language="JavaScript">
-                                    Tabletdc();
-                                </script>
-                            </div>
+                
+                            <div id="t00">
+                            </div><!-- /.tạo bảng -->
                             <div id="t02">
-                                <script language="JavaScript">
-                                    Tabletdl();
-                                </script>
-                            </div> -->
-                            <!-- /.tạo bảng -->
+                            </div><!-- /.tạo bảng thêm mới -->
+                            
                         </div>
                     </div>
                 </div>
