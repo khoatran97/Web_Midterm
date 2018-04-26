@@ -14,6 +14,8 @@ table .mySelect{
 	border: 1px solid black;
  	-webkit-appearance: menulist;
  	color: black;
+ 	margin-left: -5px;
+ 	margin-right: -5px;
 }
 .red{
 	color: red;
@@ -58,7 +60,7 @@ img.brand {
 	float: left;
 }
 
-button{
+button#nutdel{
 	background-color: #eeeeee;
 }
 
@@ -111,9 +113,26 @@ ul li #update{
 	margin-bottom: 20px;
 }
 .inputCell{
-	width: 100%;
+	width: 110%;
 	border-style: none;
+	margin-left: -10px;
 }
 #tip{
 	margin-left: 40px;
+}
+#newRow{
+	font-weight: bold;
+}
+#update{
+	float: right;
+}
+table tr:hover{
+	background-color: #eeeeee;
+}
+.select{
+	border: 1px solid black;
+ 	-webkit-appearance: menulist;
+ 	color: black;
+ 	margin-left: -5px;
+ 	margin-right: -5px;	
 }

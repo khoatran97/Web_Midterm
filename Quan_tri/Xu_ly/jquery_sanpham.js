@@ -1,5 +1,9 @@
 $(document).ready(function() {
+	$('#t02').hide();
+	$('#edit').hide();
 	$('#lsp.dropdown-menu button').click(function(){
+		$('#t02').hide();
+		$('#t00').show();
 		var value=$(this).attr('id');
 		if(value==="nuttdc"){
 			fillTable(tdcProd);
@@ -20,6 +24,8 @@ $(document).ready(function() {
 		else fillTable(allProd);
 	});
 	$('#nsx.dropdown-menu button').click(function(){
+		$('#t02').hide();
+		$('#t00').show();
 		var value=$(this).attr('id');
 		if(value==="nutgc"){
 			fillTable(gcProd);
@@ -27,7 +33,7 @@ $(document).ready(function() {
 		else if(value==="nuttb"){
 			fillTable(tbProd);
 		}
-		else if(value==="nutbl"){
+		else if(value==="nutblb"){
 			fillTable(blbProd);
 		}
 		else if(value==="nutpd"){
@@ -40,6 +46,12 @@ $(document).ready(function() {
 			fillTable(vcProd);
 		}
 		else fillTable(allProd);
+	});
+	$('#nuttsp').click(function(){
+		$('#t02').show();
+		$('#t00').hide();
+		$('#edit').hide();
+		addTable();
 	});
 		
 });
