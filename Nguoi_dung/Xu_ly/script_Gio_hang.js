@@ -60,7 +60,6 @@ function Load_Gia(xml) {
             val++;
         }
     }
-    Tam_tinh.innerHTML += "ầ"
     Tam_tinh.innerHTML += `Tạm tính: ` + money; 
     Thanh_tien.innerHTML += `Thành tiền: ` + money;
     sum.innerHTML += val;
