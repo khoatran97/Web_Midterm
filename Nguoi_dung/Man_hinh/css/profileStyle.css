@@ -47,9 +47,9 @@ button#phone_number{
 	border: 1px solid black;
  	-webkit-appearance: menulist;
  	color: black;
- 	width: 100%;
+ 	width: 100px;
  	height: 30px;
  	border-radius: 5%;
  	margin-left: 50px;
- 	border-style: solid;
+ 	min-width: 100px;
 }
