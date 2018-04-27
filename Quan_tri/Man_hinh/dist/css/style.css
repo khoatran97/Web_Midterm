@@ -1,6 +1,3 @@
-#box table {
-	width: 100%;
-}
 #box table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
@@ -17,6 +14,8 @@ table .mySelect{
 	border: 1px solid black;
  	-webkit-appearance: menulist;
  	color: black;
+ 	margin-left: -5px;
+ 	margin-right: -5px;
 }
 .red{
 	color: red;
@@ -30,37 +29,30 @@ table .mySelect{
 .cancel{
 	background-color: grey;
 }
-#table table {
+table {
 	width: 100%;
 }
 #table table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
 }
-#table table#t01 tr:nth-child(even) {
-    background-color: #eee;
-}
-#table table#t01 tr:nth-child(odd) {
-   background-color: #fff;
-}
 img.brand {
 	max-width: 50px;
 	max-height: 50px;
 }
-.btn.btn-default.nut{
-	margin: 10px;
-	background-color: #444444;
-	color: #eeeeee;
-}
+
 #qlsp{
 	color: #0033cc;
-	width: 60%;
+	width: 55%;
 	float: left;
 }
+#nutbutton ul{
+	margin-left: 50px;
+	list-style: none;
+}
 
-#buttonsp{
-	width: 10%;
-	float: left;
+#nutbutton ul li{
+	padding: 20px;
 }
 
 .container-fluid{
@@ -68,32 +60,31 @@ img.brand {
 	float: left;
 }
 
-.container-fluid{
-	width: 15%;
-	float: left;
-}
-
-button#nuttc{
+button#nutdel{
 	background-color: #eeeeee;
 }
 
-button#nuttc:hover{
+button#nuttsp{
+	background-color: #eeeeee;
+}
+
+button#nuttsp:hover{
 	background-color: #ccffff;
 }
 
-button#lsp{
+button#nutlsp{
 	background-color: #eeeeee;
 }
 
-button#lsp:hover{
+button#nutlsp:hover{
 	background-color: #ccffcc;
 }
 
-button#nsx{
+button#nutnsx{
 	background-color: #eeeeee;
 }
 
-button#nsx:hover{
+button#nutnsx:hover{
 	background-color: #99ff99;
 }
 
@@ -122,9 +113,26 @@ ul li #update{
 	margin-bottom: 20px;
 }
 .inputCell{
-	width: 100%;
+	width: 110%;
 	border-style: none;
+	margin-left: -10px;
 }
 #tip{
 	margin-left: 40px;
+}
+#newRow{
+	font-weight: bold;
+}
+#update{
+	float: right;
+}
+table tr:hover{
+	background-color: #eeeeee;
+}
+.select{
+	border: 1px solid black;
+ 	-webkit-appearance: menulist;
+ 	color: black;
+ 	margin-left: -5px;
+ 	margin-right: -5px;	
 }

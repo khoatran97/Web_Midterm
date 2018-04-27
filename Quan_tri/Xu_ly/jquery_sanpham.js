@@ -1,114 +1,57 @@
 $(document).ready(function() {
-
-	setupTuideocheo();
-	setupTuideolung();
-	//setupTuixach();
-	//setupBopvi();
-	//setupBalo();
-	setupSanpham();
-});
-
-
-function setupSanpham()
-{
-	$('#tuideocheo').hide();
-	$('#tuideolung').hide();
-	//$('#tuixach').hide();
-	//$('#bopvi').hide();
-	//$('#balo').hide();
-	$('#nuttc').click(function(){
-	    $('#tuideocheo').hide();
-	    $('#tuideolung').hide();
-	    //$('#tuixach').hide();
-	    //$('#bopvi').hide();
-	    //$('#balo').hide();
-		$('#tatca').show();
+	$('#t02').hide();
+	$('#edit').hide();
+	$('#lsp.dropdown-menu button').click(function(){
+		$('#t02').hide();
+		$('#t00').show();
+		var value=$(this).attr('id');
+		if(value==="nuttdc"){
+			fillTable(tdcProd);
+		}
+		else if(value==="nuttdl"){
+			fillTable(tdlProd);
+		}
+		else if(value==="nuttx"){
+			fillTable(txProd);
+		}
+		else if(value==="nutbv")
+		{
+			fillTable(bvProd);
+		}
+		else if(value==="nutbl"){
+			fillTable(blProd);
+		}
+		else fillTable(allProd);
 	});
-}
-
-function setupTuideocheo()
-{
-	$('#tuideocheo').hide();
-	$('#tuideolung').hide();
-	//$('#tuixach').hide();
-	//$('#bopvi').hide();
-	//$('#balo').hide();
-	$('#nuttdc').click(function(){
+	$('#nsx.dropdown-menu button').click(function(){
+		$('#t02').hide();
+		$('#t00').show();
+		var value=$(this).attr('id');
+		if(value==="nutgc"){
+			fillTable(gcProd);
+		}
+		else if(value==="nuttb"){
+			fillTable(tbProd);
+		}
+		else if(value==="nutblb"){
+			fillTable(blbProd);
+		}
+		else if(value==="nutpd"){
+			fillTable(prdProd);
+		}
+		else if(value==="nutgc"){
+			fillTable(gcProd);
+		}
+		else if(value==="nutvc"){
+			fillTable(vcProd);
+		}
+		else fillTable(allProd);
+	});
+	$('#nuttsp').click(function(){
+		$('#t02').show();
+		$('#t00').hide();
+		$('#edit').hide();
+		addTable();
+	});
 		
-	    $('#tuideolung').hide();
-	    //$('#tuixach').hide();
-	    //$('#bopvi').hide();
-	    //$('#balo').hide();
-		$('#tatca').hide();
-		$('#tuideocheo').show();
-	});
-}
-
-function setupTuideolung()
-{
-	$('#tuideocheo').hide();
-	$('#tuideolung').hide();
-	//$('#tuixach').hide();
-	//$('#bopvi').hide();
-	//$('#balo').hide();
-	$('#nuttdl').click(function(){
-		$('#tuideocheo').hide();
-	    $('#tuideolung').show();
-	   // $('#tuixach').hide();
-	    //$('#bopvi').hide();
-	   // $('#balo').hide();
-		$('#tatca').hide();
-	});
-}
-
-/*function setupTuixach()
-{
-	$('#tuideotreo').hide();
-	$('#tuideolung').hide();
-	$('#tuixach').hide();
-	$('#bopvi').hide();
-	$('#balo').hide();
-	$('#nuttx').click(function(){
-		$('#tuideotreo').hide();
-	    $('#tuideolung').hide();
-	    $('#tuixach').show();
-	    $('#bopvi').hide();
-	    $('#balo').hide();
-		$('#tatca').hide();
-	});
-}
-
-
-function setupBopvi()
-{
-	$('#tuideotreo').hide();
-	$('#tuideolung').hide();
-	$('#tuixach').hide();
-	$('#bopvi').hide();
-	$('#balo').hide();
-	$('#nutbv').click(function(){
-		$('#tuideotreo').hide();
-	    $('#tuideolung').hide();
-	    $('#tuixach').hide();
-	    $('#bopvi').show();
-	    $('#balo').hide();
-		$('#tatca').hide();
-	});
-}
-
-function setupBalo()
-{
-	$('#tuideotreo').hide();
-	$('#tuideolung').hide();
-	$('#tuixach').hide();
-	$('#bopvi').hide();
-	$('#balo').hide();
-	$('#nutbl').click(function(){
-		$('#tuideotreo').hide();
-	    $('#tuideolung').hide();
-	    $('#tuixach').hide();
-	    $('#bopvi').hide();
-	    $('#balo').show();
-		$('#tatca').hide();
-	});
-}*/
+});
