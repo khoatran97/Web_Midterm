@@ -17,8 +17,8 @@
 <link rel="stylesheet" type="text/css" href="../../Ho_tro/bootstrap-4.1.0-dist/css/gly.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/style1.css">
-
-
+<link rel="stylesheet" type="text/css" href="css/profileStyle.css">
+<script src="../Xu_ly/script_Profile.js"></script>
 
 </head>
 
@@ -286,57 +286,68 @@
 	<!-- Banner -->
 	<div class="container-fluid" style="background-color:  #f4f4f4">	
 		<div id="nar_boder" class="row">	
-			<div class="col-lg-3 col-md-6 char_col">Tài khoản: Tran Trung</div>
-			<div> Thông tin tài khoản	</div>
+			<div class="col-lg-3 col-md-6 char_col" id="title"></div>
+			<div><h2>Thông tin tài khoản</h2></div>
 		</div>
 		<div class="row">	
-			<div class="col-lg-3 col-md-12 char_col"></div>
+			<div class="col-lg-3 col-md-12 char_col" id="profile-pic">
+				<div align="center">
+					<a href="" ><img src="Hinh_anh/charlie.jpg" alt="" id="box-img"></a>
+					<div id="but">
+						<a href="" id="changeBut">
+							<i class="fa fa-camera fa-2x"></i>Thay ảnh đại diện
+						</a>
+					</div>
+					<input type='file' id='src' onchange='javascript:readURL(this)'">
+				</div>
+				<div id="name"><h3>Trần Thành Trung</h3></div>
+			</div>
 			<div id = "form" class="col-lg-9 col-md-12 char_col">
 				<div style="height: 50px;"></div>
-				<form style="margin-left: 20px">
+				<form id="form-main">
 				  <div class="form-group row">
-				    <label for="inputEmail3" class="col-sm-2 col-form-label" >Họ tên</label>
-				    <div class="col-sm-10">
-				      <input type="text" class="form-control" id="input" value="Tran Thanh Trung" placeholder="Họ tên">
+				    <label for="namme" class="col-sm-3 col-form-label" >Họ tên</label>
+				    <div class="col-sm-9">
+				      <input type="text" class="form-control" id="namme" value="Trần Thành Trung" placeholder="Họ tên">
 				    </div>
 				  </div>
 				  <div class="form-group row">
-				    <label for="inputPassword3" class="col-sm-2 col-form-label">Số điện thoại</label>
-				    <div class="col-sm-10">
-					    <div class="input-group mb-3" style="width: 400px; margin-bottom: 0px !important">
+				    <label for="phone_number" class="col-sm-3 col-form-label">Số điện thoại</label>
+				    <div class="col-sm-9">
+					    <div class="input-group mb-3" style="width: 485px; margin-bottom: 0px !important">
 						  <input type="text" class="form-control" placeholder="Số điện thoại">
 						  <div class="input-group-append">
-						    <button class="btn btn-outline-secondary" type="button" id="button">Gửi mã xác thực</button>
+						    <button class="btn btn-outline-secondary" type="button" id="phone_number">Gửi mã xác thực</button>
 						  </div>
 						</div>
 				    </div>
 				  </div>
 				  <div class="form-group row">
-				    <label for="inputPassword3" class="col-sm-2 col-form-label">Mã xác thực</label>
-				    <div class="col-sm-10">
-				      <input type="email" class="form-control" id="input" placeholder="Mã xác thực từ SDT">
+				    <label for="code" class="col-sm-3 col-form-label">Mã xác thực</label>
+				    <div class="col-sm-9">
+				      <input type="text" class="form-control" id="code" placeholder="Mã xác thực từ SĐT">
 				    </div>
 				  </div>
 				  <div class="form-group row">
-				    <label for="inputPassword3" class="col-sm-2 col-form-label">Email</label>
-				    <div class="col-sm-10">
-				      <input type="email" class="form-control" id="input" disabled value="tranthanhtrung1239@gmail.com" placeholder="Password">
+				    <label for="email" class="col-sm-3 col-form-label">Email</label>
+				    <div class="col-sm-9">
+				      <input type="email" class="form-control" id="email" disabled value="tranthanhtrung1239@gmail.com" placeholder="Email">
 				    </div>
 				  </div>
 
 				  <fieldset class="form-group">
 				    <div class="row">
-				      <legend class="col-form-label col-sm-2 pt-0">Giới tính</legend>
-				      <div class="col-sm-10">
-				      	<div style="margin-left: 5px;" class="row">
-							<div class="col-sm-2">
-								<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+				      <legend class="col-form-label col-sm-3 pt-0">Giới tính</legend>
+				      <div class="col-sm-9">
+				      	<div style="margin-left: 55px;" class="row">
+							<div class="col-sm-4">
+								<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="on" checked>
 						        <label class="form-check-label" for="gridRadios1">
 						          Nam
 						        </label>
 							</div>
 					        <div class="col-sm-4">
-					        	<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+					        	<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="off" checked>
 						        <label class="form-check-label" for="gridRadios1">
 						          Nữ
 						        </label>
@@ -346,17 +357,32 @@
 				    </div>
 				  </fieldset>
 				  <div class="form-group row">
-				    <label for="inputPassword3" class="col-sm-2 col-form-label">Ngày sinh</label>
-				    <div class="col-sm-10" >
-				    	<div class="row">
-					    	<div class="col-sm-2">
-					     		<input type="email" class="form-control" id="" placeholder="Ngày">
+				    <label for="inputPassword3" class="col-sm-3 col-form-label">Ngày sinh</label>
+				    <div class="col-sm-9" >
+				    	 <div class="row">
+					    	<div class="col-sm-3">
+					    		<div id="date">
+					    			<script language="javascript">
+					    				date();
+					    			</script>
+					    		</div>
+					     		<!-- <input type="number" id="" max="31" min="1" placeholder="Ngày"> -->
 					   		</div>
-					   		<div class="col-sm-2">
-					     		<input type="email" class="form-control" id="" placeholder="Tháng">
+					   		<div class="col-sm-3">
+					   			<div id="month">
+					   				<script language="javascript">
+					    				month();
+					    			</script>
+					   			</div>
+					     		<!-- <input type="number"  id="" max="12" min="1" placeholder="Tháng"> -->
 					   		</div>
-					   		<div class="col-sm-2">
-					     		<input type="email" class="form-control" id="" placeholder="Năm">
+					   		<div class="col-sm-3">
+					   			<div id="year">
+					   				<script language="javascript">
+					    				year();
+					    			</script>
+					   			</div>
+					     		<!-- <input type="number" id="" max="2018" min="1818" placeholder="Năm"> -->
 					   		</div>
 				   		</div>
 				    </div>
