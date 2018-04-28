@@ -16,7 +16,6 @@ function Load_Danh_muc(xml) {
     // Load Cat
     var Loai = document.getElementById("Danh_muc");
     var Pho_bien = document.getElementById("Danh_muc_Pho_bien")
-    var Tim_kiem = document.getElementById("Danh_muc_Tim_kiem")
     var data = xhttp.responseXML
     var danh_muc = data.getElementsByTagName("Danh_muc")
     for (var i = 0; i<danh_muc.length; i++) {
@@ -27,10 +26,8 @@ function Load_Danh_muc(xml) {
                         <div class="popular_category_text">`+danh_muc[i].getAttribute("Ten")+`</div>
                     </div>
                 </div> `
-        var tmp_3 = '<li><a class="clc" href="#">'+danh_muc[i].getAttribute("Ten")+'</a></li>'
         Loai.innerHTML += tmp;
         Pho_bien.innerHTML += tmp_2;
-        Tim_kiem.innerHTML += tmp_3;
     }
 
     // Load Popular Cat

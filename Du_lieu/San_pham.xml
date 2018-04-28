@@ -1,42 +1,42 @@
 <Du_lieu>
     <Danh_sach_san_pham>
         <Danh_muc Ten="Túi đeo chéo nữ" Ma="_001">
-            <San_pham Ma="DC_001" Thuong_hieu="Vascara" Ten="Túi DC_001" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
-            <San_pham Ma="DC_002" Thuong_hieu="Vascara" Ten="Túi DC_002" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
-            <San_pham Ma="DC_003" Thuong_hieu="Vascara" Ten="Túi DC_003" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
-            <San_pham Ma="DC_004" Thuong_hieu="Vascara" Ten="Túi DC_004" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
-            <San_pham Ma="DC_005" Thuong_hieu="Vascara" Ten="Túi DC_005" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
-            <San_pham Ma="DC_006" Thuong_hieu="Vascara" Ten="Túi DC_006" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
-            <San_pham Ma="DC_007" Thuong_hieu="Vascara" Ten="Túi DC_007" Gia="675000" Chat_lieu="Da tổng hợp" Kich_thuoc="17 x 7.5 x 14 cm" Trong_luong="400 gram"/>
-            <San_pham Ma="DC_008" Thuong_hieu="Vascara" Ten="Túi DC_008" Gia="675000" Chat_lieu="Da tổng hợp" Kich_thuoc="17 x 7.5 x 14 cm" Trong_luong="400 gram"/>
-            <San_pham Ma="DC_009" Thuong_hieu="Vascara" Ten="Túi DC_009" Gia="675000" Chat_lieu="Da tổng hợp" Kich_thuoc="17 x 7.5 x 14 cm" Trong_luong="400 gram"/>
+            <San_pham Ma="DC_001" Thuong_hieu="Vascara" Ten="Túi DC_001" Xuat_xu="Mỹ" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
+            <San_pham Ma="DC_002" Thuong_hieu="Vascara" Ten="Túi DC_002" Xuat_xu="Mỹ" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
+            <San_pham Ma="DC_003" Thuong_hieu="Vascara" Ten="Túi DC_003" Xuat_xu="Mỹ" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
+            <San_pham Ma="DC_004" Thuong_hieu="Vascara" Ten="Túi DC_004" Xuat_xu="Mỹ" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
+            <San_pham Ma="DC_005" Thuong_hieu="Vascara" Ten="Túi DC_005" Xuat_xu="Mỹ" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
+            <San_pham Ma="DC_006" Thuong_hieu="Vascara" Ten="Túi DC_006" Xuat_xu="Mỹ" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
+            <San_pham Ma="DC_007" Thuong_hieu="Vascara" Ten="Túi DC_007" Xuat_xu="Mỹ" Gia="675000" Chat_lieu="Da tổng hợp" Kich_thuoc="17 x 7.5 x 14 cm" Trong_luong="400 gram"/>
+            <San_pham Ma="DC_008" Thuong_hieu="Vascara" Ten="Túi DC_008" Xuat_xu="Mỹ" Gia="675000" Chat_lieu="Da tổng hợp" Kich_thuoc="17 x 7.5 x 14 cm" Trong_luong="400 gram"/>
+            <San_pham Ma="DC_009" Thuong_hieu="Vascara" Ten="Túi DC_009" Xuat_xu="Mỹ" Gia="675000" Chat_lieu="Da tổng hợp" Kich_thuoc="17 x 7.5 x 14 cm" Trong_luong="400 gram"/>
         </Danh_muc>
         <Danh_muc Ten="Túi xách nữ" Ma="_002">
-            <San_pham Ma="TX_001" Thuong_hieu="Vascara" Ten="Túi TX_001" Gia="625000" Chat_lieu="Da tổng hợp" Kich_thuoc="31 x 12 x 21 cm" Trong_luong="620 gram"/>
-            <San_pham Ma="TX_002" Thuong_hieu="Vascara" Ten="Túi TX_002" Gia="625000" Chat_lieu="Da tổng hợp" Kich_thuoc="31 x 12 x 21 cm" Trong_luong="620 gram"/>
-            <San_pham Ma="TX_003" Thuong_hieu="Vascara" Ten="Túi TX_003" Gia="625000" Chat_lieu="Da tổng hợp" Kich_thuoc="31 x 12 x 21 cm" Trong_luong="620 gram"/>
-            <San_pham Ma="TX_004" Thuong_hieu="Vascara" Ten="Túi TX_004" Gia="775000" Chat_lieu="Da tổng hợp" Kich_thuoc="29 x 13 x 22 cm" Trong_luong="250 gram"/>
-            <San_pham Ma="TX_005" Thuong_hieu="Vascara" Ten="Túi TX_005" Gia="775000" Chat_lieu="Da tổng hợp" Kich_thuoc="29 x 13 x 22 cm" Trong_luong="250 gram"/>
-            <San_pham Ma="TX_006" Thuong_hieu="Vascara" Ten="Túi TX_006" Gia="775000" Chat_lieu="Da tổng hợp" Kich_thuoc="29 x 13 x 22 cm" Trong_luong="250 gram"/>
-            <San_pham Ma="TX_007" Thuong_hieu="Vascara" Ten="Túi TX_007" Gia="625000" Chat_lieu="Da tổng hợp" Kich_thuoc="21 x 14 x 20 cm" Trong_luong="500 gram"/>
-            <San_pham Ma="TX_008" Thuong_hieu="Vascara" Ten="Túi TX_008" Gia="625000" Chat_lieu="Da tổng hợp" Kich_thuoc="21 x 14 x 20 cm" Trong_luong="500 gram"/>
+            <San_pham Ma="TX_001" Thuong_hieu="Vascara" Ten="Túi TX_001" Xuat_xu="Mỹ" Gia="625000" Chat_lieu="Da tổng hợp" Kich_thuoc="31 x 12 x 21 cm" Trong_luong="620 gram"/>
+            <San_pham Ma="TX_002" Thuong_hieu="Vascara" Ten="Túi TX_002" Xuat_xu="Mỹ" Gia="625000" Chat_lieu="Da tổng hợp" Kich_thuoc="31 x 12 x 21 cm" Trong_luong="620 gram"/>
+            <San_pham Ma="TX_003" Thuong_hieu="Vascara" Ten="Túi TX_003" Xuat_xu="Mỹ" Gia="625000" Chat_lieu="Da tổng hợp" Kich_thuoc="31 x 12 x 21 cm" Trong_luong="620 gram"/>
+            <San_pham Ma="TX_004" Thuong_hieu="Vascara" Ten="Túi TX_004" Xuat_xu="Mỹ" Gia="775000" Chat_lieu="Da tổng hợp" Kich_thuoc="29 x 13 x 22 cm" Trong_luong="250 gram"/>
+            <San_pham Ma="TX_005" Thuong_hieu="Vascara" Ten="Túi TX_005" Xuat_xu="Mỹ" Gia="775000" Chat_lieu="Da tổng hợp" Kich_thuoc="29 x 13 x 22 cm" Trong_luong="250 gram"/>
+            <San_pham Ma="TX_006" Thuong_hieu="Vascara" Ten="Túi TX_006" Xuat_xu="Mỹ" Gia="775000" Chat_lieu="Da tổng hợp" Kich_thuoc="29 x 13 x 22 cm" Trong_luong="250 gram"/>
+            <San_pham Ma="TX_007" Thuong_hieu="Vascara" Ten="Túi TX_007" Xuat_xu="Mỹ" Gia="625000" Chat_lieu="Da tổng hợp" Kich_thuoc="21 x 14 x 20 cm" Trong_luong="500 gram"/>
+            <San_pham Ma="TX_008" Thuong_hieu="Vascara" Ten="Túi TX_008" Xuat_xu="Mỹ" Gia="625000" Chat_lieu="Da tổng hợp" Kich_thuoc="21 x 14 x 20 cm" Trong_luong="500 gram"/>
         </Danh_muc>
         <Danh_muc Ten="Balo thời trang" Ma="_003">
-            <San_pham Ma="BL_001" Thuong_hieu="Vascara" Ten="Túi BL_001" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
-            <San_pham Ma="BL_002" Thuong_hieu="Vascara" Ten="Túi BL_002" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
-            <San_pham Ma="BL_003" Thuong_hieu="Vascara" Ten="Túi BL_003" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
-            <San_pham Ma="BL_004" Thuong_hieu="Vascara" Ten="Túi BL_004" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
-            <San_pham Ma="BL_005" Thuong_hieu="Vascara" Ten="Túi BL_005" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
-            <San_pham Ma="BL_006" Thuong_hieu="Vascara" Ten="Túi BL_006" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
-            <San_pham Ma="BL_007" Thuong_hieu="Vascara" Ten="Túi BL_007" Gia="675000" Chat_lieu="Da tổng hợp" Kich_thuoc="17 x 7.5 x 14 cm" Trong_luong="400 gram"/>
+            <San_pham Ma="BL_001" Thuong_hieu="Vascara" Ten="Túi BL_001" Xuat_xu="Mỹ" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
+            <San_pham Ma="BL_002" Thuong_hieu="Vascara" Ten="Túi BL_002" Xuat_xu="Mỹ" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
+            <San_pham Ma="BL_003" Thuong_hieu="Vascara" Ten="Túi BL_003" Xuat_xu="Mỹ" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
+            <San_pham Ma="BL_004" Thuong_hieu="Vascara" Ten="Túi BL_004" Xuat_xu="Mỹ" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
+            <San_pham Ma="BL_005" Thuong_hieu="Vascara" Ten="Túi BL_005" Xuat_xu="Mỹ" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
+            <San_pham Ma="BL_006" Thuong_hieu="Vascara" Ten="Túi BL_006" Xuat_xu="Mỹ" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
+            <San_pham Ma="BL_007" Thuong_hieu="Vascara" Ten="Túi BL_007" Xuat_xu="Mỹ" Gia="675000" Chat_lieu="Da tổng hợp" Kich_thuoc="17 x 7.5 x 14 cm" Trong_luong="400 gram"/>
         </Danh_muc>
         <Danh_muc Ten="Ví/Bóp nữ" Ma="_004">
-            <San_pham Ma="V_001" Thuong_hieu="Vascara" Ten="Túi V_001" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
-            <San_pham Ma="V_002" Thuong_hieu="Vascara" Ten="Túi V_002" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
-            <San_pham Ma="V_003" Thuong_hieu="Vascara" Ten="Túi V_003" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
-            <San_pham Ma="V_004" Thuong_hieu="Vascara" Ten="Túi V_004" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
-            <San_pham Ma="V_005" Thuong_hieu="Vascara" Ten="Túi V_005" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
-            <San_pham Ma="V_006" Thuong_hieu="Vascara" Ten="Túi V_006" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
+            <San_pham Ma="V_001" Thuong_hieu="Vascara" Ten="Túi V_001" Xuat_xu="Mỹ" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
+            <San_pham Ma="V_002" Thuong_hieu="Vascara" Ten="Túi V_002" Xuat_xu="Mỹ" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
+            <San_pham Ma="V_003" Thuong_hieu="Vascara" Ten="Túi V_003" Xuat_xu="Mỹ" Gia="575000" Chat_lieu="Da tổng hợp" Kich_thuoc="20.5 x 7 x 14.5 cm" Trong_luong="300 gram"/>
+            <San_pham Ma="V_004" Thuong_hieu="Vascara" Ten="Túi V_004" Xuat_xu="Mỹ" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
+            <San_pham Ma="V_005" Thuong_hieu="Vascara" Ten="Túi V_005" Xuat_xu="Mỹ" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
+            <San_pham Ma="V_006" Thuong_hieu="Vascara" Ten="Túi V_006" Xuat_xu="Mỹ" Gia="695000" Chat_lieu="Da tổng hợp" Kich_thuoc="22.2 x 10.2 x 16.1 cm" Trong_luong="250 gram"/>
         </Danh_muc>
         <Danh_muc Ten="Cặp văn phòng" Ma="_005">
         </Danh_muc>
