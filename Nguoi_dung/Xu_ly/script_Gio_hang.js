@@ -1,8 +1,9 @@
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-       Load_Gio_hang(this);
-       Load_Gia(this);
+        Load_Gio_hang(this);
+        Load_Gia(this);
+        Load_Danh_muc(this);
     }
 };
 xhttp.open("GET", "../../Du_lieu/San_pham.xml", true);
@@ -69,4 +70,14 @@ function Load_Gia(xml) {
     sum.innerHTML += val;
     gia.innerHTML += money;
 
+}
+function Load_Danh_muc(xml) {
+    // Load Cat
+    var Loai = document.getElementById("Danh_muc");
+    var data = xhttp.responseXML
+    var danh_muc = data.getElementsByTagName("Danh_muc")
+    for (var i = 0; i<danh_muc.length; i++) {
+        var tmp ='<li><a href="#">'+ danh_muc[i].getAttribute("Ten") +'<i class="fas fa-chevron-right"></i></a></li>'
+        Loai.innerHTML += tmp;
+    }
 }
