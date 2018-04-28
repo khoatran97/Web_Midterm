@@ -47,7 +47,7 @@ function Load_Pho_bien(xml) {
                             <div class="product_price discount">`+san_pham[i].getAttribute("Gia")+`</div>
                             <div class="product_name"><div><a href="./Chi_tiet.html?Ma=`+san_pham[i].getAttribute("Ma")+`">`+san_pham[i].getAttribute("Ten")+`</a></div></div>
                             <div class="product_extras">
-                                <button class="product_cart_button"  onclick="sessionStorage.setItem(`+i+`, `+i+`);alert("Thêm vào giỏ hàng thành công!")">Thêm vào giỏ</button>
+                                <button class="product_cart_button"  onclick="sessionStorage.setItem(`+i+`, `+i+`); alert('Thêm vào giỏ hàng thành công!');">Thêm vào giỏ</button>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@ function Load_Hang_moi(xml) {
                                             <div class="product_name"><div><a href="./Chi_tiet.html?Ma=`+sp.getAttribute("Ma")+`">`+sp.getAttribute("Ten")+`</a></div></div>
                                             <div class="product_price">`+sp.getAttribute("Gia")+`</div>
                                             <div class="product_extras">
-                                                <button class="product_cart_button" onclick="sessionStorage.setItem(`+i+`, `+i+`); alert("Thêm vào giỏ hàng thành công!")" >Thêm vào giỏ</button>
+                                                <button class="product_cart_button" onclick="sessionStorage.setItem(`+i+`, `+i+`); alert('Thêm vào giỏ hàng thành công!');" >Thêm vào giỏ</button>
                                             </div>
                                         </div>
                                         <div class="product_fav"><i class="fas fa-heart"></i></div>
@@ -99,7 +99,7 @@ function Load_Hang_moi(xml) {
                                                     <div class="arrivals_single_price text-right">`+sp.getAttribute("Gia")+`</div>
                                                 </div>
                                                 <div class="rating_r rating_r_4 arrivals_single_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                                                <form action="#"><button class="arrivals_single_button" onclick="sessionStorage.setItem(`+i+`, `+i+`); alert("Thêm vào giỏ hàng thành công!")">Thêm vào giỏ</button></form>
+                                                <form action="#"><button class="arrivals_single_button" onclick="sessionStorage.setItem(`+i+`, `+i+`); alert('Thêm vào giỏ hàng thành công!');">Thêm vào giỏ</button></form>
                                             </div>
                                             <!--<div class="arrivals_single_fav product_fav active"><i class="fas fa-heart"></i></div>-->
                                             <ul class="arrivals_single_marks product_marks">
@@ -244,7 +244,7 @@ function Them_Gio_hang(xml) {
                             <div class="product_price discount">`+san_pham[i].getAttribute("Gia")+`</div>
                             <div class="product_name"><div><a href="./Chi_tiet.html?Ma=`+san_pham[i].getAttribute("Ma")+`">`+san_pham[i].getAttribute("Ten")+`</a></div></div>
                             <div class="product_extras">
-                                <button class="product_cart_button" onclick="sessionStorage.setItem(`+i+`, `+i+`); alert("Thêm vào giỏ hàng thành công!")">Thêm vào giỏ</button>
+                                <button class="product_cart_button" onclick="sessionStorage.setItem(`+i+`, `+i+`); alert('Thêm vào giỏ hàng thành công!');">Thêm vào giỏ</button>
                             </div>
                         </div>
                     </div>
