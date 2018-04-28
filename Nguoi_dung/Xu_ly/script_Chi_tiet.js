@@ -21,6 +21,7 @@ function Load_Chi_tiet(xml) {
     var ds_thong_ke = data.getElementsByTagName("Thong_ke");
 
     var cung_loai = document.getElementById("Cung_loai");
+    var cung_thuong_hieu = document.getElementById("Cung_Thuong_hieu");
     var thong_ke = null;
     for (var i=0; i<ds_thong_ke.length; i++)
         {
@@ -32,7 +33,7 @@ function Load_Chi_tiet(xml) {
 
     for (var i = 0; i<san_pham.length; i++) {
         if (san_pham[i].getAttribute("Ma") == Ma_San_pham) {
-            document.getElementById("Thuong_hieu").innerHTML = san_pham[i].getAttribute("Thuong_hieu");
+            document.getElementById("Thuong_hieu").innerHTML = san_pham[i].parentElement.getAttribute("Ten") + ' - ' + san_pham[i].getAttribute("Thuong_hieu");
             document.getElementById("Ten").innerHTML = san_pham[i].getAttribute("Ten");
             document.getElementById("Mo_ta").innerHTML = 
             `<p>Xuất xứ: `+san_pham[i].getAttribute("Xuat_xu")+`</p>
@@ -54,16 +55,17 @@ function Load_Chi_tiet(xml) {
                 if (ds_cung_loai[k].nodeType == 3 || ds_cung_loai[k].getAttribute("Ma") == Ma_San_pham) {
                     continue;
                 }
-                cung_loai.innerHTML += 
-                    `<div class="owl-item">
-                        <div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
-                            <div class="viewed_image"><img src="../../Hinh_anh/San_pham/`+ds_cung_loai[k].getAttribute("Ma")+`.jpg" alt=""></div>
-                            <div class="viewed_content text-center">
-                                <div class="viewed_price">`+ds_cung_loai[k].getAttribute("Gia")+`</span></div>
-                                <div class="viewed_name"><a href="#">`+ds_cung_loai[k].getAttribute("Ten")+`</a></div>
-                            </div>
-                        </div>
-                    </div>`;
+                var tmp = `<div class="owl-item">
+                                <div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                    <div class="viewed_image"><img src="../../Hinh_anh/San_pham/`+ds_cung_loai[k].getAttribute("Ma")+`.jpg" alt=""></div>
+                                    <div class="viewed_content text-center">
+                                        <div class="viewed_price">`+ds_cung_loai[k].getAttribute("Gia")+`</span></div>
+                                        <div class="viewed_name"><a href="#">`+ds_cung_loai[k].getAttribute("Ten")+`</a></div>
+                                    </div>
+                                </div>
+                            </div>`;
+                cung_loai.innerHTML += tmp;
+                cung_thuong_hieu.innerHTML += tmp;
                 count++;
             }
             break;
