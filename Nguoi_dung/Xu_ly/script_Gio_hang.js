@@ -21,8 +21,8 @@ function Load_Gio_hang(xml) {
         {
             var tmp = `<div class="Hang">
                             <div class="row">
-                                <div class="col-lg-3"><img <img src="../../Hinh_anh/San_pham/`+san_pham[i].getAttribute("Ma")+`.jpg" alt=""></div>
-                                <div class="col-lg-4" style="margin-top: 23px">
+                                <div class="col-lg-3"> <img src="../../Hinh_anh/San_pham/`+san_pham[i].getAttribute("Ma")+`.jpg" alt=""></div>
+                                <div class="col-lg-3" style="margin-top: 23px">
                                     <div>`+ san_pham[i].getAttribute("Ten") +`</div>
                                     <div>`+ san_pham[i].getAttribute("Thuong_hieu") +`</div>
                                     <div>`+ san_pham[i].getAttribute("Chat_lieu") +`</div>
@@ -30,9 +30,12 @@ function Load_Gio_hang(xml) {
                                 <div class="col-lg-2" style="margin-top: 40px; color: #ff7f27">
                                     `+ san_pham[i].getAttribute("Gia") +`
                                 </div>
-                                <div class="col-lg-3" style="margin-top: 40px">
+                                <div class="col-lg-2" style="margin-top: 40px">
                                     Số lượng:
                                     <input style="display: inline-block; width: 40px;" type="text" value="1">   
+                                </div>
+                                <div class="col-lg-2" style="margin-top: 32px">
+                                    <button type="button" class="btn btn-warning">Hủy</button>
                                 </div>
                             </div>
                         </div>`
@@ -56,7 +59,8 @@ function Load_Gia(xml) {
     for (var i = 0; i<san_pham.length; i++) {
         if (sessionStorage.getItem(i) != null)
         {
-            money += san_pham[i].getAttribute("Gia");
+            var tmp =parseInt(san_pham[i].getAttribute("Gia"));
+            money += tmp;
             val++;
         }
     }
