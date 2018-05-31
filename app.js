@@ -3,22 +3,33 @@ var hbs = require('express-handlebars');
 var express_handlebars_sections = require('express-handlebars-sections');
 var bodyParser = require('body-parser');
 var path = require('path');
+// var session = require('express-session');
+// var MySQLStore = require('express-mysql-session')(session);
+
+var handleLayoutMDW = require('./middle-wares/handleLayout'),
+    handle404MDW = require('./middle-wares/handle404'),
+    restrict = require('./middle-wares/restrict');
 
 var guestController = require('./controllers/guestController');
-// var userController = require('./controllers/userController');
-// var adminController = require('./controllers/adminController');
+var accountController = require('./controllers/accountController');
 
 var app = express();
 
 app.engine('hbs', hbs({
 	defaultLayout: 'main',
 	helpers: {
-        section: express_handlebars_sections()
+        section: express_handlebars_sections(),
+        // number_format: n => {
+        //     var nf = wnumb({
+        //         thousand: ','
+        //     });
+        //     return nf.to(n);
+        // }
     }
 }));
 
 app.set('view engine', 'hbs');
-app.set('views', __dirname+'/views/');
+
 app.use(express.static(path.resolve(__dirname, 'public')));
 
 app.use(bodyParser.json());
@@ -26,10 +37,35 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
+// var sessionStore = new MySQLStore({
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'chun6002',
+//     database: 'iBags',
+//     createDatabaseTable: true,
+//     schema: {
+//         tableName: 'sessions',
+//         columnNames: {
+//             session_id: 'session_id',
+//             expires: 'expires',
+//             data: 'data'
+//         }
+//     }
+// });
+
+// app.use(session({
+//     key: 'session_cookie_name',
+//     secret: 'session_cookie_secret',
+//     store: sessionStore,
+//     resave: false,
+//     saveUninitialized: false
+// }));
+
+// app.use(handleLayoutMDW);
+
 app.use('/', guestController.router);
+app.use('/account', accountController.router);
 
-//app.use('/admin', adminController.router);
-
-app.use('./',guestController.router);
+app.use(handle404MDW);
 
 app.listen(3000);
