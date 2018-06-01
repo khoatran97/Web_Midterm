@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
 	
-<title>{{{_sections.tittle}}}</title>
+<title>{{{_sections.title}}}</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="OneTech shop project">
@@ -58,8 +58,24 @@
 							</div>
 							<div class="top_bar_user">
 								<div class="user_icon"><img src="/Hinh_anh/Giao_dien/user.svg" alt=""></div>
-								<div><a href="account/register">Đăng ký</a></div>
-								<div><a href="account/login">Đăng nhập</a></div>
+								{{#if layoutVM.isLogged}}
+									<div>
+										<ul class="standard_dropdown top_bar_dropdown">
+											<li>
+												<a href="#"> {{layoutVM.curUser.tenthanhvien}}<i class="fas fa-chevron-down"></i></a>
+												<ul>
+													<li><a href="/account/profile">Tài khoản của tôi</a></li>
+													<li><a href="Gio_hang.html">Đơn hàng</a></li>	
+													<li><a href="History.html">Lịch sử đặt hàng</a></li>	
+												</ul>
+											</li>
+										</ul>
+									</div>
+									<div id="logOut"><a href="javascript:;">Đăng xuất</a></div>
+									{{else}}
+									<div><a href="/account/register">Đăng ký</a></div>
+									<div><a href="/account/login">Đăng nhập</a></div>
+								{{/if}}
 							</div>
 						</div>
 					</div>
@@ -107,6 +123,8 @@
 					</div>
 
 					<!-- Wishlist -->
+					{{#if layoutVM.isLogged}}
+					<form id="frmLogout" method="post" action="/account/logout"></form>
 					<div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
 						<div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
 							<div class="wishlist d-flex flex-row align-items-center justify-content-end">
@@ -122,16 +140,16 @@
 								<div class="cart_container d-flex flex-row align-items-center justify-content-end">
 									<div class="cart_icon">
 										<img src="/Hinh_anh/Giao_dien/cart.png" alt="">
-										<div class="cart_count"><span>10</span></div>
+										<div class="cart_count"><span>{{layoutVM.cart.length}}</span></div>
 									</div>
 									<div class="cart_content">
 										<div class="cart_text"><a href="#">Giỏ hàng</a></div>
-										<div class="cart_price">200000₫</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+					{{/if}}
 				</div>
 			</div>
 		</div>
@@ -301,6 +319,12 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="/plugins/slick-1.8.0/slick.js"></script>
 <script src="/plugins/easing/easing.js"></script>
 <script src="/js/custom.js"></script>
+<script>
+	$('#logOut').on('click', function() {
+		$('#frmLogout').submit();
+	});
+</script>
+{{{_sections.js}}}
 </body>
 
 </html>

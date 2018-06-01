@@ -13,7 +13,11 @@ router.get('/register', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-    res.render('account/login', {layout:false});
+    res.render('account/login');
+});
+
+router.get('/profile', restrict, (req, res) => {
+    res.render('account/profile');
 });
 
 //post
@@ -33,20 +37,35 @@ router.post('/register', (req, res) => {
         address:req.body.address,
         gender: req.body.gender
     };
-    console.log(user);
-    accountRepo.add(user).then(value => {
-    	var vm={
-    		layout: false,
-    		sweet: true
+    
+    accountRepo.loadAll().then(rows => {
+    	for(var i=0;i<rows.length;i++){
+    		if(rows[i].username===user.username){
+    			var vm={
+		    		layout: false,
+		    		matched: true,
+                    fail:true
+		    	};
+    			res.render('account/register', vm);
+    			return;
+    		}
     	}
-        res.render('account/register', vm);
+
+	    accountRepo.add(user).then(value => {
+	    	var vm={
+	    		layout: false,
+	    		matched: false,
+                success:true
+	    	}
+	        res.render('account/register', vm);
+	    });
     });
 });
 
 router.post('/login',(req,res) => {
 	var user = {
         username: req.body.username,
-        password: SHA256(req.body.rawPWD).toString()
+        password: SHA256(req.body.password).toString()
     };
 
     accountRepo.login(user).then(rows => {
@@ -62,13 +81,43 @@ router.post('/login',(req,res) => {
             res.redirect(url);
 
         } else {
-            var vm = {
-                showError: true,
-                errorMsg: 'Login failed'
-            };
-            res.render('account/login', vm);
+            accountRepo.loadAll().then(rows => {
+                for(var i=0;i<rows.length;i++){
+                    if(rows[i].username === user.username){
+                        res.render('account/login', {passWrong:true});
+                    }
+                    else{
+                        res.render('account/login', {notExist:true});
+                    }
+                }
+            })
+            
         }
     });
+});
+
+router.post('/logout', (req, res) => {
+    req.session.isLogged=false,
+    req.session.user=null;
+    req.session.cart=[];
+    res.redirect(req.headers.referer);
+});
+
+router.post('/profile', (req, res) => {
+    var user = {
+        id: req.session.user.mathanhvien,
+        name: req.body.name,
+        email: req.session.user.email,
+        DOB: req.body.DOB,
+        gender: req.body.gender,
+        tel: req.body.tel,
+        address: req.body.address
+    };
+    accountRepo.update(user).then(rows => {
+        if(rows.length>0){
+            res.render('/profile', {showMess: true});
+        }
+    })
 });
 
 module.exports.router = router;

@@ -1,8 +1,125 @@
 <!-- Banner -->
-{{#section 'tittle'}}
+{{#section 'title'}}
 	iBags :: Túi xách giá tốt
 {{/section}}
+{{#section 'navi'}}
+	<!-- Header Main -->
 
+		<div class="header_main">
+			<div class="container">
+				<div class="row">
+
+					<!-- Logo -->
+					<div class="col-lg-2 col-sm-3 col-3 order-1">
+						<div class="logo_container">
+							<div class="logo"><a href="#">iBags</a></div>
+						</div>
+					</div>
+
+					<!-- Search -->
+					<div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
+						<div class="header_search">
+							<div class="header_search_content">
+								<div class="header_search_form_container">
+									<form action="#" class="header_search_form clearfix">
+										<input type="search" required="required" class="header_search_input" placeholder="Tìm sản phẩm">
+										<div class="custom_dropdown">
+											<div class="custom_dropdown_list">
+												<span class="custom_dropdown_placeholder clc">Tất cả</span>
+												<i class="fas fa-chevron-down"></i>
+												<ul class="custom_list clc" id="Danh_muc_Tim_kiem">
+													<li><a class="clc" href="#">Tìm theo tên</a></li>
+													<li><a class="clc" href="#">Tìm theo giá</a></li>
+													<li><a class="clc" href="#">Tìm theo loại</a></li>
+													<li><a class="clc" href="#">Tìm theo nhà sản xuất</a></li>
+												</ul>
+											</div>
+										</div>
+										<button type="submit" class="header_search_button trans_300" value="Submit"><img src="/Hinh_anh/Giao_dien/search.png" alt=""></button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Wishlist -->
+					<div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
+						<div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
+							<div class="wishlist d-flex flex-row align-items-center justify-content-end">
+								<div class="wishlist_icon"><img src="/Hinh_anh/Giao_dien/heart.png" alt=""></div>
+								<div class="wishlist_content">
+									<div class="wishlist_text"><a href="#">Yêu thích</a></div>
+									<div class="wishlist_count">115</div>
+								</div>
+							</div>
+
+							<!-- Cart -->
+							<div class="cart">
+								<div class="cart_container d-flex flex-row align-items-center justify-content-end">
+									<div class="cart_icon">
+										<img src="/Hinh_anh/Giao_dien/cart.png" alt="">
+										<div class="cart_count"><span>10</span></div>
+									</div>
+									<div class="cart_content">
+										<div class="cart_text"><a href="#">Giỏ hàng</a></div>
+										<div class="cart_price">200000₫</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Main Navigation -->
+
+		<nav class="main_nav">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						
+						<div class="main_nav_content d-flex flex-row">
+
+							<!-- Categories Menu -->
+
+							<div class="cat_menu_container">
+								<div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
+									<div class="cat_burger"><span></span><span></span><span></span></div>
+									<div class="cat_menu_text">danh mục</div>
+								</div>
+
+								<ul class="cat_menu" id="Danh_muc">
+								</ul>
+							</div>
+
+							<!-- Main Nav Menu -->
+
+							<div class="main_nav_menu ml-auto">
+								<ul class="standard_dropdown main_nav_dropdown">
+									<li><a href="#">Trang chủ<i class="fas fa-chevron-down"></i></a></li>
+									<li><a href="#">Giá sốc<i class="fas fa-chevron-down"></i></a></li>
+									<li><a href="contact.html">Liên hệ<i class="fas fa-chevron-down"></i></a></li>
+								</ul>
+							</div>
+
+							<!-- Menu Trigger -->
+
+							<div class="menu_trigger_container ml-auto">
+								<div class="menu_trigger d-flex flex-row align-items-center justify-content-end">
+									<div class="menu_burger">
+										<div class="menu_trigger_text">menu</div>
+										<div class="cat_burger menu_burger_inner"><span></span><span></span><span></span></div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+{{/section}}
 	<div class="banner">
 		<div class="banner_background" style="background-image:url(/Hinh_anh/Giao_dien/banner_background.jpg)"></div>
 		<div class="container fill_height">

@@ -3,8 +3,8 @@ var hbs = require('express-handlebars');
 var express_handlebars_sections = require('express-handlebars-sections');
 var bodyParser = require('body-parser');
 var path = require('path');
-// var session = require('express-session');
-// var MySQLStore = require('express-mysql-session')(session);
+var session = require('express-session');
+var MySQLStore = require('express-mysql-session')(session);
 
 var handleLayoutMDW = require('./middle-wares/handleLayout'),
     handle404MDW = require('./middle-wares/handle404'),
@@ -19,12 +19,12 @@ app.engine('hbs', hbs({
 	defaultLayout: 'main',
 	helpers: {
         section: express_handlebars_sections(),
-        // number_format: n => {
-        //     var nf = wnumb({
-        //         thousand: ','
-        //     });
-        //     return nf.to(n);
-        // }
+        number_format: n => {
+            var nf = wnumb({
+                thousand: ','
+            });
+            return nf.to(n);
+        }
     }
 }));
 
@@ -37,31 +37,31 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
-// var sessionStore = new MySQLStore({
-//     host: 'localhost',
-//     user: 'root',
-//     password: 'chun6002',
-//     database: 'iBags',
-//     createDatabaseTable: true,
-//     schema: {
-//         tableName: 'sessions',
-//         columnNames: {
-//             session_id: 'session_id',
-//             expires: 'expires',
-//             data: 'data'
-//         }
-//     }
-// });
+var sessionStore = new MySQLStore({
+    host: 'localhost',
+    user: 'root',
+    password: 'chun6002',
+    database: 'ibags',
+    createDatabaseTable: true,
+    schema: {
+        tableName: 'sessions',
+        columnNames: {
+            session_id: 'session_id',
+            expires: 'expires',
+            data: 'data'
+        }
+    }
+});
 
-// app.use(session({
-//     key: 'session_cookie_name',
-//     secret: 'session_cookie_secret',
-//     store: sessionStore,
-//     resave: false,
-//     saveUninitialized: false
-// }));
+app.use(session({
+    key: 'session_cookie_name',
+    secret: 'session_cookie_secret',
+    store: sessionStore,
+    resave: false,
+    saveUninitialized: false
+}));
 
-// app.use(handleLayoutMDW);
+app.use(handleLayoutMDW);
 
 app.use('/', guestController.router);
 app.use('/account', accountController.router);

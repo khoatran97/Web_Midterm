@@ -1,42 +1,58 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Đăng nhập</title>
-        <link href="/bootstrap-4.1.0-dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/guestPages/css/floating-labels.css" rel="stylesheet">
-    </head>
-    <body>
-        <form class="form-signin" method="POST">
-            <div class="text-center mb-4">
-                <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-                <h1 class="h3 mb-3 font-weight-normal">Đăng nhập</h1>
+    {{#section 'title'}}
+        Đăng nhập
+    {{/section}}
+    {{#section 'css'}}
+    <link href="/bootstrap-4.1.0-dist/css/bootstrap.min.css" rel="stylesheet">
+    {{/section}}
+    <div class="container">
+            <div class="row">
+                <div class="col-sm-12" style="text-align: center; color: blue; font-size: 40px;">ĐĂNG NHẬP</div>
             </div>
-      
-            <div class="form-label-group">
-                <input type="text" id="inputUsername" class="form-control" placeholder="Tên đăng nhập" required autofocus>
-                <label for="inputUsername">Tên đăng nhập</label>
+            <br>
+<form class="form-horizontal" method="post" action="" id="frmLogin">
+    <div class="form-group row">
+    <div class="col-sm-3"></div>
+        <label for="txtUsername" class="control-label col-sm-2">Tên đăng nhập</label>
+        <div class="col-sm-4">
+            <input type="text" class="form-control" id="txtUsername" placeholder="Tên đăng nhập" name="username">
+        </div>
+        </div>
+        <div class="form-group row">
+        <div class="col-sm-3"></div>
+            <label for="txtPWD" class="control-label col-sm-2">Mật khẩu</label>
+            <div class="col-sm-4">
+                <input type="password" class="form-control" id="txtPWD" placeholder="Mật khẩu" name="password">
             </div>
-      
-            <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Mật khẩu" required>
-                <label for="inputPassword">Mật khẩu</label>
+        </div>
+        <br>
+        {{#if passWrong}}
+        <div class="form-group row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-9 col-sm-offset-2">
+                <div class="alert alert-danger">
+                  <strong>Mật khẩu không đúng!</strong> Vui lòng thử lại.
+                </div>
             </div>
-      
-            <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" value="remember-me"> Ghi nhớ đăng nhập
-                </label>
+        </div>
+        {{/if}}
+        {{#if notExist}}
+        <div class="form-group row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-9 col-sm-offset-2">
+                <div class="alert alert-danger">
+                  <strong>Tài khoản không tồn tại!</strong> Vui lòng thử lại.
+                </div>
             </div>
-            <a href="../../Nguoi_dung/Man_hinh/index.html"><button class="btn btn-lg btn-primary btn-block" type="submit">Đăng nhập</button></a>
-
-            <br/>
-            <div class="form-group">
-                <button type="button" class="btn btn-outline-primary btn-sm"><img width="18" height="18" src="/guestPages/images/facebook.svg">&nbsp; Tiếp tục với Facebook</button>
-                <button type="button" class="btn btn-outline-danger btn-sm"><img width="18" height="18" src="/guestPages/images/google.svg">&nbsp; Tiếp tục với Google</button>
+        </div>
+        {{/if}}
+        <div class="form-group row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-9 col-sm-offset-2">
+                <button type="submit" class="btn btn-success">
+                    Đăng nhập
+                </button>
             </div>
-        </form>
-
-        <script src="/jquery-3.3.1.min.js"/>
-        <script src="/bootstrap-4.1.0-dist/js/bootstrap.min.js"/>
-    </body>
-</html>
+        </div>
+    </div>
+</form>
+</div>
