@@ -39,8 +39,9 @@ app.use(bodyParser.urlencoded({
 
 var sessionStore = new MySQLStore({
     host: 'localhost',
+    port: '3306',
     user: 'root',
-    password: 'chun6002',
+    password: 'root',
     database: 'ibags',
     createDatabaseTable: true,
     schema: {
