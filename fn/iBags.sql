@@ -15,28 +15,21 @@ create table thuonghieu(
 
 create table sanpham(
 	masanpham int auto_increment primary key,
-    maloai int,
-    mathuonghieu int,
-    ten nvarchar(50),
+    maloai int not null,
+    mathuonghieu int not null,
+    ten nvarchar(50) not null,
     xuatxu nvarchar(20),
-    gia int,
+    gia int unsigned not null default 0,
     chatlieu nvarchar(30),
     kichthuoc varchar(20),
     trongluong decimal,
-    luotmua int,
-    luotxem int,
-    soluong int,
+    luotmua int unsigned not null default 0,
+    luotxem int unsigned not null default 0,
+    soluong int unsigned not null default 0,
     foreign key(maloai)
     references loaisanpham(maloai),
     foreign key(mathuonghieu)
     references thuonghieu(mathuonghieu)
-);
-
-create table hinhanh(
-	mahinhanh int auto_increment primary key,
-    masanpham int,
-    foreign key(masanpham)
-    references sanpham(masanpham)
 );
 
 create table thanhvien(
