@@ -190,7 +190,28 @@
 						<!-- Product Panel -->
 						<div class="product_panel panel active">
 							<div class="featured_slider slider" id="Pho_bien">
-
+								{{#each topPopular}}
+								<div class="featured_slider_item">
+									<div class="border_active"></div>
+									<div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
+										<div class="product_image d-flex flex-column align-items-center justify-content-center">
+											<img src="Hinh_anh/San_pham/{{masanpham}}.jpg" alt="">
+										</div>
+										<div class="product_content">
+											<div class="product_price discount">{{gia}}</div>
+											<div class="product_name">
+												<div>
+													<a href="Chi_tiet?Ma={{masanpham}}">{{ten}}</a>
+												</div>
+											</div>
+											<div class="product_extras">
+												<button class="product_cart_button" <!--onclick="sessionStorage.setItem(`+i+`, `+i+`); alert('Thêm vào giỏ hàng thành công!');"
+												 -->>Thêm vào giỏ</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								{{/each}}
 							</div>
 							<div class="featured_slider_dots_cover"></div>
 						</div>
@@ -258,56 +279,13 @@
 
 					<div class="owl-carousel owl-theme brands_slider">
 
+						{{#each brands}}
 						<div class="owl-item">
 							<div class="brands_item d-flex flex-column justify-content-center">
-								<img class="brand" src="../../Hinh_anh/Thuong_hieu/Brand_001.png" alt="">
+								<img class="brand" src="Hinh_anh/Thuong_hieu/{{mathuonghieu}}.png" alt="{{tenthuonghieu}}">
 							</div>
 						</div>
-						<div class="owl-item">
-							<div class="brands_item d-flex flex-column justify-content-center">
-								<img class="brand" src="../../Hinh_anh/Thuong_hieu/Brand_002.png" alt="">
-							</div>
-						</div>
-						<div class="owl-item">
-							<div class="brands_item d-flex flex-column justify-content-center">
-								<img class="brand" src="../../Hinh_anh/Thuong_hieu/Brand_003.png" alt="">
-							</div>
-						</div>
-						<div class="owl-item">
-							<div class="brands_item d-flex flex-column justify-content-center">
-								<img class="brand" src="../../Hinh_anh/Thuong_hieu/Brand_004.png" alt="">
-							</div>
-						</div>
-						<div class="owl-item">
-							<div class="brands_item d-flex flex-column justify-content-center">
-								<img class="brand" src="../../Hinh_anh/Thuong_hieu/Brand_005.png" alt="">
-							</div>
-						</div>
-						<div class="owl-item">
-							<div class="brands_item d-flex flex-column justify-content-center">
-								<img class="brand" src="../../Hinh_anh/Thuong_hieu/Brand_006.png" alt="">
-							</div>
-						</div>
-						<div class="owl-item">
-							<div class="brands_item d-flex flex-column justify-content-center">
-								<img class="brand" src="../../Hinh_anh/Thuong_hieu/Brand_007.png" alt="">
-							</div>
-						</div>
-						<div class="owl-item">
-							<div class="brands_item d-flex flex-column justify-content-center">
-								<img class="brand" src="../../Hinh_anh/Thuong_hieu/Brand_008.png" alt="">
-							</div>
-						</div>
-						<div class="owl-item">
-							<div class="brands_item d-flex flex-column justify-content-center">
-								<img class="brand" src="../../Hinh_anh/Thuong_hieu/Brand_009.png" alt="">
-							</div>
-						</div>
-						<div class="owl-item">
-							<div class="brands_item d-flex flex-column justify-content-center">
-								<img class="brand" src="../../Hinh_anh/Thuong_hieu/Brand_010.png" alt="">
-							</div>
-						</div>
+						{{/each}}
 					</div>
 
 					<!-- Brands Slider Navigation -->
@@ -399,7 +377,32 @@
 						<!-- Best Sellers Slider -->
 
 						<div class="bestsellers_slider slider" id="Ban_chay">
-
+							{{#each topSell}}
+							<div class="bestsellers_item discount">
+								<div class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
+									<div class="bestsellers_image">
+										<img src="../../Hinh_anh/San_pham/{{masanpham}}.jpg" alt="">
+									</div>
+									<div class="bestsellers_content">
+										<div class="bestsellers_name">
+											<a href="Chi_tiet.html?Ma={{masanpham}}">{{ten}}</a>
+										</div>
+										<div class="rating_r rating_r_4 bestsellers_rating">
+											<i></i>
+											<i></i>
+											<i></i>
+											<i></i>
+											<i></i>
+										</div>
+										<div>{{gia}}</div>
+									</div>
+								</div>
+								<div class="bestsellers_fav active">
+									<i class="fas fa-heart"></i>
+								</div>
+								<div>Số lượt mua:&nbsp{{luotmua}}</div>
+							</div>
+							{{/each}}
 						</div>
 					</div>
 
@@ -434,8 +437,24 @@
 					<!-- Most Viewed Slider -->
 
 					<div class="owl-carousel owl-theme viewed_slider" id="Xem_nhieu_nhat">
-
-
+						{{#each topView}}
+						<div class="owl-item">
+							<div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+								<div class="viewed_image">
+									<img src="Hinh_anh/San_pham/{{masanpham}}.jpg" alt="">
+								</div>
+								<div class="viewed_content text-center">
+									<div class="viewed_price">{{gia}}</div>
+									<div class="viewed_name">
+										<a href="Chi_tiet.html?Ma={{masanpham}}">{{ten}}</a>
+									</div>
+								</div>
+								<ul class="item_marks">
+									<li class="item_mark item_new">top view</li>
+								</ul>
+							</div>
+						</div>
+						{{/each}}
 					</div>
 				</div>
 			</div>
