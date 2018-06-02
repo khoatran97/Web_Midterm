@@ -104,19 +104,26 @@ router.post('/logout', (req, res) => {
 });
 
 router.post('/profile', (req, res) => {
+    var dob = moment(req.body.DOB, 'D/M/YYYY')
+        .format('YYYY-MM-DDTHH:mm');
+
     var user = {
         id: req.session.user.mathanhvien,
         name: req.body.name,
         email: req.session.user.email,
-        DOB: req.body.DOB,
+        DOB: dob,
         gender: req.body.gender,
         tel: req.body.tel,
         address: req.body.address
     };
-    accountRepo.update(user).then(rows => {
-        if(rows.length>0){
-            res.render('/profile', {showMess: true});
-        }
+
+    accountRepo.update(user).then(value => {
+        accountRepo.single(user.id).then(rows => {
+            if (rows.length > 0) {
+                req.session.user=rows[0];
+                res.redirect(req.headers.referer);
+            }
+        });
     })
 });
 
