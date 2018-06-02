@@ -19,3 +19,8 @@ exports.update = user => {
 	var sql=`update thanhvien set tenthanhvien='${user.name}', email='${user.email}', ngaysinh='${user.DOB}', gioitinh=${user.gender}, sdt='${user.tel}', diachi='${user.address}' where mathanhvien=${user.id};`;
 	return db.save(sql);
 }
+
+exports.single = (id) => {
+    var sql = `select * from thanhvien where mathanhvien=${id};`;
+    return db.load(sql);
+}

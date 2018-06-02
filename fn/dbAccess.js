@@ -6,7 +6,11 @@ exports.load = sql => {
             host: 'localhost',
             port: 3306,
             user: 'root',
+<<<<<<< HEAD
+            password: '',
+=======
             password: 'root',
+>>>>>>> 1104e8eb901da2014ad57f0108580ce34dd8f59f
             database: 'ibags'
         });
 
@@ -30,7 +34,11 @@ exports.save = sql => {
             host: 'localhost',
             port: 3306,
             user: 'root',
+<<<<<<< HEAD
+            password: '',
+=======
             password: 'root',
+>>>>>>> 1104e8eb901da2014ad57f0108580ce34dd8f59f
             database: 'ibags'
         });
 

@@ -1,25 +1,55 @@
-{{#if showMess}}
-	<div class="alert alert-danger">
-      <strong>Cập nhật thành công!</strong>
-    </div>
-{{/if}}
 {{#section 'title'}}
 	Thông tin cá nhân
 {{/section}}
 {{#section 'css'}}
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/style1.css">
-	<link rel="stylesheet" type="text/css" href="css/profileStyle.css">
 	<link rel="stylesheet" type="text/css" href="/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
 {{/section}}
 {{#section 'js'}}
 	<script src="/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script type="text/javascript">
-        $('#txtDOB').datepicker({
-            format: 'd/m/yyyy',
-            autoclose: true
-        });
-    <script>
+	$(document).ready(function(){
+		
+		var gen=$('#tempt').val();
+		$('#tempt').hide();
+
+		var date=new Date($('#txtDOB').val());
+		var d=date.getDate(),
+		m=date.getMonth()+1,
+		y=date.getFullYear();
+        var dob = d+"/"+m+"/"+y;
+        $('#txtDOB').val(dob);
+
+		$('#txtDOB').datepicker({
+			format: 'd/m/yyyy',
+			autoclose: true
+		});
+
+		if(gen === '0'){
+			$('#male').prop("checked", true);
+		}
+		if(gen === '1'){
+			$('#female').prop("checked", true);
+		}
+	});
+
+	function validate() {
+	    if ($('#txtName').val().length === 0 || $('#phone_number').val().length === 0 || $('#txtAddress').val().length === 0) {
+	    	swal("Opps!", "Hãy điền đủ thông tin bạn nhé!", "error");
+	        return false;
+	    }
+
+	    var dateString = document.getElementById('txtDOB').value;
+            var myDate = new Date(dateString);
+            var today = new Date();
+            if ( myDate > today ) {
+            	swal("Opps!", "Ngày sinh chưa hợp lệ!", "error"); 
+                return false;
+            }
+        return true;
+	}
+
+	</script>
 {{/section}}
 
 
@@ -35,7 +65,7 @@
 			<div class="col-sm-10">
 			<div id = "form" class="col-lg-9 col-md-12 char_col">
 				<div style="height: 50px;"></div>
-				<form id="form-main" method="post">
+				<form id="form-main" method="post" role="form" onsubmit="return validate();">
 				  <div class="form-group row">
 				    <label for="txtName" class="col-sm-3 col-form-label" >Họ tên</label>
 				    <div class="col-sm-9">
@@ -63,19 +93,20 @@
 				  <div class="form-group row">
 				    <label for="txtDOB" class="col-sm-3 col-form-label">Ngày sinh</label>
 				    <div class="col-sm-9">
-				      <input type="text" class="form-control" id="txtDOB" value={{layoutVM.curUser.ngaysinh}} placeholder="Ngày sinh" name="DOB" >
+				      <input type="text" class="form-control" id="txtDOB" value='{{layoutVM.curUser.ngaysinh}}' placeholder="d/m/yyyy" name="DOB" >
 				    </div>
 				  </div>
 				  <fieldset class="form-group">
 				    <div class="row">
 				      <legend class="col-form-label col-sm-3 pt-0">Giới tính</legend>
 				      <div class="col-sm-9">
+				      	<input type="text" class="form-control" id="tempt" value='{{layoutVM.curUser.gioitinh}}''>
 				      	<div style="margin-left: 55px;" class="row">
 							<div class="col-sm-4">
-								<div class="radio-inline"><input type="radio" name="gender" value="0" checked> Nam<br></div>
+								<div class="radio-inline"><input type="radio" id="male" name="gender" value="0"> Nam<br></div>
 							</div>
 					        <div class="col-sm-4">
-                        		<div class="radio-inline"><input type="radio" name="gender" value="1"> Nữ<br></div>
+                        		<div class="radio-inline"><input type="radio" id="female" name="gender" value="1"> Nữ<br></div>
 					        </div>
 					    </div>
 				      </div>
@@ -83,7 +114,7 @@
 				  </div>
 				  <div class="form-group row">
 				    <div class="col-sm-10">
-				      <button type="submit" class="btn btn-success">
+				      <button type="submit" class="btn btn-success" id="btn">
                             Cập nhật
                         </button>
 				    </div>
