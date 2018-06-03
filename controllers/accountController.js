@@ -67,7 +67,7 @@ router.post('/login',(req,res) => {
         username: req.body.username,
         password: SHA256(req.body.password).toString()
     };
-
+    
     accountRepo.login(user).then(rows => {
         if (rows.length > 0) {
             req.session.isLogged = true;

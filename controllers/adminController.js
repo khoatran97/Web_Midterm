@@ -24,4 +24,11 @@ router.get('/suppliers', (req, res) => {
 	res.render('admin/suppliers', {layout: 'admin'});
 });
 
+router.post('/logout', (req, res) => {
+    req.session.isLogged=false,
+    req.session.user=null;
+    req.session.cart=[];
+    res.redirect(req.headers.referer);
+});
+
 module.exports.router = router;

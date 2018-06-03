@@ -149,16 +149,17 @@
                     /.dropdown-alerts
                 </li> -->
                 <!-- /.dropdown -->
+                <form action="/admin/logout" method="post" id="lnkLogout"></form>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i>Nguyễn Ngọc Xuân Mỹ <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-user fa-fw"></i>{{layoutVM.curUser.tenthanhvien}}  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="/account/profile"><i class="fa fa-user fa-fw"></i> Admin profile</a>
+                        <li><a href="/account/profile"><i class="fa fa-user fa-fw"></i>Tài khoản của tôi</a>
                         </li>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li id="logOut"><a href="javascript:;"><i class="fa fa-sign-out fa-fw"></i>Đăng xuất</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -322,6 +323,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
     <!-- Custom Theme JavaScript -->
     <script src="/admin/dist/js/sb-admin-2.js"></script>
+    <script>
+        $('#logOut').on('click', function(){
+            $('#lnkLogout').submit();
+        });
+    </script>
 
 </body>
 

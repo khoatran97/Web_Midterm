@@ -169,7 +169,7 @@
 						<form id="frmLogout" method="post" action="/account/logout"></form>
 						<div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
 							<div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
-								<div class="wishlist d-flex flex-row align-items-center justify-content-end">
+								<!-- <div class="wishlist d-flex flex-row align-items-center justify-content-end">
 									<div class="wishlist_icon">
 										<img src="/Hinh_anh/Giao_dien/heart.png" alt="">
 									</div>
@@ -180,7 +180,37 @@
 										<div class="wishlist_count">115</div>
 									</div>
 								</div>
-
+								
+								Cart
+								<div class="cart">
+									<div class="cart_container d-flex flex-row align-items-center justify-content-end">
+										<div class="cart_icon">
+											<img src="/Hinh_anh/Giao_dien/cart.png" alt="">
+											<div class="cart_count">
+												<span>{{layoutVM.cart.length}}</span>
+											</div>
+										</div>
+										<div class="cart_content">
+											<div class="cart_text">
+												<a href="#">Giỏ hàng</a>
+											</div>
+										</div>
+									</div>
+								</div> -->
+								<div class="wishlist d-flex flex-row align-items-center justify-content-end">
+									<div class="cart_icon">
+										<img src="/Hinh_anh/Giao_dien/cart.png" alt="">
+										<div class="cart_count">
+											<span>{{layoutVM.cart.length}}</span>
+										</div>
+									</div>
+									<div class="cart_content">
+										<div class="cart_text">
+											<a href="#">Giỏ hàng</a>
+										</div>
+									</div>
+								</div>
+								{{#if isAdmin}}
 								<!-- Cart -->
 								<div class="cart">
 									<div class="cart_container d-flex flex-row align-items-center justify-content-end">
@@ -197,6 +227,7 @@
 										</div>
 									</div>
 								</div>
+								{{/if}}
 							</div>
 						</div>
 						{{/if}}

@@ -11,6 +11,9 @@ module.exports = (req, res, next) => {
             curUser: req.session.user,
             cart: req.session.cart
         };
+        if(req.session.user!=null && req.session.user.quyenhan===1){
+            res.locals.isAdmin=true
+        };
 	next();
     });
 };
