@@ -12,18 +12,23 @@
     <title>{{{_sections.a_title}}}</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="/admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--link href="/admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"-->
 
     <!-- MetisMenu CSS -->
-    <link href="/admin/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <!--link href="/admin/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="/admin/dist/css/sb-admin-2.css" rel="stylesheet">
-    <link href="/styles/main_styles.css" rel="stylesheet">
+    < !--Custom CSS -->
+    <!--link href="/admin/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/admin/main_styles.css" rel="stylesheet"-->
 
-    <!-- Custom Fonts -->
-    <link href="/admin/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+
+    <!--Custom Fonts -->
+    <!--link href="/admin/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"-->
     {{{_sections.a_css}}}
+    {{{_sections.a_js}}}
+
 
 </head>
 
@@ -149,17 +154,16 @@
                     /.dropdown-alerts
                 </li> -->
                 <!-- /.dropdown -->
-                <form action="/admin/logout" method="post" id="lnkLogout"></form>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i>{{layoutVM.curUser.tenthanhvien}}  <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-user fa-fw"></i>Nguyễn Ngọc Xuân Mỹ <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="/account/profile"><i class="fa fa-user fa-fw"></i>Tài khoản của tôi</a>
+                        <li><a href="/account/profile"><i class="fa fa-user fa-fw"></i> Admin profile</a>
                         </li>
                         </li>
                         <li class="divider"></li>
-                        <li id="logOut"><a href="javascript:;"><i class="fa fa-sign-out fa-fw"></i>Đăng xuất</a>
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -313,21 +317,16 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
     <!-- jQuery -->
     {{{_sections.a_js}}}
-    <script src="/admin/vendor/jquery/jquery.min.js"></script>
+    <!--script src="/admin/vendor/jquery/jquery.min.js"></script-->
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="/admin/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--script src="/admin/vendor/bootstrap/js/bootstrap.min.js"></script-->
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="/admin/vendor/metisMenu/metisMenu.min.js"></script>
+    <!--script src="/admin/vendor/metisMenu/metisMenu.min.js"></script-->
 
     <!-- Custom Theme JavaScript -->
-    <script src="/admin/dist/js/sb-admin-2.js"></script>
-    <script>
-        $('#logOut').on('click', function(){
-            $('#lnkLogout').submit();
-        });
-    </script>
+    <!--script src="/admin/dist/js/sb-admin-2.js"></script-->
 
 </body>
 

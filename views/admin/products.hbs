@@ -1,80 +1,34 @@
+
+{{#section 'a_title'}}
+    iBags - Admin/Quản lý loại sản phẩm
+{{/section}}
+
+
+{{#section 'a_css'}}
+   <link href="/admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="/admin/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/admin/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/styles/main_styles.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/admin/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/admin/dist/css/style.css" rel="stylesheet">
+
+{{/section}}
+
+
+{{#section 'a_js'}}
+       <script src="/Xu_ly/script_sanpham.js"></script>
+{{/section}}
+
+
+
 <div id="page-wrapper">
-            <div class="row" id="edit">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="page-header">
-                            <h1 class="page-header" id="title">Sửa đổi thông tin</h1>
-                            <div id="tip">**Tip:<br \> 1. Chọn dòng muốn sửa thông tin trong bảng <br \> 2. Ghi thông tin mới tại đây<br \> 3. Nhấn lưu</div>
-                        </div>
-                        <div class="panel-body">
-                            <form>
-                                <div class="form-row">
-                                    <div class="col-md-6">
-                                        <label for="name" class="col-sm-3 col-form-label">Tên SP </label>
-                                        <div class="col-md-9">
-                                          <input type="text" class="form-control" id="name" placeholder="Tên SP">
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="image" class="col-sm-3">Chọn hình ảnh</label>
-                                        <div class="col-sm-9">
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="image" onchange='javascript:readURL(this)'>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-md-6">
-                                        <label for="price" class="col-sm-3 col-form-label">Giá SP</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" id="price" placeholder="Giá SP">
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="count" class="col-sm-3 col-form-label">Số lượng</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="count" placeholder="Số lượng">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-md-6">
-                                        <label for="type" class="col-sm-3 col-form-label">Loại SP</label>
-                                        <div class="col-md-9">
-                                            <div id="type">
-                                                <select name="" class="select" id="typeSelect">
-                                                    <option value="">Túi đeo chéo</option>
-                                                    <option value="">Túi đeo lưng</option>
-                                                    <option value="">Túi xách</option>
-                                                    <option value="">Bóp, ví</option>
-                                                    <option value="">Balo</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="prodr" class="col-sm-3 col-form-label">NPP</label>
-                                        <div class="col-sm-9">
-                                            <div id="prodr">
-                                                <select name="" class="select" id="prodrSelect">
-                                                    <option value="">GUCCI</option>
-                                                    <option value="">TOPBAG</option>
-                                                    <option value="">BELLABAG</option>
-                                                    <option value="">PRADA</option>
-                                                    <option value="">GIVECHY</option>
-                                                    <option value="">VERCASE</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              <button type="button" class="btn btn-primary" onclick="javascript: editHtmlTbleSelectedRow();">Lưu</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <div class="row">
                 <div class="col-lg-12" >
                     <h1 id="qlsp" >Quản lý sản phẩm</h1>
@@ -138,3 +92,18 @@
                 </div>
             </div>
         </div><!-- /.page-wrapper -->
+
+
+{{#section 'a_js'}}
+     <script src="/admin/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/admin/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/admin/vendor/metisMenu/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="/admin/dist/js/sb-admin-2.js"></script>
+    <script src="/Xu_ly/jquery_sanpham.js"></script>
+    
+{{/section}}
