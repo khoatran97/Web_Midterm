@@ -6,6 +6,7 @@ var router = express.Router();
 
 var isReady = false;
 
+// Load du lieu cho trang Home
 async function loadHome() {
     var brands;
     var topView;
@@ -36,6 +37,26 @@ async function loadHome() {
     }
 }
 
+// Load du lieu cho trang tat ca san pham
+async function loadAll() {
+    var brands;
+    var products;
+
+    await brandRepo.loadAll().then(rows => {
+        brands = rows;
+    });
+
+    await productRepo.loadAll().then(rows => {
+        products = rows;
+    });
+
+    return {
+        brands: brands,
+        products: products,
+        countProduct: Object.keys(products).length
+    };
+}
+
 // GET
 router.get('/', (req, res) => {
     loadHome().then((result) => {
@@ -49,7 +70,13 @@ router.get('/', (req, res) => {
 });
 
 router.get('/tat_ca', (req, res) => {
-    res.render('Tat_ca');
+    loadAll().then((result) => {
+        res.render('Tat_ca', {
+            brands: result.brands,
+            products: result.products,
+            countProduct: result.products.lenght
+        });
+    })
 });
 
 module.exports.router = router;
