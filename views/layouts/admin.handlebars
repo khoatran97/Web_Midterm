@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,22 +9,21 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>iBags - QLNPP</title>
+    <title>{{{_sections.a_title}}}</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="/admin/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
-    <link href="../../../Ho_tro/styles/main_styles.css" rel="stylesheet">
+    <link href="/admin/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/styles/main_styles.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="../dist/css/style.css" rel="stylesheet">
-    <script src="../../Xu_ly/script_npp.js"></script>
+    <link href="/admin/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    {{{_sections.a_css}}}
 
 </head>
 
@@ -38,7 +36,7 @@
                 <a class="navbar-brand" href="index.html">iBags</a>
             </div>
             <ul class="nav navbar-top-links navbar-right">
-                <li class="dropdown">
+                <!-- <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
@@ -86,11 +84,11 @@
                             </a>
                         </li>
                     </ul>
-                    <!-- /.dropdown-messages -->
+                    /.dropdown-messages
                 </li>
-                <!-- /.dropdown -->
+                /.dropdown
                 </li>
-                <!-- /.dropdown -->
+                /.dropdown
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -148,20 +146,19 @@
                             </a>
                         </li>
                     </ul>
-                    <!-- /.dropdown-alerts -->
-                </li>
+                    /.dropdown-alerts
+                </li> -->
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-user fa-fw"></i>Nguyễn Ngọc Xuân Mỹ <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Admin profile</a>
+                        <li><a href="/account/profile"><i class="fa fa-user fa-fw"></i> Admin profile</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -185,19 +182,19 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="glyphicon glyphicon-home"></i> DASHBOARD</a>
+                            <a href="/admin/"><i class="glyphicon glyphicon-home"></i> DASHBOARD</a>
                            
                                 <li>
-                                    <a href="sanpham.html"><i class="glyphicon glyphicon-lock"></i>Quản lý sản phẩm</a>
+                                    <a href="/admin/products"><i class="glyphicon glyphicon-lock"></i>Quản lý sản phẩm</a>
                                 </li>
                                 <li>
-                                    <a href="danhsachdonhang.html"><i class="glyphicon glyphicon-shopping-cart"></i>Quản lý đơn hàng</a>
+                                    <a href="/admin/orders"><i class="glyphicon glyphicon-shopping-cart"></i>Quản lý đơn hàng</a>
                                 </li>
                                 <li>
-                                    <a href="loaisanpham.html"><i class="fa fa-tasks"></i>Quản lý loại sản phẩm</a>
+                                    <a href="/admin/categories"><i class="fa fa-tasks"></i>Quản lý loại sản phẩm</a>
                                 </li>
                                 <li>
-                                    <a href="quanlyphanphoi.html"><i class="fa fa-odnoklassniki fa-2x"></i>Quản lý nhà phân phối</a>
+                                    <a href="/admin/suppliers"><i class="fa fa-odnoklassniki fa-2x"></i>Quản lý nhà phân phối</a>
                                 </li>
                            
                         </li>
@@ -314,16 +311,17 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 
     <!-- jQuery -->
-    <script src="../vendor/jquery/jquery.min.js"></script>
+    {{{_sections.a_js}}}
+    <script src="/admin/vendor/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/admin/vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="/admin/vendor/metisMenu/metisMenu.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="/admin/dist/js/sb-admin-2.js"></script>
 
 </body>
 

@@ -1,0 +1,138 @@
+#box table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+#box table#t01 th {
+    color: black;
+    font-weight: 2px;
+}
+table .mySelect{
+	border: 1px solid black;
+ 	-webkit-appearance: menulist;
+ 	color: black;
+ 	margin-left: -5px;
+ 	margin-right: -5px;
+}
+.red{
+	color: red;
+}
+.blue{
+	color: blue;
+}
+.green{
+	color: green;
+}
+.cancel{
+	background-color: grey;
+}
+table {
+	width: 100%;
+}
+#table table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+img.brand {
+	max-width: 50px;
+	max-height: 50px;
+}
+
+#qlsp{
+	color: #0033cc;
+	width: 55%;
+	float: left;
+}
+#nutbutton ul{
+	margin-left: 50px;
+	list-style: none;
+}
+
+#nutbutton ul li{
+	padding: 20px;
+}
+
+.container-fluid{
+	width: 15%;
+	float: left;
+}
+
+button#nutdel{
+	background-color: #eeeeee;
+}
+
+button#nuttsp{
+	background-color: #eeeeee;
+}
+
+button#nuttsp:hover{
+	background-color: #ccffff;
+}
+
+button#nutlsp{
+	background-color: #eeeeee;
+}
+
+button#nutlsp:hover{
+	background-color: #ccffcc;
+}
+
+button#nutnsx{
+	background-color: #eeeeee;
+}
+
+button#nutnsx:hover{
+	background-color: #99ff99;
+}
+
+#title
+{
+	background-color: #444444;
+	color: white;
+	margin-bottom: 20px;
+}
+
+thead{
+	background-color: #ccffff;
+}
+
+ul #task{
+	list-style: none;
+	display: inline-block;
+	margin-right: 20px;
+}
+ul li #new{
+	float: left;
+	margin-bottom: 20px;
+}
+ul li #update{
+	float: right;
+	margin-bottom: 20px;
+}
+.inputCell{
+	width: 110%;
+	border-style: none;
+	margin-left: -10px;
+}
+#tip{
+	margin-left: 40px;
+}
+#newRow{
+	font-weight: bold;
+}
+#update{
+	float: right;
+}
+table tr:hover{
+	background-color: #eeeeee;
+}
+.select{
+	border: 1px solid black;
+ 	-webkit-appearance: menulist;
+ 	color: black;
+ 	margin-left: -5px;
+ 	margin-right: -5px;	
+}

@@ -12,6 +12,7 @@ var handleLayoutMDW = require('./middle-wares/handleLayout'),
 
 var guestController = require('./controllers/guestController');
 var accountController = require('./controllers/accountController');
+var adminController = require('./controllers/adminController');
 
 var app = express();
 
@@ -66,6 +67,8 @@ app.use(handleLayoutMDW);
 
 app.use('/', guestController.router);
 app.use('/account', accountController.router);
+//app.use('/admin', restrict.admin, adminController.router);
+app.use('/admin', adminController.router);
 
 app.use(handle404MDW);
 

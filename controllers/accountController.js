@@ -16,7 +16,7 @@ router.get('/login', (req, res) => {
     res.render('account/login');
 });
 
-router.get('/profile', restrict, (req, res) => {
+router.get('/profile', restrict.profile, (req, res) => {
     res.render('account/profile');
 });
 
