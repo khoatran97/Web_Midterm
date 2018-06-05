@@ -1,167 +1,27 @@
 
 {{#section 'a_title'}}
-    iBags - Admin/Quản lý loại sản phẩm
+    Admin/Quản lý loại sản phẩm
 {{/section}}
 
-
-    <!-- DataTables Responsive CSS -->
-    <link href="/admin/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+{{#section 'a_css'}}
 {{/section}}
-    <!-- MetisMenu CSS -->
-    <link href="/admin/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="/admin/dist/css/sb-admin-2.css" rel="stylesheet">
-    <link href="/styles/main_styles.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="/admin/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="/admin/dist/css/style.css" rel="stylesheet">
-
-{{/section}}
-
 
 {{#section 'a_js'}}
-       <script src="/Xu_ly/script_sanpham.js"></script>
 {{/section}}
 
-
-
 <div id="page-wrapper">
-            <div class="row" id="edit">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="page-header">
-                            <h1 class="page-header" id="title">Sửa đổi thông tin</h1>
-                            <div id="tip">**Tip:<br \> 1. Chọn dòng muốn sửa thông tin trong bảng <br \> 2. Ghi thông tin mới tại đây<br \> 3. Nhấn lưu</div>
-                        </div>
-                        <div class="panel-body">
-                            <form>
-                                <div class="form-row">
-                                    <div class="col-md-6">
-                                        <label for="name" class="col-sm-3 col-form-label">Tên SP </label>
-                                        <div class="col-md-9">
-                                          <input type="text" class="form-control" id="name" placeholder="Tên SP">
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="image" class="col-sm-3">Chọn hình ảnh</label>
-                                        <div class="col-sm-9">
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="image" onchange='javascript:readURL(this)'>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-md-6">
-                                        <label for="price" class="col-sm-3 col-form-label">Giá SP</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" id="price" placeholder="Giá SP">
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="count" class="col-sm-3 col-form-label">Số lượng</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="count" placeholder="Số lượng">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-md-6">
-                                        <label for="type" class="col-sm-3 col-form-label">Loại SP</label>
-                                        <div class="col-md-9">
-                                            <div id="type">
-                                                <select name="" class="select" id="typeSelect">
-                                                    <option value="">Túi đeo chéo</option>
-                                                    <option value="">Túi đeo lưng</option>
-                                                    <option value="">Túi xách</option>
-                                                    <option value="">Bóp, ví</option>
-                                                    <option value="">Balo</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="prodr" class="col-sm-3 col-form-label">NPP</label>
-                                        <div class="col-sm-9">
-                                            <div id="prodr">
-                                                <select name="" class="select" id="prodrSelect">
-                                                    <option value="">GUCCI</option>
-                                                    <option value="">TOPBAG</option>
-                                                    <option value="">BELLABAG</option>
-                                                    <option value="">PRADA</option>
-                                                    <option value="">GIVECHY</option>
-                                                    <option value="">VERCASE</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              <button type="button" class="btn btn-primary" onclick="javascript: editHtmlTbleSelectedRow();">Lưu</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Sảm phẩm</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12" id="nutbutton">
-                    <ul>
-                        <li class="container-fluid">
-                             <button type="button" class="btn btn-default nut" id="nuttsp">Thêm sản phẩm</button>
-                        </li>
-                        <li class="container-fluid loai">
-                            <div class="dropdown">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="nutlsp">
-                                    Loại sản phẩm <div class="caret"></div>
-                                </button>
-                                <ul class="dropdown-menu" id="lsp">
-                                    <button class="btn btn-default" style="width: 160px" id="nuttdc">Túi đeo chéo</button>
-                                    <button class="btn btn-default" style="width: 160px" id="nuttdl">Túi đeo lưng</button>
-                                    <button class="btn btn-default" style="width: 160px" id="nuttx" >Túi xách</button>
-                                    <button class="btn btn-default" style="width: 160px" id="nutbv">Bóp, ví</button>
-                                    <button class="btn btn-default" style="width: 160px" id="nutbl">Balo</button>
-                                    <button class="btn btn-default" style="width: 160px" id="nuttc">Tất cả</button>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="container-fluid nhasx">
-                            <div class="dropdown">
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="nutnsx">
-                                    Nhà sản xuất <div class="caret"></div>
-                                </button>
-                                <ul class="dropdown-menu"  id="nsx">
-                                    <button class="btn btn-default" style="width: 160px" id="nutgc">GUCCI</button>
-                                    <button class="btn btn-default" style="width: 160px" id="nuttb">TOPBAG</button>
-                                    <button class="btn btn-default" style="width: 160px" id="nutblb" >BELLABAG</button>
-                                    <button class="btn btn-default" style="width: 160px" id="nutpd">PRADA</button>
-                                    <button class="btn btn-default" style="width: 160px" id="nutgc">GIVECHY</button>
-                                    <button class="btn btn-default" style="width: 160px" id="nutvc">VERCASE</button>
-                                    <button class="btn btn-default" style="width: 160px" id="nuttc">Tất cả</button>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="container-fluid">
-                             <button type="button" class="btn btn-default nut" id="nutdel" onclick="javascript: deleteRow();">Xóa sản phẩm</button>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Bảng chi tiết sản phẩm
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Sản phẩm</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    {{#if noItem}}
+        <div class="alert alert-warning">
+            <strong>Hiện chưa có sản phẩm nào!</strong> Hãy nhấn <strong>Thêm</strong> để bổ sung!
+        </div>
+    {{/if}}
+    <div class="panel-body">
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
@@ -171,49 +31,25 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <tr class="odd gradeX">
-                                        <td>Trident</td>
-                                        <td>Internet Explorer 4.0</td>
+                                {{#each products}}
+                                    <tr class="odd gradeX">
+                                        <td>{{masanpham}}</td>
+                                        <td>{{tensanpham}}</td>
                                         <td class="text-center">
-                                            <a class="btn btn-danger btn-xs" href="/category/delete?id={{CatID}}" role="button">
+                                            <a class="btn btn-danger btn-xs" href="admin/products/delete?id={{masanpham}}" role="button">
                                                 <span class="glyphicon glyphicon-remove"></span>
                                             </a>
-                                            <a class="btn btn-primary btn-xs" href="/category/edit?id={{CatID}}" role="button">
+                                            <a class="btn btn-primary btn-xs" href="admin/products/edit?id={{masanpham}}" role="button">
                                                 <span class="glyphicon glyphicon-wrench"></span>
                                             </a>
                                         </td>
                                     </tr>
-
+                                {{/each}}
                                 </tbody>
                             </table>
-                            <div id="t00">
-                            </div><!-- /.tạo bảng -->
-                            <div id="t02">
-                            </div><!-- /.tạo bảng thêm mới -->
+                            <!-- /.table-responsive -->
                         </div>
                         <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /#page-wrapper -->
-
-    <!-- jQuery -->
-    {{#section 'a_js'}}
-
-        <!-- DataTables JavaScript -->
-        <script src="/admin/vendor/datatables/js/jquery.dataTables.min.js"></script>
-        <script src="/admin/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-        <script src="/admin/vendor/datatables-responsive/dataTables.responsive.js"></script>
-
-        <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-        <script>
-        $(document).ready(function() {
-            $('#dataTables-example').DataTable({
-                responsive: true
-            });
-        </script>
-    {{/section}}
+</div>
+<!-- /#page-wrapper -->
+    
