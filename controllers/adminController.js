@@ -9,7 +9,7 @@ var router = express.Router();
 router.get('/', (req, res) => {
 	res.render('admin/index', {layout: 'admin'});
 });
-
+/*********************Loại sản phẩm**************************/
 router.get('/categories', (req, res) => {
 	categoryRepo.loadAll().then(rows => {
 		if(rows[0]!=null){
@@ -25,6 +25,45 @@ router.get('/categories', (req, res) => {
 	});
 });
 
+router.post('/categories/add', (req, res) => {
+	categoryRepo.add(req.body).then(rows => {
+		res.redirect('/admin/categories');
+	})
+});
+
+router.get('/categories/delete', (req, res) => {
+	categoryRepo.single(req.query.id).then(c => {
+		var vm={
+			layout: 'admin', 
+			category: c
+		}
+        res.render('admin/categories/delete', vm);
+    });
+});
+
+router.post('/categories/delete', (req, res) => {
+	categoryRepo.delete(req.body.id).then(rows => {
+		res.redirect('/admin/categories');
+	})
+});
+
+router.get('/categories/edit', (req, res) => {
+	categoryRepo.single(req.query.id).then(c => {
+		var vm={
+			layout: 'admin', 
+			category: c
+		}
+        res.render('admin/categories/edit', vm);
+    });
+});
+
+router.post('/categories/edit', (req, res) => {
+	categoryRepo.update(req.body).then(rows => {
+		res.redirect('/admin/categories');
+	})
+});
+
+/*********************Đơn hàng**************************/
 router.get('/orders', (req, res) => {
 	orderRepo.loadAll().then(rows => {
 		if(rows[0]!=null){
@@ -40,6 +79,7 @@ router.get('/orders', (req, res) => {
 	});
 });
 
+/*********************Sản phẩm**************************/
 router.get('/products', (req, res) => {
 	productRepo.loadAll().then(rows => {
 		if(rows[0]!=null){
@@ -55,6 +95,7 @@ router.get('/products', (req, res) => {
 	});
 });
 
+/*********************Thương hiệu**************************/
 router.get('/suppliers', (req, res) => {
 	brandRepo.loadAll().then(rows => {
 		if(rows[0]!=null){
@@ -70,6 +111,50 @@ router.get('/suppliers', (req, res) => {
 	});
 });
 
+router.get('/suppliers/edit', (req, res) => {
+	brandRepo.single(req.query.id).then(b => {
+		var vm={
+			layout: 'admin', 
+			brand: b
+		}
+        res.render('admin/suppliers/edit', vm);
+    });
+});
+
+router.post('/suppliers/edit', (req, res) => {
+	brandRepo.update(req.body).then(rows => {
+		res.redirect('/admin/suppliers');
+	})
+});
+
+router.get('/suppliers/add', (req, res) => {
+	res.render('admin/suppliers/add', {layout: 'admin'});
+});
+
+router.post('/suppliers/add', (req, res) => {
+	brandRepo.add(req.body).then(rows => {
+		res.redirect('/admin/suppliers');
+	})
+});
+
+router.get('/suppliers/delete', (req, res) => {
+	brandRepo.single(req.query.id).then(s => {
+		var vm={
+			layout: 'admin', 
+			brand: s
+		}
+        res.render('admin/suppliers/delete', vm);
+    });
+});
+
+router.post('/suppliers/delete', (req, res) => {
+	brandRepo.delete(req.body.id).then(rows => {
+		res.redirect('/admin/suppliers');
+	})
+});
+
+
+/*********************Đăng xuất****************************/
 router.post('/logout', (req, res) => {
     req.session.isLogged=false,
     req.session.user=null;

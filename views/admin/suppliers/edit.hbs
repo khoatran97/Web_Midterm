@@ -1,0 +1,74 @@
+{{#section 'a_js'}}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        $("#btnSub").click(function(e){
+            e.preventDefault();
+            swal({
+              title: "Bạn đã chắc chắn?",
+              text: "Bạn có thực sự muốn thay đổi thông tin này?",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+            })
+            .then((willUpdate) => {
+              if (willUpdate) {
+                  if($('#txtName').val().length!=0){
+                    $('#eForm').submit();
+                }else{
+                    swal("Cảnh báo!", "Bạn chưa điền tên thương hiệu!", "warning");
+                }
+              }
+            });
+        });
+    </script>
+{{/section}}
+
+<div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header">Cập nhật thông tin</h3>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Thông tin chi tiết
+                        </div>
+                        <div class="panel-body">
+                        
+                            <div class="row">
+                                <div class="col-lg-9">
+                                    {{#with brand}}
+                                    <form role="form" action="" method="post" id="eForm">
+                                        <div class="form-group">
+                                            <label>Mã thương hiệu</label>
+                                            <input type="text" class="form-control" name="id" value='{{mathuonghieu}}' readonly>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Tên thương hiệu</label>
+                                            <input type="text" class="form-control" value='{{tenthuonghieu}}' placeholder="Tên thương hiệu" name="name" id="txtName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Logo</label>
+                                            <div border="5">
+                                                <img src="/Hinh_anh/Thuong_hieu/{{mathuonghieu}}.png" alt="{{tenthuonghieu}}" style="width: 150px; height: 100px; border:1px solid black">
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-success" id="btnSub"><span class="glyphicon glyphicon-save"></span>Cập nhật</button>
+                                    </form>
+                                    {{/with}}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->

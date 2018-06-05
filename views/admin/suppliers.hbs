@@ -3,20 +3,47 @@
 {{/section}}
 
 {{#section 'a_css'}}
-    <!-- DataTables CSS -->
-    <link href="/admin/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
-
-    <!-- DataTables Responsive CSS -->
-    <link href="/admin/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 {{/section}}
 
 {{#section 'a_js'}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        $('#btnAdd').click(function(e){
+            e.preventDefault();
+            swal({
+              text: "Bạn có thực sự muốn thêm?",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+            })
+            .then((willAdd) => {
+              if (willAdd) {
+                  if($('#txtName').val().length!=0){
+                    $('#aForm').submit();
+                }else{
+                    swal("Cảnh báo!", "Hãy điền đủ thông tin trước khi nhấn Thêm!", "warning");
+                }
+              }
+            });
+        })
+    </script>
 {{/section}}
 
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12" id="title">
-            <h1 class="page-header">Nhà phân phối</h1>
+            <span class="col-lg-6">
+                <h1 class="page-header">Nhà phân phối</h1>
+            </span>
+            <span class="col-lg-6" style="margin-top: 50px;">
+                <a class="btn btn-large btn-block btn-primary" href="#addForm" role="button" data-toggle="modal">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    Thêm thương hiệu mới
+                </a>
+            </span>
         </div>
     </div>
     <div class="row">
@@ -27,7 +54,7 @@
                         </div>
                         {{#if noItem}}
                             <div class="alert alert-warning">
-                                <strong>Hiện chưa có nhà phân phối nào</strong>Hãy nhấn <strong>Thêm</strong> bên dưới để bổ sung!
+                                <strong>Hiện chưa có nhà phân phối nào</strong>Hãy nhấn <strong>Thêm</strong> để bổ sung!
                             </div>
                         {{/if}}
                         <!-- /.panel-heading -->
@@ -46,10 +73,10 @@
                                         <td>{{mathuonghieu}}</td>
                                         <td>{{tenthuonghieu}}</td>
                                         <td class="text-center">
-                                            <a class="btn btn-danger btn-xs" href="admin/suppliers/delete?id={{mathuonghieu}}" role="button">
+                                            <a class="btn btn-danger btn-xs" href="/admin/suppliers/delete?id={{mathuonghieu}}" role="button">
                                                 <span class="glyphicon glyphicon-remove"></span>
                                             </a>
-                                            <a class="btn btn-primary btn-xs" href="admin/suppliers/edit?id={{mathuonghieu}}" role="button">
+                                            <a class="btn btn-primary btn-xs" href="/admin/suppliers/edit?id={{mathuonghieu}}" role="button">
                                                 <span class="glyphicon glyphicon-wrench"></span>
                                             </a>
                                         </td>
@@ -67,3 +94,27 @@
             </div>
             <!-- /.row -->
 </div>
+
+<!-- Modal -->
+  <div class="modal fade" id="addForm" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form" action="/admin/suppliers/add" method="post" id="aForm">
+            <div class="form-group">
+                <label>Tên loại</label>
+                <input type="text" class="form-control" placeholder="Tên thương hiệu" name="name" id="txtName">
+            </div>
+            <button type="submit" class="btn btn-success" id="btnAdd" ><span class="glyphicon glyphicon-save"></span>Thêm</button>
+        </form>
+        </div>
+      </div>
+      
+    </div>
+  </div>
