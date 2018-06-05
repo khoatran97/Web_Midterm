@@ -19,3 +19,20 @@ module.exports.loadByPopular = () => {
     var sql = `select * from sanpham order by luotmua desc, luotxem desc limit 16`
     return db.load(sql);
 }
+
+module.exports.add = (prod) => {
+	var sql = `insert into sanpham (maloai, mathuonghieu, ten, xuatxu, gia, chatlieu, kichthuoc, trongluong, soluong) 
+	values(${prod.catID}, ${prod.supID}, '${prod.Name}', '${prod.Org}', ${prod.Price}, '${prod.Material}', ${prod.Size}, ${prod.Weight}, ${prod.Quant})`;
+	return db.save(sql);
+}
+
+module.exports.delete = (id) => {
+	var sql = `delete from sanpham where masanpham=${id}`;
+	return db.save(sql);
+}
+
+module.exports.update = (prod) => {
+	var sql = `update sanpham set (maloai=${prod.catID}, mathuonghieu=${prod.supID}, ten='${prod.Name}', xuatxu='${prod.Org}',
+	gia=${prod.Price}, chatlieu='${prod.Material}', kichthuoc=${prod.Size}, trongluong=${prod.Weight}, soluong=${prod.Quant});`
+	return db.save(sql);
+}

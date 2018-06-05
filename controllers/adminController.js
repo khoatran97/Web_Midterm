@@ -5,7 +5,9 @@ var productRepo = require('../repos/productRepo');
 var router = express.Router();
 
 router.get('/', (req, res) => {
-	res.render('admin/index', {layout: 'admin'});
+	productRepo.loadAll().then(rows => {
+		res.render('admin/index', {products: rows, layout: 'admin'});
+	})
 });
 
 router.get('/categories', (req, res) => {
