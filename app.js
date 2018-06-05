@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var session = require('express-session');
 var MySQLStore = require('express-mysql-session')(session);
+var wnumb = require('wnumb');
 
 var handleLayoutMDW = require('./middle-wares/handleLayout'),
     handle404MDW = require('./middle-wares/handle404'),
@@ -24,7 +25,7 @@ app.engine('hbs', hbs({
             var nf = wnumb({
                 thousand: ','
             });
-            return nf.to(n);
+            return nf.to(n) + ' ₫';
         }
     }
 }));
@@ -42,7 +43,7 @@ var sessionStore = new MySQLStore({
     host: 'localhost',
     port: '3306',
     user: 'root',
-    password: '',
+    password: 'root',
     database: 'ibags',
     createDatabaseTable: true,
     schema: {
