@@ -129,6 +129,12 @@ router.get('/products', (req, res) => {
 	});
 });
 
+router.post('/products/add', (req, res) => {
+	productRepo.add(req.body).then(rows => {
+		res.redirect('/admin/products');
+	})
+});
+
 /*********************Thương hiệu**************************/
 router.get('/suppliers', (req, res) => {
 	brandRepo.loadAll().then(rows => {
