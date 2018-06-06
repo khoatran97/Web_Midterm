@@ -6,6 +6,15 @@ var categoryRepo = require('../repos/categoryRepo');
 
 var router = express.Router();
 
+function formatDate(date){
+    var date=new Date(date);
+    var d=date.getDate(),
+    m=date.getMonth()+1,
+    y=date.getFullYear();
+    var fDate = d+"/"+m+"/"+y;
+    return fDate;
+}
+
 router.get('/', (req, res) => {
 	res.render('admin/index', {layout: 'admin'});
 });
@@ -67,16 +76,41 @@ router.post('/categories/edit', (req, res) => {
 router.get('/orders', (req, res) => {
 	orderRepo.loadAll().then(rows => {
 		if(rows[0]!=null){
-		res.render('admin/orders', {
-			layout: 'admin',
-			orders: rows
-		});
+			var orders=[];
+			for(var i=0;i<rows.length;i++){
+				rows[i].ngaydat=formatDate(rows[i].ngaydat);
+				orders.push(rows[i]);
+			}
+			res.render('admin/orders', {
+				layout: 'admin',
+				orders: orders
+			});
 		}
 		else{
 			res.render('admin/orders', {layout: 'admin',
 			noItem: true});
 		}
 	});
+});
+
+router.get('/orders/edit', (req, res) => {
+	var p1=orderRepo.single(req.query.id);
+	var p2=orderRepo.loadDetail(req.query.id);
+	Promise.all([p1, p2]).then(([order, products]) => {
+		order.ngaydat=formatDate(order.ngaydat);
+		var vm = {
+			layout:'admin',
+			order: order,
+			products: products
+		}
+		res.render('admin/orders/edit', vm);
+	})
+});
+
+router.post('/orders/edit', (req, res) => {
+	orderRepo.update(req.body).then(value => {
+		res.redirect('/admin/orders');
+	})
 });
 
 /*********************Sản phẩm**************************/

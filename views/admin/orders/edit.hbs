@@ -1,0 +1,135 @@
+{{#section 'a_js'}}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        var status=$('#status').val();
+        $('#status').hide();
+         $('#id').hide();
+        if(status==='chưa giao'){
+            $('#mySelect').val("chưa giao");
+        }
+        else if(status==='đang giao'){
+            $('#mySelect').val("đang giao");
+        }
+        else {
+            $('#mySelect').val("đã giao");
+        }
+        
+
+        $("#btnSub").click(function(e){
+            e.preventDefault();
+            swal({
+              title: "Bạn đã chắc chắn?",
+              text: "Bạn có thực sự muốn thay đổi thông tin này?",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+            })
+            .then((willUpdate) => {
+              if (willUpdate) {
+                  $('#eForm').submit();
+              }
+            });
+        });
+    </script>
+{{/section}}
+
+<div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header">Cập nhật thông tin</h3>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        {{#with order}}
+                        <div class="panel-heading">
+                            <b>Đơn hàng #{{madon}}</b>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form role="form" action="" method="post" id="eForm">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label>Ngày đặt</label>
+                                                <input type="text" class="form-control" name="date" value='{{ngaydat}}' readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label>Mã khách hàng</label>
+                                                <input type="text" class="form-control" value='{{makhach}}' placeholder="" name="userID" id="txtName" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label>Tình trạng</label>
+                                                    <select class="form-control" id="mySelect" name="status">
+                                                    <option>đã giao</option>
+                                                    <option>đang giao</option>
+                                                    <option>chưa giao</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8"></div>
+                                        <div class="col-lg-4"> 
+                                            <div class="form-group row">
+                                                <label class="col-lg-4">Tổng tiền</label>
+                                                <div class="col-lg-8"> 
+                                                <input type="text" style="text-align:right;" class="form-control" name="cost" value='{{tonggiatri}}' readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <input type="text" class="form-control" name="id" id="id" value='{{madon}}' readonly>
+                                            <input type="text" class="form-control" id="status" value='{{trangthai}}'>
+                                        <div class="col-lg-12">
+                                        <button type="submit" class="btn btn-success" id="btnSub"><span class="glyphicon glyphicon-save"></span>Cập nhật</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    {{/with}}
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <b>Sản phẩm</b>
+                        </div>
+                        <div class="panel-body">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Gía</th>
+                                    <th>Số lượng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {{#each products}}
+                                <tr>
+                                    <td>{{ten}}</td>
+                                    <td>{{gia}}</td>
+                                    <td>{{soluong}}</td>
+                                </tr>             
+                            {{/each}}
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
