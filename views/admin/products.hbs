@@ -1,18 +1,68 @@
 
 {{#section 'a_title'}}
-    Admin/Quản lý loại sản phẩm
+    Admin/Quản lý sản phẩm
 {{/section}}
 
 {{#section 'a_css'}}
 {{/section}}
 
 {{#section 'a_js'}}
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        $('#btnAdd').click(function(e){
+            e.preventDefault();
+            swal({
+              text: "Bạn có thực sự muốn thêm?",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+            })
+            .then((willAdd) => {
+              if (willAdd) {
+                  if($('#txtName').val().length!=0){
+                    $('#aForm').submit();
+                }else{
+                    swal("Cảnh báo!", "Hãy điền đủ thông tin trước khi nhấn Thêm!", "warning");
+                }
+              }
+            });
+        });
+
+        $('#btnDel').click(function(e){
+            e.preventDefault();
+            swal({
+              text: "Bạn có thực sự muốn xóa?",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+            })
+            .then((willDel) => {
+              if (willDel) {
+                  if($('#txtName').val().length!=0){
+                    $('#delForm').submit();
+                }else{
+                    swal("Cảnh báo!", "Hãy điền đủ thông tin trước khi nhấn Thêm!", "warning");
+                }
+              }
+            });
+        })
+    </script>
 {{/section}}
 
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Sản phẩm</h1>
+            <span class="col-lg-6">
+                <h1 class="page-header">Sản phẩm</h1>
+            </span>
+            <span class="col-lg-6" style="margin-top: 50px;">
+                <a class="btn btn-large btn-block btn-primary" href="#addCatForm" role="button" data-toggle="modal">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    Thêm sản phẩm mới
+                </a>
+            </span>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -52,4 +102,28 @@
                         <!-- /.panel-body -->
 </div>
 <!-- /#page-wrapper -->
+
+
+<!-- Modal -->
+  <div class="modal fade" id="addCatForm" role="dialog">
+    <div class="modal-dialog">
     
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form" action="/admin/categories/add" method="post" id="aForm">
+            <div class="form-group">
+                <label>Tên mặt hàng</label>
+                <input type="text" class="form-control" placeholder="Tên sản phẩm" name="name" id="txtName">
+            </div>
+            <button type="submit" class="btn btn-success" id="btnAdd" ><span class="glyphicon glyphicon-save"></span>Thêm</button>
+        </form>
+        </div>
+      </div>
+      
+    </div>
+  </div>
