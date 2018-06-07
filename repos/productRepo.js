@@ -49,8 +49,8 @@ module.exports.loadByPopular = () => {
 }
 
 module.exports.add = (prod) => {
-	var sql = `insert into sanpham (maloai, mathuonghieu, ten, xuatxu, gia, chatlieu, kichthuoc, trongluong, soluong) 
-	values(${prod.catID}, ${prod.supID}, '${prod.Name}', '${prod.Org}', ${prod.Price}, '${prod.Material}', ${prod.Size}, ${prod.Weight}, ${prod.Quant})`;
+	var sql = `insert into sanpham (maloai, mathuonghieu, ten)  
+	values(${prod.lsp}, ${prod.th}, '${prod.tensp}')`;
 	return db.save(sql);
 }
 
@@ -63,4 +63,19 @@ module.exports.update = (prod) => {
 	var sql = `update sanpham set (maloai=${prod.catID}, mathuonghieu=${prod.supID}, ten='${prod.Name}', xuatxu='${prod.Org}',
 	gia=${prod.Price}, chatlieu='${prod.Material}', kichthuoc=${prod.Size}, trongluong=${prod.Weight}, soluong=${prod.Quant});`
 	return db.save(sql);
+}
+
+module.exports.single = (id) => {
+    return new Promise((resolve, reject) => {
+        var sql = `select * from sanpham where masanpham=${id}`;
+        db.load(sql).then(rows => {
+            if (rows.length === 0) {
+                resolve(null);
+            } else {
+                resolve(rows[0]);
+            }
+        }).catch(err => {
+            reject(err);
+        });
+    });
 }

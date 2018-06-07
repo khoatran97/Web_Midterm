@@ -86,7 +86,7 @@
                                         <td>{{masanpham}}</td>
                                         <td>{{ten}}</td>
                                         <td class="text-center">
-                                            <a class="btn btn-danger btn-xs" href="admin/products/delete?id={{masanpham}}" role="button">
+                                            <a class="btn btn-danger btn-xs" href="/admin/products/delete?id={{masanpham}}" role="button">
                                                 <span class="glyphicon glyphicon-remove"></span>
                                             </a>
                                             <a class="btn btn-primary btn-xs" href="admin/products/edit?id={{masanpham}}" role="button">
@@ -118,11 +118,11 @@
           <form role="form" action="/admin/products/add" method="post" id="aForm">
             <div class="form-group">
                 <label>Tên mặt hàng</label>
-                <input type="text" class="form-control" placeholder="Tên sản phẩm" name="name" id="txtName">
+                <input type="text" class="form-control" placeholder="Tên sản phẩm" name="tensp" id="txtName">
                 <label>Loại sản phẩm</label>
-                <input type="text" class="form-control" placeholder="Mã loại" name="lsp" id="txtName">
+                <input type="number" class="form-control" placeholder="Mã loại" name="lsp" id="">
                 <label>Thương hiệu</label>
-                <input type="text" class="form-control" placeholder="Mã thương hiệu" name="th" id="txtName">
+                <input type="number" class="form-control" placeholder="Mã thương hiệu" name="th" id="">
             </div>
             <button type="submit" class="btn btn-success" id="btnAdd" ><span class="glyphicon glyphicon-save"></span>Thêm</button>
         </form>

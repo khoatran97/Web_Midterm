@@ -135,6 +135,23 @@ router.post('/products/add', (req, res) => {
 	})
 });
 
+
+router.get('/products/delete', (req, res) => {
+	productRepo.single(req.query.id).then(p => {
+		var vm={
+			layout: 'admin', 
+			product: p
+		}
+        res.render('admin/products/delete', vm);
+    });
+});
+
+router.post('/products/delete', (req, res) => {
+	productRepo.delete(req.body.id).then(rows => {
+		res.redirect('/admin/products');
+	})
+});
+
 /*********************Thương hiệu**************************/
 router.get('/suppliers', (req, res) => {
 	brandRepo.loadAll().then(rows => {
