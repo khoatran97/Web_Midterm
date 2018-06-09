@@ -11,7 +11,9 @@
               dangerMode: true,
             })
             .then((willDel) => {
+            if (willDel) {
               $('#delForm').submit();
+              }
             });
         });
     </script>
@@ -45,7 +47,8 @@
                                             <label>Tên loại</label>
                                             <input type="text" class="form-control" value='{{tenloai}}' placeholder="Tên thương hiệu" name="name" id="txtName" readonly>
                                         </div>
-                                        <button type="submit" class="btn btn-danger" id="btnSub"><span class="glyphicon glyphicon-remove"></span>Xóa</button>
+                                        <span><button type="submit" class="btn btn-danger" id="btnSub"><span class="glyphicon glyphicon-remove"></span>Xóa</button></span>
+                                        <span><a class="btn btn-default" href="/admin/categories" role="button" data-toggle="modal">Cancel</a></span>
                                     </form>
                                     {{/with}}
                                 </div>
