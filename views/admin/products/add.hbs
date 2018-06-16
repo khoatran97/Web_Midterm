@@ -1,0 +1,95 @@
+{{#section 'a_js'}}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        $("#btnSub").click(function(e){
+            e.preventDefault();
+            swal({
+              title: "Bạn đã chắc chắn?",
+              text: "Bạn có thực sự muốn thay đổi thông tin này?",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+            })
+            .then((willUpdate) => {
+              if (willUpdate) {
+                  if($('#txtName').val().length!=0){
+                    $('#eForm').submit();
+                }else{
+                    swal("Cảnh báo!", "Hãy điền đầy đủ thông tin trước khi nhấn cập nhật!", "warning");
+                }
+              }
+            });
+        });
+    </script>
+{{/section}}
+
+<div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header">Thêm sản phẩm</h3>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Thông tin chi tiết
+                        </div>
+                        <div class="panel-body">
+                        
+                            <div class="row">
+                                <div class="col-lg-9">
+                                    <form role="form" action="" method="post" id="eForm">
+                                        <div class="form-group">
+                                            <label>Tên sản phẩm</label>
+                                            <input type="text" class="form-control" name="" value="" placeholder="Tên sản phẩm" id="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Loại sản phẩm</label>
+                                            <input type="number" class="form-control" value="" placeholder="Mã sản phẩm" name="" id="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Thương hiệu</label>
+                                            <input type="number" class="form-control" value="" placeholder="Mã thương hiệu" name="" id="txtName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Xuất xứ</label>
+                                            <input type="text" class="form-control" value="" placeholder="Nơi xuất xứ" name="" id="txtName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Giá sản phẩm</label>
+                                            <input type="number" class="form-control" value="" placeholder="Giá" name="" id="txtName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Chất liệu sản phẩm</label>
+                                            <input type="text" class="form-control" value="" placeholder="Chất liệu" name="" id="txtName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Kích thước sản phẩm</label>
+                                            <input type="number" class="form-control" value="" placeholder="kích thước" name="" id="txtName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Trọng lượng sản phẩm</label>
+                                            <input type="number" class="form-control" value="" placeholder="Trọng lượng" name="" id="txtName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Số lượng sản phẩm</label>
+                                            <input type="number" class="form-control" value="" placeholder="Số lượng" name="" id="txtName">
+                                        </div>
+                                        <button type="submit" class="btn btn-success" id="btnSub"><span class="glyphicon glyphicon-save"></span>Thêm</button>
+                                        <span><a class="btn btn-default" href="/admin/products" role="button" data-toggle="modal">Cancel</a></span>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->

@@ -129,10 +129,11 @@ router.get('/products', (req, res) => {
 	});
 });
 
-router.post('/products/add', (req, res) => {
-	productRepo.add(req.body).then(rows => {
-		res.redirect('/admin/products');
-	})
+router.get('/products/add', (req, res) => {
+	//productRepo.add(req.body).then(rows => {
+	    
+		res.render('admin/products/add',{layout: 'admin'});
+	
 });
 
 
