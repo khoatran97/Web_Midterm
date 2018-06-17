@@ -49,8 +49,8 @@ module.exports.loadByPopular = () => {
 }
 
 module.exports.add = (prod) => {
-	var sql = `insert into sanpham (maloai, mathuonghieu, ten)  
-	values(${prod.lsp}, ${prod.th}, '${prod.tensp}')`;
+	var sql = `insert into sanpham (maloai, mathuonghieu, ten, xuatxu, gia, chatlieu, kichthuoc, trongluong, soluong)  
+	values(${prod.catID}, ${prod.supID}, '${prod.Name}', '${prod.Org}', ${prod.Price}, '${prod.Material}', '${prod.Size}', ${prod.Weight}, ${prod.Quant})`;
 	return db.save(sql);
 }
 
@@ -61,7 +61,7 @@ module.exports.delete = (id) => {
 
 module.exports.update = (prod) => {
 	var sql = `update sanpham set (maloai=${prod.catID}, mathuonghieu=${prod.supID}, ten='${prod.Name}', xuatxu='${prod.Org}',
-	gia=${prod.Price}, chatlieu='${prod.Material}', kichthuoc=${prod.Size}, trongluong=${prod.Weight}, soluong=${prod.Quant});`
+	gia=${prod.Price}, chatlieu='${prod.Material}', kichthuoc='${prod.Size}', trongluong=${prod.Weight}, soluong=${prod.Quant});`
 	return db.save(sql);
 }
 
@@ -80,16 +80,4 @@ module.exports.single = (id) => {
     });
 }
 
-module.exports.loadbrand = () => {
-    var sql = 'select* from thuonghieu'
-   // var sql2 = 'select* from loaisanpham'
-    return db.load(sql);
-}
-
-
-module.exports.loadcategories = () => {
-    //var sql1 = 'select* from thuonghieu'
-    var sql = 'select* from loaisanpham'
-    return db.load(sql);
-}
 
