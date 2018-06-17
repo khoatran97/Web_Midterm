@@ -40,7 +40,9 @@
                         <div class="panel-body">
                         
                             <div class="row">
-                                <div class="col-lg-9">
+                                <div class="col-lg-1">
+                                 </div>
+                                <div class="col-lg-4">
                                     <form role="form" action="" method="post" id="eForm">
                                         <div class="form-group">
                                             <label>Tên sản phẩm</label>
@@ -48,11 +50,20 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Loại sản phẩm</label>
-                                            <input type="number" class="form-control" value="" placeholder="Mã sản phẩm" name="" id="">
+                                                <select name="" id="" class="form-control">
+                                                   {{#each product}}
+                                                   <option value="{{maloai}}">{{temloai}}</option>
+                                                   {{/each}}
+                                                </select>
+                                            
                                         </div>
                                         <div class="form-group">
                                             <label>Thương hiệu</label>
-                                            <input type="number" class="form-control" value="" placeholder="Mã thương hiệu" name="" id="txtName">
+                                            <select name="" id="" class="form-control">
+                                                   {{#each product}}
+                                                   <option value="{{mathuonghieu}}">{{tenthuonghieu}}</option>
+                                                   {{/each}}
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Xuất xứ</label>
@@ -62,25 +73,36 @@
                                             <label>Giá sản phẩm</label>
                                             <input type="number" class="form-control" value="" placeholder="Giá" name="" id="txtName">
                                         </div>
+                                    </from>
+                                </div>
+                                <div class="col-lg-2">
+                                </div>
+                                <div class="col-lg-4">
+                                    <form role="form" action="" method="post" id="eForm">
                                         <div class="form-group">
                                             <label>Chất liệu sản phẩm</label>
                                             <input type="text" class="form-control" value="" placeholder="Chất liệu" name="" id="txtName">
                                         </div>
                                         <div class="form-group">
                                             <label>Kích thước sản phẩm</label>
-                                            <input type="number" class="form-control" value="" placeholder="kích thước" name="" id="txtName">
+                                            <input type="text" class="form-control" value="" placeholder="kích thước" name="" id="txtName">
                                         </div>
                                         <div class="form-group">
                                             <label>Trọng lượng sản phẩm</label>
-                                            <input type="number" class="form-control" value="" placeholder="Trọng lượng" name="" id="txtName">
+                                            <input type="text" class="form-control" value="" placeholder="Trọng lượng" name="" id="txtName">
                                         </div>
                                         <div class="form-group">
                                             <label>Số lượng sản phẩm</label>
                                             <input type="number" class="form-control" value="" placeholder="Số lượng" name="" id="txtName">
                                         </div>
+                                        <br>
+                                        <br>
+                                        <br>
                                         <button type="submit" class="btn btn-success" id="btnSub"><span class="glyphicon glyphicon-save"></span>Thêm</button>
                                         <span><a class="btn btn-default" href="/admin/products" role="button" data-toggle="modal">Cancel</a></span>
                                     </form>
+                                </div>
+                                <div class="col-lg-1">
                                 </div>
                             </div>
                         </div>

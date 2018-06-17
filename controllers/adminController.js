@@ -130,11 +130,15 @@ router.get('/products', (req, res) => {
 });
 
 router.get('/products/add', (req, res) => {
-	//productRepo.add(req.body).then(rows => {
-	    
-		res.render('admin/products/add',{layout: 'admin'});
-	
+	productRepo.loadbrand().then(rows => {
+	    var vm={
+			layout: 'admin', 
+			product: rows
+		}
+		res.render('admin/products/add',vm);
+	});
 });
+
 
 
 router.get('/products/delete', (req, res) => {

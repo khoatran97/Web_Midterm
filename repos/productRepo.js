@@ -79,3 +79,17 @@ module.exports.single = (id) => {
         });
     });
 }
+
+module.exports.loadbrand = () => {
+    var sql = 'select* from thuonghieu'
+   // var sql2 = 'select* from loaisanpham'
+    return db.load(sql);
+}
+
+
+module.exports.loadcategories = () => {
+    //var sql1 = 'select* from thuonghieu'
+    var sql = 'select* from loaisanpham'
+    return db.load(sql);
+}
+
