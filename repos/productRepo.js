@@ -60,8 +60,8 @@ module.exports.delete = (id) => {
 }
 
 module.exports.update = (prod) => {
-	var sql = `update sanpham set (maloai=${prod.catID}, mathuonghieu=${prod.supID}, ten='${prod.Name}', xuatxu='${prod.Org}',
-	gia=${prod.Price}, chatlieu='${prod.Material}', kichthuoc='${prod.Size}', trongluong=${prod.Weight}, soluong=${prod.Quant});`
+	var sql = `update sanpham set maloai=${prod.catID}, mathuonghieu=${prod.supID}, ten='${prod.Name}', xuatxu='${prod.Org}',
+	gia=${prod.Price}, chatlieu='${prod.Material}', kichthuoc='${prod.Size}', trongluong=${prod.Weight}, soluong=${prod.Quant} where masanpham=${prod.proID}`;
 	return db.save(sql);
 }
 

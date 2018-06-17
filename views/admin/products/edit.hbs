@@ -40,22 +40,64 @@
                         <div class="panel-body">
                         
                             <div class="row">
-                                <div class="col-lg-9">
-                                    {{#with product}}
+                            {{#with product}}
+                                <div class="col-lg-1">
+                                 </div>
+                                <div class="col-lg-4">
                                     <form role="form" action="" method="post" id="eForm">
                                         <div class="form-group">
                                             <label>Mã sản phẩm</label>
-                                            <input type="text" class="form-control" name="id" value='{{maloai}}' readonly>
+                                            <input type="number" class="form-control" name="proID" value='{{masanpham}}' placeholder="" id="">
                                         </div>
                                         <div class="form-group">
                                             <label>Tên sản phẩm</label>
-                                            <input type="text" class="form-control" value='{{tenloai}}' placeholder="Tên thương hiệu" name="name" id="txtName">
+                                            <input type="text" class="form-control" name="Name" value='{{ten}}' placeholder="Tên sản phẩm" id="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Loại sản phẩm</label>
+                                            <input type="text" class="form-control" name="catID" value='{{maloai}}' placeholder="" id="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Thương hiệu</label>
+                                            <input type="text" class="form-control" name="supID" value='{{mathuonghieu}}' placeholder="" id="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Xuất xứ</label>
+                                            <input type="text" class="form-control" value='{{xuatxu}}' placeholder="" name="Org" id="txtName">
+                                        </div>
+                                    </from>
+                                </div>
+                                <div class="col-lg-2">
+                                </div>
+                                <div class="col-lg-4">
+                                    <form role="form" action="" method="post" id="eForm">
+                                        <div class="form-group">
+                                            <label>Giá sản phẩm</label>
+                                            <input type="number" class="form-control" value='{{gia}}' placeholder="Giá" name="Price" id="txtName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Chất liệu sản phẩm</label>
+                                            <input type="text" class="form-control" value='{{chatlieu}}' placeholder="" name="Material" id="txtName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Kích thước sản phẩm</label>
+                                            <input type="text" class="form-control" value='{{kichthuoc}}' placeholder="kích thước" name="Size" id="txtName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Trọng lượng sản phẩm</label>
+                                            <input type="number" class="form-control" value='{{trongluong}}' placeholder="" name="Weight" id="txtName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Số lượng sản phẩm</label>
+                                            <input type="number" class="form-control" value='{{soluong}}' placeholder="Số lượng" name="Quant" id="txtName">
                                         </div>
                                         <button type="submit" class="btn btn-success" id="btnSub"><span class="glyphicon glyphicon-save"></span>Cập nhật</button>
                                         <span><a class="btn btn-default" href="/admin/products" role="button" data-toggle="modal">Cancel</a></span>
                                     </form>
-                                    {{/with}}
                                 </div>
+                                <div class="col-lg-1">
+                                </div>
+                            {{/with}}
                             </div>
                         </div>
                         <!-- /.panel-body -->
@@ -67,3 +109,27 @@
             <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
+
+
+
+
+
+
+         <!--div class="row">
+                                <div class="col-lg-9">
+                                    {{#with product}}
+                                    <form role="form" action="" method="post" id="eForm">
+                                        <div class="form-group">
+                                            <label>Mã sản phẩm</label>
+                                            <input type="text" class="form-control" name="id" value='{{maloai}}' readonly>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Tên sản phẩm</label>
+                                            <input type="text" class="form-control" value='{{ten}}' placeholder="Tên thương hiệu" name="name" id="txtName">
+                                        </div>
+                                        <button type="submit" class="btn btn-success" id="btnSub"><span class="glyphicon glyphicon-save"></span>Cập nhật</button>
+                                        <span><a class="btn btn-default" href="/admin/products" role="button" data-toggle="modal">Cancel</a></span>
+                                    </form>
+                                    {{/with}}
+                                </div>
+                            </div-->
