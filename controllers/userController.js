@@ -105,7 +105,7 @@ router.get('/', (req, res) => {
             res.render('error/index');
             return;
         }
-        res.render('home', {
+        res.render('User/index', {
             brands: result.brands,
             topView: result.topView,
             topSell: result.topSell,
