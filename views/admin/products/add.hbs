@@ -5,7 +5,7 @@
             e.preventDefault();
             swal({
               title: "Bạn đã chắc chắn?",
-              text: "Bạn có thực sự muốn thay đổi thông tin này?",
+              text: "Bạn có thực sự muốn thêm sản phẩm?",
               icon: "warning",
               buttons: true,
               dangerMode: true,
@@ -15,7 +15,7 @@
                   if($('#txtName').val().length!=0){
                     $('#eForm').submit();
                 }else{
-                    swal("Cảnh báo!", "Hãy điền đầy đủ thông tin trước khi nhấn cập nhật!", "warning");
+                    swal("Cảnh báo!", "Hãy điền đầy đủ thông tin trước khi nhấn thêm!", "warning");
                 }
               }
             });
@@ -26,7 +26,7 @@
 <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="page-header">Cập nhật thông tin</h3>
+                    <h3 class="page-header">Thêm sản phẩm</h3>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -40,30 +40,37 @@
                         <div class="panel-body">
                         
                             <div class="row">
-                            {{#with product}}
                                 <div class="col-lg-1">
                                  </div>
                                 <div class="col-lg-4">
                                     <form role="form" action="" method="post" id="eForm">
                                         <div class="form-group">
-                                            <label>Mã sản phẩm</label>
-                                            <input type="number" class="form-control" name="proID" value='{{masanpham}}' placeholder="" id="">
-                                        </div>
-                                        <div class="form-group">
                                             <label>Tên sản phẩm</label>
-                                            <input type="text" class="form-control" name="Name" value='{{ten}}' placeholder="Tên sản phẩm" id="">
+                                            <input type="text" class="form-control" name="Name" value="" placeholder="Tên sản phẩm" id="">
                                         </div>
                                         <div class="form-group">
                                             <label>Loại sản phẩm</label>
-                                            <input type="text" class="form-control" name="catID" value='{{maloai}}' placeholder="" id="">
+                                            <select name="catID" id="" class="form-control">
+                                                {{#each cat}}
+                                                    <option value="{{maloai}}">{{tenloai}}</option>
+                                                {{/each}}
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Thương hiệu</label>
-                                            <input type="text" class="form-control" name="supID" value='{{mathuonghieu}}' placeholder="" id="">
+                                            <select name="supID" id="" class="form-control">
+                                                {{#each brand}}
+                                                    <option value="{{mathuonghieu}}">{{tenthuonghieu}}</option>
+                                                {{/each}}
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Xuất xứ</label>
-                                            <input type="text" class="form-control" value='{{xuatxu}}' placeholder="" name="Org" id="txtName">
+                                            <input type="text" class="form-control" value="" placeholder="Nơi xuất xứ" name="Org" id="txtName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Giá sản phẩm</label>
+                                            <input type="number" class="form-control" value="" placeholder="Giá" name="Price" id="txtName">
                                         </div>
                                     </from>
                                 </div>
@@ -72,32 +79,30 @@
                                 <div class="col-lg-4">
                                     <form role="form" action="" method="post" id="eForm">
                                         <div class="form-group">
-                                            <label>Giá sản phẩm</label>
-                                            <input type="number" class="form-control" value='{{gia}}' placeholder="Giá" name="Price" id="txtName">
-                                        </div>
-                                        <div class="form-group">
                                             <label>Chất liệu sản phẩm</label>
-                                            <input type="text" class="form-control" value='{{chatlieu}}' placeholder="" name="Material" id="txtName">
+                                            <input type="text" class="form-control" value="" placeholder="Chất liệu" name="Material" id="txtName">
                                         </div>
                                         <div class="form-group">
                                             <label>Kích thước sản phẩm</label>
-                                            <input type="text" class="form-control" value='{{kichthuoc}}' placeholder="kích thước" name="Size" id="txtName">
+                                            <input type="text" class="form-control" value="" placeholder="kích thước" name="Size" id="txtName">
                                         </div>
                                         <div class="form-group">
                                             <label>Trọng lượng sản phẩm</label>
-                                            <input type="number" class="form-control" value='{{trongluong}}' placeholder="" name="Weight" id="txtName">
+                                            <input type="number" class="form-control" value="" placeholder="Trọng lượng" name="Weight" id="txtName">
                                         </div>
                                         <div class="form-group">
                                             <label>Số lượng sản phẩm</label>
-                                            <input type="number" class="form-control" value='{{soluong}}' placeholder="Số lượng" name="Quant" id="txtName">
+                                            <input type="number" class="form-control" value="" placeholder="Số lượng" name="Quant" id="txtName">
                                         </div>
-                                        <button type="submit" class="btn btn-success" id="btnSub"><span class="glyphicon glyphicon-save"></span>Cập nhật</button>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <button type="submit" class="btn btn-success" id="btnSub"><span class="glyphicon glyphicon-save"></span>Thêm</button>
                                         <span><a class="btn btn-default" href="/admin/products" role="button" data-toggle="modal">Cancel</a></span>
                                     </form>
                                 </div>
                                 <div class="col-lg-1">
                                 </div>
-                            {{/with}}
                             </div>
                         </div>
                         <!-- /.panel-body -->
@@ -109,27 +114,3 @@
             <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
-
-
-
-
-
-
-         <!--div class="row">
-                                <div class="col-lg-9">
-                                    {{#with product}}
-                                    <form role="form" action="" method="post" id="eForm">
-                                        <div class="form-group">
-                                            <label>Mã sản phẩm</label>
-                                            <input type="text" class="form-control" name="id" value='{{maloai}}' readonly>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Tên sản phẩm</label>
-                                            <input type="text" class="form-control" value='{{ten}}' placeholder="Tên thương hiệu" name="name" id="txtName">
-                                        </div>
-                                        <button type="submit" class="btn btn-success" id="btnSub"><span class="glyphicon glyphicon-save"></span>Cập nhật</button>
-                                        <span><a class="btn btn-default" href="/admin/products" role="button" data-toggle="modal">Cancel</a></span>
-                                    </form>
-                                    {{/with}}
-                                </div>
-                            </div-->

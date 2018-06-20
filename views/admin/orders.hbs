@@ -9,14 +9,18 @@
     <script>
         $('#myTable tr').each(function(){
             var status = $(this).find('td:eq(3)').html();
+            var ct=$(this).find('td:eq(0)').text();
             if(status === "chưa giao"){
                 $(this).css("color", "red");
+                $(this).find('td:eq(0)').html('<a href="/admin/orders/edit?id='+ct+'"><img src="/admin/image/notyet.png" alt="">  '+ct+'</a>');
             }
             else if(status === "đang giao"){
                 $(this).css("color", "blue");
+                $(this).find('td:eq(0)').html('<a href="/admin/orders/edit?id='+ct+'"><img src="/admin/image/shipping.png" alt="">  '+ct+'</a>');
             }
             else if(status === "đã giao"){
                 $(this).css("color", "green");
+                $(this).find('td:eq(0)').html('<a href="/admin/orders/edit?id='+ct+'"><span class="glyphicon glyphicon-ok"></span>  '+ct+'</a>');
             }
         })
     </script>

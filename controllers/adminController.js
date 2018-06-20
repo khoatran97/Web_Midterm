@@ -129,12 +129,22 @@ router.get('/products', (req, res) => {
 	});
 });
 
+router.get('/products/add', (req, res) => {
+	var b=brandRepo.loadAll();
+	var c=categoryRepo.loadAll();
+	Promise.all([b, c]).then(([brand, cat]) => {
+		res.render('admin/products/add',{layout: 'admin', brand: brand, cat:cat});
+	})
+	
+});
+
+
 router.post('/products/add', (req, res) => {
 	productRepo.add(req.body).then(rows => {
 		res.redirect('/admin/products');
-	})
+	});
+	
 });
-
 
 router.get('/products/delete', (req, res) => {
 	productRepo.single(req.query.id).then(p => {
@@ -151,6 +161,23 @@ router.post('/products/delete', (req, res) => {
 		res.redirect('/admin/products');
 	})
 });
+
+router.get('/products/edit', (req, res) => {
+	productRepo.single(req.query.id).then(p => {
+		var vm={
+			layout: 'admin', 
+			product: p
+		}
+        res.render('admin/products/edit', vm);
+    });
+});
+
+router.post('/products/edit', (req, res) => {
+	productRepo.update(req.body).then(rows => {
+		res.redirect('/admin/products');
+	});
+});
+
 
 /*********************Thương hiệu**************************/
 router.get('/suppliers', (req, res) => {
