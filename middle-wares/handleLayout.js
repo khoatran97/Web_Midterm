@@ -7,13 +7,14 @@ module.exports = (req, res, next) => {
     categoryRepo.loadAll().then(rows => {
         res.locals.layoutVM = {
             categories: rows,
-            isLogged: req.session.isLogged,
+            isLogged: true,
             curUser: req.session.user,
             cart: req.session.cart
         };
         if(req.session.user!=null && req.session.user.quyenhan===1){
             res.locals.isAdmin=true
         };
+        console.log(res.locals.layoutVM);
 	next();
     });
 };

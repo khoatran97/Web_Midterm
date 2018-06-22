@@ -2114,3 +2114,17 @@ select option
 {
 	margin-right: 0px;
 }
+
+#but{
+	background-color: #0e8ce4;
+	color: white;
+	height: 50px;
+	width: 200px;
+	font-size: 18px;
+	border: none;
+	border-radius: 5px;
+}
+
+#but:hover{
+	background-color: #3ea3e9;
+}

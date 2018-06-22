@@ -8,7 +8,8 @@
 {{/section}} 
 
 {{#section 'js'}}
-<script src="/js/product_custom.js"></script> 
+<script src="../js/product_custom.js"></script> 
+<script src="../js/jsAccount/script_Chi_tiet"></script> 
 {{/section}}
 
 <div class="single_product">
@@ -18,22 +19,22 @@
             <!-- Images -->
             <div class="col-lg-2 order-lg-1 order-2">
                 <ul class="image_list">
+                    <li data-image="../Hinh_anh/San_pham/{{masanpham}}.jpg">
+                        <img name="Hinh" src="../Hinh_anh/San_pham/{{masanpham}}.jpg" alt="">
+                    </li>
+                    <li data-image="../Hinh_anh/San_pham/{{masanpham}}.jpg">
+                        <img name="Hinh" src="../Hinh_anh/San_pham/{{masanpham}}.jpg" alt="">
+                    </li>
                     <li data-image="Hinh_anh/San_pham/{{masanpham}}.jpg">
-                        <img name="Hinh" src="Hinh_anh/San_pham/{{masanpham}}.jpg" alt="">
-                    </li>
-                    <li data-image="Hinh_anh/San_pham/{{masanpham}}_1.jpg">
-                        <img name="Hinh" src="Hinh_anh/San_pham/{{masanpham}}_1.jpg" alt="">
-                    </li>
-                    <li data-image="Hinh_anh/San_pham/{{masanpham}}_2.jpg">
-                        <img name="Hinh" src="Hinh_anh/San_pham/{{masanpham}}_2.jpg" alt="">
+                        <img name="Hinh" src="../Hinh_anh/San_pham/{{masanpham}}.jpg" alt="">
                     </li>
                 </ul>
             </div>
-
+            
             <!-- Selected Image -->
             <div class="col-lg-5 order-lg-2 order-1">
                 <div class="image_selected">
-                    <img name="Hinh" src="Hinh_anh/San_pham/{{masanpham}}.jpg" alt="">
+                    <img name="Hinh" src="../Hinh_anh/San_pham/{{masanpham}}.jpg" alt="">
                 </div>
             </div>
 
@@ -99,6 +100,9 @@
                             <div class="button_container" id="bton">
                             </div>
 
+                            <div class="product_extras">
+                               <button id="but" class="product_cart_button" onclick=" alert('Thêm vào giỏ hàng thành công!');">Thêm vào giỏ</button>
+                            </div>
                         </form>
                     </div>
                 </div>
