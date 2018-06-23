@@ -13,6 +13,23 @@
 {{#section 'js'}}
     <script src="/plugins/slick-1.8.0/slick.js"></script>
     <script src="/js/custom.js"></script>
+    <script>
+    function addCart(a,b,c,d,e,f){
+        var pro = [a,b,c,d,e,f];
+        sessionStorage.setItem(a, JSON.stringify(pro));
+        var sum = 0;
+        for(var i = 0; i < document.getElementById('Sumproduct').value; i++)
+        {
+            if (sessionStorage.getItem(i) != null)
+            {
+                sum++;
+            }
+        }
+    
+        document.getElementById("sl").innerHTML = sum;
+    }
+</script> 
+
 {{/section}}
 <!-- Header Main -->
 
@@ -215,11 +232,15 @@
                                             <div class="product_price discount">{{number_format gia}}</div>
                                             <div class="product_name">
                                                 <div>
-                                                    <a href="/Chi_tiet?Ma={{masanpham}}">{{ten}}</a>
+                                                    <a href="/account/Chi_tiet?Ma={{masanpham}}">{{ten}}</a>
                                                 </div>
                                             </div>
                                             <div class="product_extras">
-                                                <button class="product_cart_button" onclick="sessionStorage.setItem(); alert('Thêm vào giỏ hàng thành công!');">Thêm vào giỏ</button>
+                                            
+                                                <button class="product_cart_button" onclick="
+                                                addCart({{masanpham}},'{{ten}}','{{chatlieu}}','{{xuatxu}}',{{gia}},1);
+                                                alert('Thêm vào giỏ hàng thành công!');">Thêm vào giỏ</button>
+
                                             </div>
                                         </div>
                                     </div>

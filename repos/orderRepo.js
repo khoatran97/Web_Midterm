@@ -30,3 +30,13 @@ module.exports.loadDetail = (id) => {
     and sd.masanpham=s.masanpham`;
     return db.load(sql);
 }
+
+module.exports.add = (a) => {
+    var sql = `insert into donhang(makhachhang,magiaodich,ngaydat,tonggiatri,trangthai) values (${a.user1},null,now(),${a.Sum},0)`;
+    return db.save(sql);
+}
+
+module.exports.max = (id) => {
+    var sql = `SELECT MAX(madon) as m FROM donhang`;
+    return db.load(sql);
+}

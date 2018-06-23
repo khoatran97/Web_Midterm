@@ -14,7 +14,9 @@
 	<link rel="stylesheet" type="text/css" href="/guestPages/css/style.css"> 
 	{{{_sections.css}}}
 </head>
-
+	{{#if layoutVM.Sumproduct}}
+		<input id="Sumproduct" type="hidden" name="" value="{{layoutVM.Sumproduct}}" >>
+	{{/if}}
 <body>
 
 	<div class="super_container">
@@ -123,7 +125,11 @@
 						<div class="col-lg-2 col-sm-3 col-3 order-1">
 							<div class="logo_container">
 								<div class="logo">
-									<a href="/">iBags</a>
+									{{#if layoutVM.isLogged}}
+										<a href="/account/">iBags</a>
+									{{else}}
+										<a href="/">iBags</a>
+									{{/if}}
 								</div>
 							</div>
 						</div>
@@ -201,7 +207,7 @@
 									<div class="cart_icon">
 										<img src="/Hinh_anh/Giao_dien/cart.png" alt="">
 										<div class="cart_count">
-											<span>{{layoutVM.cart.length}}</span>
+											<span id="sl"></span>
 										</div>
 									</div>
 									<div class="cart_content">
@@ -269,9 +275,15 @@
 								<div class="main_nav_menu ml-auto">
 									<ul class="standard_dropdown main_nav_dropdown">
 										<li>
-											<a href="#">Trang chủ
-												<i class="fas fa-chevron-down"></i>
-											</a>
+											{{#if layoutVM.isLogged}}
+												<a href="/account/">Trang chủ
+													<i class="fas fa-chevron-down"></i>
+												</a>
+											{{else}}
+												<a href="/">Trang chủ
+													<i class="fas fa-chevron-down"></i>
+												</a>
+											{{/if}}
 										</li>
 										<li>
 											<a href="#">Giá sốc
@@ -327,15 +339,19 @@
 									<p>để cập nhật thông tin nhanh nhất</p>
 								</div>
 							</div>
+							{{#if layoutVM.isLogged}}
+
+							{{else}}
 							<div class="newsletter_content clearfix">
-								<form action="#" class="newsletter_form">
+								<div class="newsletter_form">
 									<input type="email" class="newsletter_input" required="required" placeholder="Nhập e-mail của bạn">
 									<button class="newsletter_button">Đăng ký</button>
-								</form>
+								</div>
 								<div class="newsletter_unsubscribe_link">
 									<a href="#">Huỷ đăng ký</a>
 								</div>
 							</div>
+							{{/if}}
 						</div>
 					</div>
 				</div>
@@ -480,6 +496,7 @@
 	<script src="/plugins/greensock/ScrollToPlugin.min.js"></script>
 	<script src="/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
 	<script src="/plugins/easing/easing.js"></script>
+	<script src="/js/account.js"></script>
 	<script>
 		$('#logOut').on('click', function () {
 			$('#frmLogout').submit();

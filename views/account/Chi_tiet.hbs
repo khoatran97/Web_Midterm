@@ -9,7 +9,25 @@
 
 {{#section 'js'}}
 <script src="../js/product_custom.js"></script> 
-<script src="../js/jsAccount/script_Chi_tiet"></script> 
+<script src="../js/jsAccount/script_Chi_tiet.js"></script> 
+<script>
+    function addCart(a,b,c,d,e,f){
+        var pro = [a,b,c,d,e,f];
+        sessionStorage.setItem(a, JSON.stringify(pro));
+      
+        var sum = 0;
+        for(var i = 0; i < document.getElementById('Sumproduct').value; i++)
+        {
+            if (sessionStorage.getItem(i) != null)
+            {
+                sum++;
+            }
+        }
+    
+        document.getElementById("sl").innerHTML = sum;
+    }
+</script> 
+
 {{/section}}
 
 <div class="single_product">
@@ -52,7 +70,7 @@
                     </div>
                     <div class="product_text" id="Mo_ta"></div>
                     <div class="order_info d-flex flex-row">
-                        <form action="#">
+                        <form method ="post" action="">
                             <div class="clearfix" style="z-index: 1000;">
 
                                 <!-- Product Quantity -->
@@ -101,9 +119,13 @@
                             </div>
 
                             <div class="product_extras">
-                               <button id="but" class="product_cart_button" onclick=" alert('Thêm vào giỏ hàng thành công!');">Thêm vào giỏ</button>
+                               <button id="but" class="product_cart_button" type="submit" onclick="
+                               addCart({{masanpham}},'{{ten}}','{{chatlieu}}','{{xuatxu}}',{{gia}},document.getElementById('quantity_input').value);
+                               alert('Thêm vào giỏ hàng thành công!');
+                               ">Thêm vào giỏ</button>
                             </div>
-                        </form>
+                        <form>
+                        
                     </div>
                 </div>
             </div>
@@ -137,7 +159,7 @@
                         <div class="owl-item">
                             <div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
                                 <div class="viewed_image">
-                                    <img src="Hinh_anh/San_pham/{{masanpham}}.jpg" alt="{{ten}}">
+                                    <img src="../Hinh_anh/San_pham/{{masanpham}}.jpg" alt="{{ten}}">
                                 </div>
                                 <div class="viewed_content text-center">
                                     <div class="viewed_price">{{number_format gia}}
@@ -182,7 +204,7 @@
                         <div class="owl-item">
                             <div class="viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
                                 <div class="viewed_image">
-                                    <img src="Hinh_anh/San_pham/{{masanpham}}.jpg" alt="{{ten}}">
+                                    <img src="../Hinh_anh/San_pham/{{masanpham}}.jpg" alt="{{ten}}">
                                 </div>
                                 <div class="viewed_content text-center">
                                     <div class="viewed_price">{{number_format gia}}</div>

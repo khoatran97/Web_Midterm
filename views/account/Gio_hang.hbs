@@ -4,7 +4,7 @@
 
 {{#section 'css'}}
     <link rel="stylesheet" type="text/css" href="/plugins/slick-1.8.0/slick.css">
-    <link rel="stylesheet" type="text/css" href="/styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="/styles/shop_styles.css">
     <link rel="stylesheet" type="text/css" href="/styles/responsive.css"> 
     <link rel="stylesheet" type="text/css" href="/guestPages/css/style.css">
 	<link rel="stylesheet" type="text/css" href="/UserPages/styleGioHang.css">
@@ -12,10 +12,26 @@
 
 {{#section 'js'}}
     <script src="/plugins/slick-1.8.0/slick.js"></script>
-    <script src="/js/custom.js"></script>
+	<script src="/js/jsAccount/script_Gio_hang.js"></script>
+	<script>
+		function resetSes(){
+	        for (var i = 0; i<document.getElementById('Sumproduct').value; i++) {
+	            sessionStorage.removeItem(i);
+	        }
+    	}
+    	function update(a,b,c,d,e){
+	        var f = document.getElementById('slPro').value;
+	        console.log(f);
+	        var pro = [a,b,c,d,e,f];
+	        sessionStorage.setItem(a, JSON.stringify(pro));
+	        location.reload();
+	    }
+
+	</script>
 {{/section}}
 
 <div class="container" style="margin-top: 50px; ">
+	<form method="post" action="" id="frmGiohang">
 		<div class="row">
 			<div class="col-lg-9" style="background-color: #f9f9f9;" id="GioHang">
 				
@@ -23,9 +39,10 @@
 			<div class="col-lg-3" id="Money" style="background-color: #fdfdfd">
 				<div id="TT"></div>
 				<div id="ThT"></div>
-				<button> Đặt hàng</button>
+				<button type="submit" onclick="resetSes()"> Đặt hàng</button>
 			</div>
 		</div>
+	<form>
 	</div>
 		<!-- Brands -->
 

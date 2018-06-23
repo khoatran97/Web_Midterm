@@ -8,7 +8,9 @@ var restrict = require('../middle-wares/restrict');
 var router = express.Router();
 
 var brandRepo = require('../repos/brandRepo');
-var productRepo = require('../repos/productRepo');
+    productRepo = require('../repos/productRepo');
+    pro_BillRepo = require('../repos/pro_BillRepo');
+    order = require('../repos/orderRepo')
 
 var isReady = false;
 
@@ -125,6 +127,13 @@ router.get('/Chi_tiet/', (req, res) => {
         return;
     }
     loadDetail(req.query.Ma).then((result) => {
+        productRepo.loadById(req.query.Ma).then(row => {
+            var v = {
+                view: row[0].luotxem + 1,
+                proID: row[0].masanpham
+            };
+            productRepo.updateView(v);
+        })
         res.render('account/Chi_tiet', {
             product: result.product,
             sameBrands: result.sameBrands,
@@ -138,7 +147,7 @@ router.get('/Tat_ca/', (req, res) => {
         res.render('account/Tat_ca', {
             brands: result.brands,
             products: result.products,
-            countProduct: result.products.lenght
+            countProduct: result.products.length
         });
     })
 });
@@ -222,13 +231,12 @@ router.post('/login',(req,res) => {
             req.session.cart = [];
             
            // localStorage.setItem('isLogged',true);
-
+           console.log(req.session);
 
             var url = '/';
             if (req.query.retUrl) {
                url = req.query.retUrl;
             }
-            console.log(req.session);
             res.redirect(url);
            
 
@@ -278,5 +286,48 @@ router.post('/profile', (req, res) => {
         });
     })
 });
+
+router.post('/Chi_tiet',(req, res) => {
+    res.redirect(req.headers.referer);
+});
+
+router.post('/Gio_hang',(req, res) => {
+    
+    var donhang = {
+        user1: 1,
+        Sum: req.body.money,
+    };
+
+    order.add(donhang);
+    order.max().then( result => {
+        var pro_Qua = {
+            madon: result[0].m,
+            pro: req.body.proID,
+            Qua: req.body.proQua
+        };
+        for(var i = 0; i < pro_Qua.pro.length;i++)
+        {
+            var pro_Qua1 = {
+                madon: pro_Qua.madon,
+                pro: pro_Qua.pro[i],
+                proQua: pro_Qua.Qua[i]
+            };
+            productRepo.loadById(pro_Qua1.pro).then( row =>{
+                var up = {
+                    QuatBuy: parseInt(row[0].luotmua) +parseInt( pro_Qua1.proQua),
+                    Quant: parseInt(row[0].soluong) - parseInt(pro_Qua1.proQua),
+                    proID: pro_Qua1.pro
+                };
+                console.log(up);
+                productRepo.updateQua(up);
+                pro_BillRepo.add(pro_Qua1); 
+            });             
+        }
+    });
+
+    res.redirect(req.headers.referer);
+
+});
+
 
 module.exports.router = router;

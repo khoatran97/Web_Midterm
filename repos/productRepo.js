@@ -65,6 +65,18 @@ module.exports.update = (prod) => {
 	return db.save(sql);
 }
 
+
+module.exports.updateQua = (pro) => {
+    var sql = `update sanpham set soluong=${pro.Quant}, luotmua=${pro.QuatBuy}  where masanpham=${pro.proID}`;
+    return db.save(sql);
+}
+
+module.exports.updateView = (pro) => {
+    var sql = `update sanpham set luotxem=${pro.view} where masanpham=${pro.proID}`;
+    return db.save(sql);
+}
+
+
 module.exports.single = (id) => {
     return new Promise((resolve, reject) => {
         var sql = `select * from sanpham where masanpham=${id}`;
