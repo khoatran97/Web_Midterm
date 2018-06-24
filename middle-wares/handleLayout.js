@@ -12,7 +12,7 @@ module.exports = (req, res, next) => {
     categoryRepo.loadAll().then(rows => {
         res.locals.layoutVM = {
             categories: rows,
-            isLogged: true,
+            isLogged: req.session.isLogged,
             curUser: req.session.user,
             cart: req.session.cart,
             Sumproduct: req.session.Sumproduct
