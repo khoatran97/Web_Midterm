@@ -153,7 +153,9 @@ router.get('/Tat_ca/', (req, res) => {
 });
 
 router.get('/History', (req, res) => {
-    order.loadbyUser(1).then (row =>{
+    // Cái loadbyUser() là load dữ liệu theo mã thành viên,
+    // truyền vào phải là mã thành viên đang đăng nhập
+    order.loadbyUser(req.session.user.mathanhvien).then (row =>{
         res.render('account/History',{
             his: row
         });
@@ -309,8 +311,10 @@ router.post('/Chi_tiet',(req, res) => {
 
 router.post('/Gio_hang',(req, res) => {
     
+
+    // user1 truyền vào là mã thành viên đang đăng nhập
     var donhang = {
-        user1: 1,
+        user1: req.session.user.mathanhvien,
         Sum: req.body.money,
     };
 
