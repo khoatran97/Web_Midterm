@@ -6,7 +6,7 @@ module.exports.loadAll = () => {
 }
 
 module.exports.loadById = (id) => {
-    var sql = `select * from sanpham where masanpham = ` + id;
+    var sql = `select * from sanpham p, thuonghieu b, loaisanpham c where masanpham = ` + id + ` and p.mathuonghieu=b.mathuonghieu and p.maloai=c.maloai`;
     return db.load(sql);
 }
 
@@ -48,9 +48,14 @@ module.exports.loadByPopular = () => {
     return db.load(sql);
 }
 
+module.exports.loadByNew = () => {
+    var sql = `select * from sanpham order by ngaynhap desc, luotxem desc limit 10`
+    return db.load(sql);
+}
+
 module.exports.add = (prod) => {
-	var sql = `insert into sanpham (maloai, mathuonghieu, ten, xuatxu, gia, chatlieu, kichthuoc, trongluong, soluong)  
-	values(${prod.catID}, ${prod.supID}, '${prod.Name}', '${prod.Org}', ${prod.Price}, '${prod.Material}', '${prod.Size}', ${prod.Weight}, ${prod.Quant})`;
+	var sql = `insert into sanpham (maloai, mathuonghieu, ten, xuatxu, gia, chatlieu, kichthuoc, trongluong, soluong, ngaynhap)  
+	values(${prod.catID}, ${prod.supID}, '${prod.Name}', '${prod.Org}', ${prod.Price}, '${prod.Material}', '${prod.Size}', ${prod.Weight}, ${prod.Quant}, CURDATE())`;
 	return db.save(sql);
 }
 

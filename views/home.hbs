@@ -351,7 +351,28 @@
 							<!-- Product Panel -->
 							<div class="product_panel panel active">
 								<div class="arrivals_slider slider" id="Hang_moi_ve">
+									{{#each newest}}
+									<!-- Slider Item -->
+										<div class="arrivals_slider_item">
+											<div class="border_active"></div>
+											<div class="product_item is_new d-flex flex-column align-items-center justify-content-center text-center">
+												<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="Hinh_anh/San_pham/{{masanpham}}.jpg" alt="{{ten}}"></div>
+												<div class="product_content">
+													<div class="product_price">{{gia}}</div>
+													<div class="product_name"><div><a href="Chi_tiet?Ma={{masanpham}}">{{ten}}</a></div></div>
+												</div>
+												<div class="product_fav"><i class="fas fa-heart"></i></div>
+												<ul class="product_marks">
+													<li class="product_mark product_discount">-25%</li>
+													<li class="product_mark product_new">new</li>
+												</ul>
+												<div class="product_extras">
+												<button class="product_cart_button" onclick="sessionStorage.setItem(); alert('Thêm vào giỏ hàng thành công!');">Thêm vào giỏ</button>
+											</div>
+											</div>
+										</div>
 
+									{{/each}}
 								</div>
 							</div>
 

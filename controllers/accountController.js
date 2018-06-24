@@ -251,7 +251,7 @@ router.post('/login',(req,res) => {
            // localStorage.setItem('isLogged',true);
            console.log(req.session);
 
-            var url = '/';
+            var url = '/account';
             if (req.query.retUrl) {
                url = req.query.retUrl;
             }
