@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+f<!DOCTYPE html>
 <html lang="vi">
 <head>
 	<title>{{{_sections.title}}}</title>
@@ -15,7 +15,7 @@
 	{{{_sections.css}}}
 </head>
 	{{#if layoutVM.Sumproduct}}
-		<input id="Sumproduct" type="hidden" name="" value="{{layoutVM.Sumproduct}}" >>
+		<input id="Sumproduct" type="hidden" name="" value="{{layoutVM.Sumproduct}}" >
 	{{/if}}
 <body>
 
@@ -98,7 +98,7 @@
 										</ul>
 									</div>
 									<div id="logOut">
-										<a href="javascript:;">Đăng xuất</a>
+										<a href="javascript:;" onclick="resetSes();">Đăng xuất</a>
 									</div>
 									{{else}}
 									<div>
@@ -140,7 +140,7 @@
 								<div class="header_search_content">
 									<div class="header_search_form_container">
 										<form action="#" class="header_search_form clearfix">
-											<input type="search" required="required" class="header_search_input" placeholder="Tìm sản phẩm">
+											<input id="search" type="search" required="required" class="header_search_input" placeholder="Tìm sản phẩm">
 											<div class="custom_dropdown">
 												<div class="custom_dropdown_list">
 													<span class="custom_dropdown_placeholder clc">Tất cả</span>
@@ -502,6 +502,15 @@
 			$('#frmLogout').submit();
 		});
 	</script> 
+	<script type="text/javascript">
+		function resetSes(){
+	        for (var i = 0; i<document.getElementById('Sumproduct').value; i++) {
+	            sessionStorage.removeItem(i);
+	        }
+    	}
+	</script>
+	
+
 	{{{_sections.js}}}
 </body>
 

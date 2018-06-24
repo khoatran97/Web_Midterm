@@ -68,6 +68,15 @@
                         <i></i>
                         <i></i>
                     </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <b>Lượt mua: {{luotmua}}</b>
+                        </div>
+                        <div class="col-sm-6">
+                            <b>Lượt xem: {{luotxem}}</b>
+                        </div>
+                    </div>
+                    <hr>
                     <div class="product_text" id="Mo_ta"></div>
                     <div class="order_info d-flex flex-row">
                         <form method ="post" action="">
@@ -114,7 +123,24 @@
 
                             </div>
 
-                            <div class="product_price" id="Gia">{{number_format gia}}</div>
+                            <div class="product_price" id="Gia">Gía: <font color="red">{{number_format gia}}</font></div>
+                            <hr>
+                            
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <b>Mô tả:</b>
+                                    <li>Chất liệu: {{chatlieu}}</li>
+                                    <li>Kích thước: {{kichthuoc}}</li>
+                                    <li>Trọng lượng: {{trongluong}}</li>
+                                </div>
+                                <div class="col-sm-6">
+                                <br>
+                                    <li><b>Xuất xứ:</b> {{xuatxu}}</li>
+                                    <li><b>Loại:</b> {{tenloai}}</li>
+                                    <li><b>Thương hiệu:</b> {{tenthuonghieu}}</li>
+                                </div>
+                            </div>
+                            
                             <div class="button_container" id="bton">
                             </div>
 
