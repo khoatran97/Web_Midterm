@@ -25,6 +25,11 @@ module.exports.update = (o) => {
 	return db.save(sql);
 }
 
+module.exports.loadbyUser = (user) =>{
+    var sql = `select * from thanhvien t, donhang d where t.mathanhvien = d.makhachhang and d.makhachhang = ${user}`;
+    return db.load(sql);
+}
+
 module.exports.loadDetail = (id) => {
     var sql = `select s.*, sd.* from donhang d, sanpham_donhang sd, sanpham s where d.madon=${id} and d.madon=sd.madon
     and sd.masanpham=s.masanpham`;

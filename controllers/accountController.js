@@ -153,11 +153,27 @@ router.get('/Tat_ca/', (req, res) => {
 });
 
 router.get('/History', (req, res) => {
-    res.render('account/History');
+    order.loadbyUser(1).then (row =>{
+        res.render('account/History',{
+            his: row
+        });
+        console.log(row);
+    })
 });
 
 router.get('/Hoa_don', (req, res) => {
-    res.render('account/Hoa_don');
+    if (req.query.Ma == undefined) {
+        res.render('account/Hoa_don');
+        return;
+    }
+    pro_BillRepo.loadByMadon(req.query.Ma).then(row => {
+        res.render('account/Hoa_don', {
+            vm: row,
+            vmMadon: row[0].madon,
+            vmNgay: row[0].ngaydat
+        });
+
+    })
 });
 
 router.get('/Gio_hang', (req, res) => {
@@ -326,7 +342,6 @@ router.post('/Gio_hang',(req, res) => {
     });
 
     res.redirect(req.headers.referer);
-
 });
 
 

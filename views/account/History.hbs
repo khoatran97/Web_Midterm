@@ -17,94 +17,29 @@
 {{/section}}
 
 <div class="container" style="margin-top: 50px; ">
-		<div class="row">
-			<div class="col-sm-12" id="Ngay">Ngày: 12/03/2018</div>
-			<div class="col-sm-3" id="History">
-				<img src="../../Hinh_anh/San_pham/6.jpg" alt="">
-				<div id="Ten">Balo caps (Vacana)</div>
-				<div id="Gia">500,000đ</div>
-				<div style="margin-left: 10px; font-size: 16px">
-					Hóa đơn: 
-					<a href="/account/Hoa_don"> 051238</a>
-				</div>
-				<div id="TinhTrang">Đã giao</div>
-
-			</div>
-			<div class="col-sm-3" id="History">
-				<img src="../../Hinh_anh/San_pham/1.jpg" alt="">
-				<div id="Ten">Dây đeo (LV)</div>
-				<div id="Gia">570,000đ</div>
-				<div style="margin-left: 10px; font-size: 16px">
-					Hóa đơn: 
-					<a href="Hoa_don.html"> 093412</a>
-				</div>
-				<div id="TinhTrang">Đã giao</div>
-			</div>
-			<div class="col-sm-3" id="History">
-				<img src="../../Hinh_anh/San_pham/TX_001.jpg" alt="">
-				<div id="Ten">Túi xách (Blue)</div>
-				<div id="Gia">810,000đ</div>
-				<div style="margin-left: 10px; font-size: 16px">
-					Hóa đơn: 
-					<a href="Hoa_don.html"> 123032</a>
-				</div>
-				<div id="TinhTrang1">Đang giao</div>
-
-			</div>
-			
-
-			<div class="col-sm-12" id="Ngay">Ngày: 01/09/2017</div>
-			<div class="col-sm-3" id="History">
-				<img src="../../Hinh_anh/San_pham/BL_004.jpg" alt="">
-				<div id="Ten">Balo histomi (Vacana)</div>
-				<div id="Gia">550,000đ</div>
-				<div style="margin-left: 10px; font-size: 16px">
-					Hóa đơn: 	
-				</div>
-				<div id="TinhTrang2">Đã hủy</div>
-			</div>
-			<div class="col-sm-3" id="History">
-				<img src="../../Hinh_anh/San_pham/DC_005.jpg" alt="">
-				<div id="Ten">Ví opot (izomi)</div>
-				<div id="Gia">680,000đ</div>
-				<div style="margin-left: 10px; font-size: 16px">
-					Hóa đơn: 
-					<a href="Hoa_don.html"> 901223</a>
-				</div>
-				<div id="TinhTrang">Đã giao</div>
-			</div>
-			<div class="col-sm-3" id="History">
-				<img src="../../Hinh_anh/San_pham/DC_022.jpg" alt="">
-				<div id="Ten">Túi đeo loretu (Hiko)</div>
-				<div id="Gia">490,000đ</div>
-				<div style="margin-left: 10px; font-size: 16px">
-					Hóa đơn: 
-					<a href="Hoa_don.html"> 455512</a>
-				</div>
-				<div id="TinhTrang">Đã giao</div>
-			</div>
-			<div class="col-sm-3" id="History">
-				<img src="../../Hinh_anh/San_pham/DC_010.jpg" alt="">
-				<div id="Ten">Balo jivi (Kroti)</div>
-				<div id="Gia">350,000đ</div>
-				<div style="margin-left: 10px; font-size: 16px">
-					Hóa đơn: 
-					<a href="Hoa_don.html"> 000412</a>
-				</div>
-				<div id="TinhTrang">Đã giao</div>
-			</div>
-			<div class="col-sm-3" id="History">
-				<img src="../../Hinh_anh/San_pham/DC_016.jpg" alt="">
-				<div id="Ten">Balo acic (Mami)</div>
-				<div id="Gia">1,000,000đ</div>
-				<div style="margin-left: 10px; font-size: 16px">
-					Hóa đơn: 
-					<a href="Hoa_don.html"> 051238</a>
-				</div>
-				<div id="TinhTrang">Đã giao</div>
+	<div class="row">
+		<div class="col-sm-12" id="Ngay">
+			<div class="row">
+				<div class="col-sm-2" style="border-right: solid 2px white;text-align: center"> Mã hóa đơn</div>
+				<div class="col-sm-5" style="border-right: solid 2px white;text-align: center"> Ngày đặt</div>
+				<div class="col-sm-3" style="border-right: solid 2px white;text-align: center"> Tổng giá trị</div>
+				<div class="col-sm-2" style="text-align:center"> Trạng thái</div>
 			</div>
 		</div>
+		{{#each his }}	
+			<div class="col-sm-12" id="History">
+				<div class="row">
+					<div class="col-sm-2" style="border-right: solid 2px white;text-align: center; font-size: 18px; height: 80px; line-height:80px">
+						<a style="line-height:80px" href="/account/Hoa_don?Ma={{madon}}">{{madon}}</a>
+					</div>
+					<div class="col-sm-5" style="border-right: solid 2px white;line-height:80px; text-align:center">{{ngaydat}}</div>
+					<div class="col-sm-3" style="border-right: solid 2px white;line-height:80px; text-align:center" > {{tonggiatri}}</div>
+					<div class="col-sm-2" style="line-height:80px; text-align:center"> {{#if trangthai}} Chưa giao {{else}} Đã giao {{/if}}</div>
+				</div>
+			</div>
+		{{/each}}
 	</div>
+</div>
 	<!-- Brands -->
 
 	<div class="brands">

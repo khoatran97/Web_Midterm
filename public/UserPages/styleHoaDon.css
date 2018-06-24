@@ -1,34 +1,72 @@
-.Hang{
-	border-bottom: solid 2px #e4e4e4;
-	height: 150px;
-	padding-top: 20px;
-	padding-bottom: 20px;
+#History{
+	background-color: white;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-bottom: solid 2px white;
 }
-	.Hang img{
-		margin-left: 45px;
-		height: 110px;
-		width: 110px;
-	}
-	#MHD{
+	#History img{
+		height: 240px;
+		width: 240px;
+		display: block;
+		margin: 0 auto;
 		margin-top: 20px;
-		font-size: 18px;
-		margin-bottom: 10px;
 	}
-#Money{
-	margin-top: 25px;
+	#Ten{
+		margin-top: 10px;
+		font-size: 21px;
+		margin-left: 10px;
+		color: #636363;
+	}
+	#Gia{
+		color: #ff0f1e;
+		font-size: 16px;
+		margin-left: 10px;
+	}
+	#TinhTrang{
+		margin-bottom: 20px;
+		margin-top: 15px;
+		text-align: center;
+		background: #28a745;
+		margin-left: 45px;
+		margin-right: 45px;
+		color: white;
+		border-radius: 3px;
+		height: 35px;
+		line-height: 35px;
+	}
+	#TinhTrang1{
+		margin-bottom: 20px;
+		margin-top: 15px;
+		text-align: center;
+		background: #ffc107;
+		margin-left: 45px;
+		margin-right: 45px;
+		color: white;
+		border-radius: 3px;
+		height: 35px;
+		line-height: 35px;
+	}
+	#TinhTrang2{
+		margin-bottom: 20px;
+		margin-top: 15px;
+		text-align: center;
+		background: #ff0000;
+		margin-left: 45px;
+		margin-right: 45px;
+		color: white;
+		border-radius: 3px;
+		height: 35px;
+		line-height: 35px;
+	}
+	#History:hover{
+		background-color: #fbfbfb; 
+		border-bottom: solid 2px #0e8ce4;
+	}
+#Ngay{
+	height: 50px;
+	background-color: #0e8ce4;
+	border-radius: 3px;
+	line-height: 50px;
 	font-size: 16px;
-	color: #ff0f1e;
-	border-top: solid 2px #a7a7a7;
-	line-height: 60px;
+	color: white;
 }
-#date{
-	margin-bottom: 25px;
-	border-bottom: solid 2px #a7a7a7;
-	padding-bottom: 25px;
-}
-#sp{
-		list-style: none;	
-}
-	#sp li{
-		display: inline-block;
-	}

@@ -1,16 +1,9 @@
 #History{
-	background-color: white;
+	background-color: #f0f0f0;
 	margin-top: 10px;
-	margin-bottom: 10px;
 	border-bottom: solid 2px white;
+	height: 80px;
 }
-	#History img{
-		height: 240px;
-		width: 240px;
-		display: block;
-		margin: 0 auto;
-		margin-top: 20px;
-	}
 	#Ten{
 		margin-top: 10px;
 		font-size: 21px;
@@ -59,14 +52,13 @@
 		line-height: 35px;
 	}
 	#History:hover{
-		background-color: #fbfbfb; 
-		border-bottom: solid 2px #0e8ce4;
+		background-color: #cccccc; 
 	}
 #Ngay{
-	height: 50px;
+	height: 30px;
 	background-color: #0e8ce4;
 	border-radius: 3px;
-	line-height: 50px;
-	font-size: 16px;
+	line-height: 30px;
+	font-size: 14px;
 	color: white;
 }
