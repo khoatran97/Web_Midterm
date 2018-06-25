@@ -8,149 +8,12 @@ var restrict = require('../middle-wares/restrict');
 var router = express.Router();
 
 var brandRepo = require('../repos/brandRepo');
-    productRepo = require('../repos/productRepo');
-    pro_BillRepo = require('../repos/pro_BillRepo');
-    order = require('../repos/orderRepo')
-
-var isReady = false;
-
-// Load du lieu cho trang Home
-async function loadHome() {
-    var brands;
-    var topView;
-    var topSell;
-    var topPopular;
-
-    await brandRepo.loadAll().then(rows => {
-        brands = rows;
-    });
-
-    await productRepo.loadByView().then(rows => {
-        topView = rows;
-    })
-
-    await productRepo.loadBySell().then(rows => {
-        topSell = rows;
-    })
-
-    await productRepo.loadByPopular().then(rows => {
-        topPopular = rows;
-    })
-
-    return {
-        brands: brands,
-        topView: topView,
-        topSell: topSell,
-        topPopular: topPopular
-    }
-}
-// Load du lieu cho trang tat ca san pham
-async function loadAll(categoryId, brandId) {
-    var brands;
-    var products;
-
-    await brandRepo.loadAll().then(rows => {
-        brands = rows;
-    });
-
-    if (brandId != undefined && categoryId != undefined) {
-        await productRepo.loadByCategoryBrand(categoryId, brandId).then(rows => {
-            products = rows;
-        });
-    }
-    else if (brandId != undefined) {
-        await productRepo.loadByBrand(brandId).then(rows => {
-            products = rows;
-        });
-    }
-    else if (categoryId != undefined) {
-        await productRepo.loadByCategory(categoryId).then(rows => {
-            products = rows;
-        });
-    }
-    else {
-        await productRepo.loadAll().then(rows => {
-            products = rows;
-        });
-    }
-
-    return {
-        brands: brands,
-        products: products,
-        countProduct: Object.keys(products).length
-    };
-}
-async function loadDetail(productId) {
-    var product;
-    var sameBrands;
-    var sameCategories;
-
-    await productRepo.loadById(productId).then((rows) => {
-        product = rows[0];
-    })
-
-    await productRepo.loadByBrand(product.mathuonghieu, 10).then((rows) => {
-        sameBrands = rows;
-    })
-
-    await productRepo.loadByCategory(product.maloai, 10).then((rows) => {
-        sameCategories = rows;
-    })
-
-    return {
-        product: product,
-        sameBrands: sameBrands,
-        sameCategories: sameCategories
-    };
-}
-
+var productRepo = require('../repos/productRepo');
+var pro_BillRepo = require('../repos/pro_BillRepo');
+var order = require('../repos/orderRepo');
+var cartRepo = require('../repos/cartRepo');
 
 // GET
-router.get('/', (req, res) => {
-    loadHome().then((result) => {
-        if (result == null) {
-            res.render('/');
-            return;
-        }
-        res.render('account/index', {
-            brands: result.brands,
-            topView: result.topView,
-            topSell: result.topSell,
-            topPopular: result.topPopular
-        });
-    })
-});
-
-router.get('/Chi_tiet/', (req, res) => {
-    if (req.query.Ma == undefined) {
-        res.render('account/Tat_ca');
-        return;
-    }
-    loadDetail(req.query.Ma).then((result) => {
-        productRepo.loadById(req.query.Ma).then(row => {
-            var v = {
-                view: row[0].luotxem + 1,
-                proID: row[0].masanpham
-            };
-            productRepo.updateView(v);
-        })
-        res.render('account/Chi_tiet', {
-            product: result.product,
-            sameBrands: result.sameBrands,
-            sameCategories: result.sameCategories
-        });
-    })
-});
-
-router.get('/Tat_ca/', (req, res) => {
-    loadAll(req.query.DanhMuc, req.query.ThuongHieu).then((result) => {
-        res.render('account/Tat_ca', {
-            brands: result.brands,
-            products: result.products,
-            countProduct: result.products.length
-        });
-    })
-});
 
 router.get('/History', (req, res) => {
     // Cái loadbyUser() là load dữ liệu theo mã thành viên,
@@ -179,7 +42,41 @@ router.get('/Hoa_don', (req, res) => {
 });
 
 router.get('/Gio_hang', (req, res) => {
-    res.render('account/Gio_hang');
+    if(req.session.cart.length)
+    {
+        var cart=[];
+        for(var i=0;i<req.session.cart.length;i++){
+            var proCart = req.session.cart[i];
+            var proDB = productRepo.single(proCart.proID);
+            cart.push(proDB);
+        }
+
+        var itemlist = [];
+        var total=0;
+        Promise.all(cart).then(result => {
+            for(var i =result.length-1;i>=0;i--){
+                var prod = result[i];
+
+                var item = {
+                    product: prod,
+                    Quantity: req.session.cart[i].Quantity,
+                    Cost: prod.gia * req.session.cart[i].Quantity,
+                    stock: prod.soluong - prod.luotmua
+                };
+                total += prod.gia * req.session.cart[i].Quantity;
+                itemlist.push(item);
+            }
+            var vm = {
+                items: itemlist,
+                total: total
+            }
+            res.render('account/Gio_hang', vm);
+        })   
+    }
+    else{
+        res.render('account/Gio_hang', {noItem:true});
+    }
+    
 });
 
 router.get('/register', (req, res) => {
@@ -247,11 +144,8 @@ router.post('/login',(req,res) => {
             req.session.isLogged = true;
             req.session.user = rows[0];
             req.session.cart = [];
-            
-           // localStorage.setItem('isLogged',true);
-           console.log(req.session);
 
-            var url = '/account';
+            var url = '/';
             if (req.query.retUrl) {
                url = req.query.retUrl;
             }
@@ -305,21 +199,29 @@ router.post('/profile', (req, res) => {
     })
 });
 
-router.post('/Chi_tiet',(req, res) => {
+router.post('/cart/add',(req, res) => {
+    var pro = {
+        proID: req.body.proID,
+        Quantity: +req.body.quant
+    };
+    cartRepo.add(req.session.cart, pro);
+    console.log(req.session.cart);
     res.redirect(req.headers.referer);
 });
 
-router.post('/Gio_hang',(req, res) => {
-    
+router.post('/cart/remove', (req, res) => {
+    cartRepo.remove(req.session.cart, req.body.ProId);
+    res.redirect(req.headers.referer);
+})
 
-    // user1 truyền vào là mã thành viên đang đăng nhập
+router.post('/Gio_hang',(req, res) => {
     var donhang = {
         user1: req.session.user.mathanhvien,
-        Sum: req.body.money,
+        total: req.body.total,
     };
 
     order.add(donhang);
-    order.max().then( result => {
+    order.max(req.session.user.mathanhvien).then( result => {
         var pro_Qua = {
             madon: result[0].m,
             pro: req.body.proID,
@@ -344,7 +246,8 @@ router.post('/Gio_hang',(req, res) => {
             });             
         }
     });
-
+    console.log(req.body);
+    req.session.cart=[];
     res.redirect(req.headers.referer);
 });
 

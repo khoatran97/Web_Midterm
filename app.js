@@ -66,8 +66,6 @@ app.use(session({
 
 app.use(handleLayoutMDW);
 
-app.use(handleLayoutMDW);
-
 app.use('/', guestController.router);
 app.use('/account', accountController.router);
 app.use('/admin', restrict.admin, adminController.router);

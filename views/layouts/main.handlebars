@@ -98,7 +98,7 @@
 										</ul>
 									</div>
 									<div id="logOut">
-										<a href="javascript:;" onclick="resetSes();">Đăng xuất</a>
+										<a href="javascript:;" >Đăng xuất</a>
 									</div>
 									{{else}}
 									<div>
@@ -125,11 +125,7 @@
 						<div class="col-lg-2 col-sm-3 col-3 order-1">
 							<div class="logo_container">
 								<div class="logo">
-									{{#if layoutVM.isLogged}}
-										<a href="/account/">iBags</a>
-									{{else}}
-										<a href="/">iBags</a>
-									{{/if}}
+									<a href="/">iBags</a>
 								</div>
 							</div>
 						</div>
@@ -175,39 +171,12 @@
 						<form id="frmLogout" method="post" action="/account/logout"></form>
 						<div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
 							<div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
-								<!-- <div class="wishlist d-flex flex-row align-items-center justify-content-end">
-									<div class="wishlist_icon">
-										<img src="/Hinh_anh/Giao_dien/heart.png" alt="">
-									</div>
-									<div class="wishlist_content">
-										<div class="wishlist_text">
-											<a href="#">Yêu thích</a>
-										</div>
-										<div class="wishlist_count">115</div>
-									</div>
-								</div>
 								
-								Cart
-								<div class="cart">
-									<div class="cart_container d-flex flex-row align-items-center justify-content-end">
-										<div class="cart_icon">
-											<img src="/Hinh_anh/Giao_dien/cart.png" alt="">
-											<div class="cart_count">
-												<span>{{layoutVM.cart.length}}</span>
-											</div>
-										</div>
-										<div class="cart_content">
-											<div class="cart_text">
-												<a href="#">Giỏ hàng</a>
-											</div>
-										</div>
-									</div>
-								</div> -->
 								<div class="wishlist d-flex flex-row align-items-center justify-content-end">
 									<div class="cart_icon">
 										<img src="/Hinh_anh/Giao_dien/cart.png" alt="">
 										<div class="cart_count">
-											<span id="sl"></span>
+											<span>{{layoutVM.cart.length}}</span>
 										</div>
 									</div>
 									<div class="cart_content">
@@ -216,6 +185,7 @@
 										</div>
 									</div>
 								</div>
+								
 								{{#if isAdmin}}
 								<!-- Cart -->
 								<div class="cart">
@@ -275,15 +245,9 @@
 								<div class="main_nav_menu ml-auto">
 									<ul class="standard_dropdown main_nav_dropdown">
 										<li>
-											{{#if layoutVM.isLogged}}
-												<a href="/account/">Trang chủ
-													<i class="fas fa-chevron-down"></i>
-												</a>
-											{{else}}
-												<a href="/">Trang chủ
-													<i class="fas fa-chevron-down"></i>
-												</a>
-											{{/if}}
+											<a href="/">Trang chủ
+												<i class="fas fa-chevron-down"></i>
+											</a>
 										</li>
 										<li>
 											<a href="#">Giá sốc
@@ -339,19 +303,15 @@
 									<p>để cập nhật thông tin nhanh nhất</p>
 								</div>
 							</div>
-							{{#if layoutVM.isLogged}}
-
-							{{else}}
 							<div class="newsletter_content clearfix">
 								<div class="newsletter_form">
-									<input type="email" class="newsletter_input" required="required" placeholder="Nhập e-mail của bạn">
+									<input type="email" class="newsletter_input" required="required" placeholder="Nhập e-mail của bạn" disabled>
 									<button class="newsletter_button">Đăng ký</button>
 								</div>
 								<div class="newsletter_unsubscribe_link">
 									<a href="#">Huỷ đăng ký</a>
 								</div>
 							</div>
-							{{/if}}
 						</div>
 					</div>
 				</div>

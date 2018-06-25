@@ -137,6 +137,13 @@ router.get('/Chi_tiet/', (req, res) => {
         return;
     }
     loadDetail(req.query.Ma).then((result) => {
+        productRepo.loadById(req.query.Ma).then(row => {
+            var v = {
+                view: row[0].luotxem + 1,
+                proID: row[0].masanpham
+            };
+            productRepo.updateView(v);
+        })
         res.render('Chi_tiet', {
             product: result.product,
             sameBrands: result.sameBrands,
@@ -144,7 +151,5 @@ router.get('/Chi_tiet/', (req, res) => {
         });
     })
 });
-
-
 
 module.exports.router = router;

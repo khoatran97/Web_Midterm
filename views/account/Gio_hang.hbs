@@ -7,43 +7,105 @@
     <link rel="stylesheet" type="text/css" href="/styles/shop_styles.css">
     <link rel="stylesheet" type="text/css" href="/styles/responsive.css"> 
     <link rel="stylesheet" type="text/css" href="/guestPages/css/style.css">
-	<link rel="stylesheet" type="text/css" href="/UserPages/styleGioHang.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style>
+	.pro-img img {
+	    border: 1px solid #ddd;
+	    border-radius: 4px;
+	    padding: 5px;
+	    width: 80px;
+	    height: 100px;
+	}
+	</style>
 {{/section}}
 
 {{#section 'js'}}
     <script src="/plugins/slick-1.8.0/slick.js"></script>
-	<script src="/js/jsAccount/script_Gio_hang.js"></script>
-	<script>
-		function resetSes(){
-	        for (var i = 0; i<document.getElementById('Sumproduct').value; i++) {
-	            sessionStorage.removeItem(i);
-	        }
-    	}
-    	function update(a,b,c,d,e){
-	        var f = document.getElementById('slPro').value;
-	        console.log(f);
-	        var pro = [a,b,c,d,e,f];
-	        sessionStorage.setItem(a, JSON.stringify(pro));
-	        location.reload();
-	    }
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  <script>
+		  	$('.delPro').click(function(){
+		  	var id = $(this).data('proid');
+		  	$('#txtProId_R').val(id);
+		  	$('#frmRemoveItem').submit();
+		  });
 
-	</script>
+		  function myFunction(){
+		  	var q = $("#quant").val();
+		  	var s = $("#stock").val();
+		  	if(+q<= +s & +q>=0){
+		  		var prev = $('#TT').val();
+	    		var cost = $("#quant").closest('tr').find("#cost").val();
+	    		var price = $("#quant").closest('tr').find("#price").val();
+	    		var after = q*price;
+	    		$('#TT').val(after + ' đ');
+	    		$('#ThT').val(after+ ' đ');
+	    		$('#total').val(after);
+		  	}
+    		else{
+    			alert('sản phẩm bạn cần chỉ còn '+ s + ' sản phẩm'); 
+    		}
+		  }
+
+		  $('#btnRever').click(function(){
+		  	$('#frmRever').submit();
+		  })
+	  </script>
 {{/section}}
 
 <div class="container" style="margin-top: 50px; ">
-	<form method="post" action="" id="frmGiohang">
+	{{#if noItem}}
+	{{else}}
+	<form id="frmRemoveItem" method="post" action="/account/cart/remove">
+		<input id="txtProId_R" type="hidden" name="ProId">
+	</form>
+	<form id="frmRever" method="post" action="/account/Gio_hang">
 		<div class="row">
-			<div class="col-lg-9" style="background-color: #f9f9f9;" id="GioHang">
-				
+			<input type="hidden" value="{{total}}" id="total" name="total" />
+			<div class="col-lg-9">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th class="col-sm-3">Hình ảnh</th>
+							<th class="col-sm-4">Tên sản phẩm</th>
+							<th class="col-sm-3">Gía</th>
+							<th class="col-sm-2">Số lượng</th>
+						</tr>
+					</thead>
+					<tbody>
+					{{#each items}}
+						<tr>
+							<input type="hidden" value="{{product.masanpham}}" id="cost" name="proID" />
+							<input type="hidden" value="{{Cost}}" id="cost" />
+							<input type="hidden" value="{{stock}}" id="stock" />
+							<td class="pro-img"><img src="/Hinh_anh/San_pham/{{product.masanpham}}.jpg" alt="{{ten}}"></td>
+							<td class="text-left">{{product.ten}} <br><br>
+								 <a data-proid="{{product.masanpham}}" class="btn btn-xs btn-danger delPro" href="javascript:;" role="button">
+									Xóa
+								</a>
+							</td>
+							<td><input type="hidden" value="{{product.gia}}" id="price" />{{number_format product.gia}}</td>
+							<td><input type="number" name="quantity" min="1" max="{{stock}}" value="{{Quantity}}" id="quant" onkeyup="myFunction()"></td>
+						</tr>
+					{{/each}}
+					</tbody>
+				</table>
 			</div>
-			<div class="col-lg-3" id="Money" style="background-color: #fdfdfd">
-				<div id="TT"></div>
-				<div id="ThT"></div>
-				<button type="submit" onclick="resetSes()"> Đặt hàng</button>
+			<div class="col-lg-3" style="background-color: #fdfdfd">
+				<div>Tạm tính:
+					<span class="text-right"><input type="text" style="text-align:right; border:none;" value="{{number_format total}}"  id="TT" disabled /></span>
+				</div>
+				<hr>
+				<div>Thành tiền:
+					<div><input type="text" style="text-align:right; border:none; font-size:20px; color: red;" value="{{number_format total}}" id="ThT" disabled /></div>
+				</div>
+				<button type="submit" class="btn btn-success" id="btnRever"> Đặt hàng</button>
+			
 			</div>
 		</div>
-	<form>
 	</div>
+	</form>
+	{{/if}}
 		<!-- Brands -->
 
 		<div class="brands">
