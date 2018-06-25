@@ -163,13 +163,14 @@ router.post('/products/delete', (req, res) => {
 });
 
 router.get('/products/edit', (req, res) => {
-	productRepo.single(req.query.id).then(p => {
-		var vm={
-			layout: 'admin', 
-			product: p
-		}
-        res.render('admin/products/edit', vm);
-    });
+	var p=productRepo.single(req.query.id);
+    var b=brandRepo.loadAll();
+	var c=categoryRepo.loadAll();
+	Promise.all([p, b, c]).then(([product, brand, cat]) => {
+		res.render('admin/products/edit',{layout: 'admin', product: product, brand: brand, cat:cat});
+	})
+	
+
 });
 
 router.post('/products/edit', (req, res) => {
