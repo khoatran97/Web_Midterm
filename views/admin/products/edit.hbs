@@ -20,6 +20,66 @@
               }
             });
         });
+
+        var catID=$('#catID').val();
+        $('#catID').hide();
+        if(catID==='1'){
+            $('#loaisanpham').val(1);
+        }
+        else if(catID==='2'){
+            $('#loaisanpham').val(2);
+        }
+        else if(catID==='3'){
+            $('#loaisanpham').val(3);
+        }
+        else if(catID==='4'){
+            $('#loaisanpham').val(4);
+        }
+        else if(catID==='5'){
+            $('#loaisanpham').val(5);
+        }
+        else if(catID=='6'){
+            $('#loaisanpham').val(6);
+        }
+        else{
+            $('#loaisanpham').val(7);
+        }
+        
+
+        var supID=$('#supID').val();
+        $('#supID').hide();
+        if(supID==='1'){
+            $('#thuonghieu').val(1);
+        }
+        else if(supID==='2'){
+            $('#thuonghieu').val(2);
+        }
+        else if(supID==='3'){
+            $('#thuonghieu').val(3);
+        }
+        else if(supID==='4'){
+            $('#thuonghieu').val(4);
+        }
+        else if(supID==='5'){
+            $('#thuonghieu').val(5);
+        }
+        else if(supID=='6'){
+            $('#thuonghieu').val(6);
+        }
+        else if(supID=='7'){
+            $('#thuonghieu').val(7);
+        }
+        else if(supID=='8'){
+            $('#thuonghieu').val(8);
+        }
+        else if(supID=='9'){
+            $('#thuonghieu').val(9);
+        }
+        else{
+            $('#thuonghieu').val(10);
+        }
+        
+
     </script>
 {{/section}}
 
@@ -53,18 +113,31 @@
                                             <label>Tên sản phẩm</label>
                                             <input type="text" class="form-control" name="Name" value='{{ten}}' placeholder="Tên sản phẩm" id="">
                                         </div>
+                                        {{/with}}
                                         <div class="form-group">
                                             <label>Loại sản phẩm</label>
-                                            <input type="text" class="form-control" name="catID" value='{{maloai}}' placeholder="" id="">
+                                            <select name="catID" id="loaisanpham" class="form-control">
+                                                {{#each cat}}
+                                                    <option value="{{maloai}}">{{tenloai}}</option>
+                                                {{/each}}
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Thương hiệu</label>
-                                            <input type="text" class="form-control" name="supID" value='{{mathuonghieu}}' placeholder="" id="">
+                                            <select name="supID" id="thuonghieu" class="form-control">
+                                                {{#each brand}}
+                                                    <option value="{{mathuonghieu}}">{{tenthuonghieu}}</option>
+                                                {{/each}}
+                                            </select>
                                         </div>
+                                        {{#with product}}
+                                        <input type="number" class="form-control" id="catID" value='{{maloai}}'>
+                                        <input type="number" class="form-control" id="supID" value='{{mathuonghieu}}'>
                                         <div class="form-group">
                                             <label>Xuất xứ</label>
                                             <input type="text" class="form-control" value='{{xuatxu}}' placeholder="" name="Org" id="txtName">
                                         </div>
+                                        
                                     </from>
                                 </div>
                                 <div class="col-lg-2">
@@ -94,10 +167,12 @@
                                         <button type="submit" class="btn btn-success" id="btnSub"><span class="glyphicon glyphicon-save"></span>Cập nhật</button>
                                         <span><a class="btn btn-default" href="/admin/products" role="button" data-toggle="modal">Cancel</a></span>
                                     </form>
+
                                 </div>
                                 <div class="col-lg-1">
                                 </div>
-                            {{/with}}
+                           
+                             {{/with}}
                             </div>
                         </div>
                         <!-- /.panel-body -->
