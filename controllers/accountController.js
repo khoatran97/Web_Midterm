@@ -91,6 +91,9 @@ router.get('/profile', restrict.profile, (req, res) => {
     res.render('account/profile');
 });
 
+router.get('/Thanh_toan',(req,res) => {
+    res.render('account/Thanh_toan');
+});
 //post
 router.post('/register', (req, res) => {
 	
@@ -248,7 +251,7 @@ router.post('/Gio_hang',(req, res) => {
     });
     console.log(req.body);
     req.session.cart=[];
-    res.redirect(req.headers.referer);
+    res.redirect('/account/Thanh_toan');
 });
 
 

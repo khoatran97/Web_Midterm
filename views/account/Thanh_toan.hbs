@@ -1,0 +1,156 @@
+{{#section 'title'}}
+	Thông tin thanh toán
+{{/section}}
+{{#section 'css'}}
+	<link rel="stylesheet" type="text/css" href="/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
+	<link rel="stylesheet" type="text/css" href="/styles/shop_styles.css">
+	<link rel="stylesheet" type="text/css" href="/guestPages/css/style.css">
+	<link rel="stylesheet" type="text/css" href="../UserPages/styleThanhtoan.css">
+{{/section}}
+{{#section 'js'}}
+	<script src="/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		
+		var gen=$('#tempt').val();
+		$('#tempt').hide();
+
+		var date=new Date($('#txtDOB').val());
+		var d=date.getDate(),
+		m=date.getMonth()+1,
+		y=date.getFullYear();
+        var dob = d+"/"+m+"/"+y;
+        $('#txtDOB').val(dob);
+
+		$('#txtDOB').datepicker({
+			format: 'd/m/yyyy',
+			autoclose: true
+		});
+
+		if(gen === '0'){
+			$('#male').prop("checked", true);
+		}
+		if(gen === '1'){
+			$('#female').prop("checked", true);
+		}
+	});
+	function loadThe() {
+		var tmp = `<div id="b1" class="col-sm-2"></div>
+				  	<div id ="box">
+				  		<img class="brand" src="../../Hinh_anh/visa.png" alt="">
+				  		<img class="brand" src="../../Hinh_anh/master.png" alt="">
+				  		<img class="brand" src="../../Hinh_anh/jcb.png" alt="">
+
+				  		<div style="margin-left: 40px; margin-top: 15px;">Số thẻ</div>
+				  		<input type="text" class="form-control" id="txtAddress" placeholder="VD: 1286 5523 1233 1352"  name="address" style="margin-left: 40px;width: 320px; ">
+
+				  		<div style="margin-left: 40px; margin-top: 15px;">Tên in trên thẻ</div>
+				  		<input type="text" class="form-control" id="txtAddress" placeholder="VD: Nguyễn Văn A"  name="address" style="margin-left: 40px;width: 320px;">
+
+				  		<div style="margin-left: 40px; margin-top: 15px;">Ngày hết hạn</div>
+				  		<input type="text" class="form-control" id="txtAddress" placeholder="MM/YY"  name="address" style="margin-left: 40px;width: 320px;">
+
+				  		<div style="margin-left: 40px; margin-top: 15px;">Mã bảo mật</div>
+				  		<input type="text" class="form-control" id="txtAddress" placeholder="VD: 123"  name="address" style="margin-left: 40px;width: 320px;">
+				  	</div>`
+    	document.getElementById("The").innerHTML = tmp; 
+	}
+	function removeThe() {
+		var element1 = document.getElementById("box");
+		var element2 = document.getElementById("b1");
+		element1.parentNode.removeChild(element1);
+		element2.parentNode.removeChild(element2);
+
+	}
+	</script>
+{{/section}}
+
+
+<!-- Banner -->
+	<div class="container-fluid" style="background-color:  #f4f4f4">	
+	<br><br>
+		<div id="nar_boder" class="row">
+
+			<div class="col-sm-12" align="center"><h2>THÔNG TIN THANH TOÁN</h2></div>
+		</div>
+		<div class="row">	
+			<div class="col-sm-2"></div>
+			<div class="col-sm-10">
+			<div id = "form" class="col-lg-9 col-md-12 char_col">
+				<div style="height: 50px;"></div>
+				<form id="form-main" method="post" role="form" onsubmit="return validate();">
+				  <div class="form-group row">
+				  	<div class="col-sm-2"></div>
+				    <label for="txtName" class="col-sm-2 col-form-label" style="font-weight: bold;">Họ tên</label>
+				    <div class="col-sm-6">
+				      <input type="text" class="form-control" id="txtName" placeholder="Họ tên" name="name">
+				    </div>
+				  </div>
+				  <div class="form-group row">
+				  	<div class="col-sm-2"></div>
+				    <label for="phone_number" class="col-sm-2 col-form-label" style="font-weight: bold;">Số điện thoại</label>
+				    <div class="col-sm-6">
+				      <input type="number" class="form-control" id="phone_number" placeholder="Số điện thoại" name="tel">
+				    </div>
+				  </div>
+				  <div class="form-group row">
+				  	<div class="col-sm-2"></div>
+				    <label for="phone_number" class="col-sm-2 col-form-label" style="font-weight: bold;">Tỉnh/Thành phố</label>
+				    <div class="col-sm-6">
+				      <input type="number" class="form-control" id="phone_number" placeholder="Tỉnh/Thành phố" name="tel">
+				    </div>
+				  </div>
+				  <div class="form-group row">
+				  	<div class="col-sm-2"></div>
+				    <label for="phone_number" class="col-sm-2 col-form-label" style="font-weight: bold;">Quận/Huyện</label>
+				    <div class="col-sm-6">
+				      <input type="number" class="form-control" id="phone_number" placeholder="Quận/Huyện" name="tel">
+				    </div>
+				  </div>
+				  <div class="form-group row">
+				  	<div class="col-sm-2"></div>
+				    <label for="txtAddress" class="col-sm-2 col-form-label" style="font-weight: bold;">Địa chỉ</label>
+				    <div class="col-sm-6">
+				      <input type="text" class="form-control" id="txtAddress" placeholder="Địa chỉ"  name="address">
+				    </div>
+				  </div>
+				  
+				  <fieldset class="form-group">
+				    <div class="row">
+				  		<div class="col-sm-2"></div>
+
+				      <legend class="col-form-label col-sm-2 pt-0" style="font-weight: bold;">Hình thức thanh toán</legend>
+				      <div class="col-sm-6" >
+				      	<input type="text" class="form-control" id="tempt">
+				      	<div class="row">
+							<div class="col-sm-6">
+								<div class="radio-inline"><input type="radio" id="male" name="gender" value="0" onclick="removeThe()">Tiền mặt<br></div>
+							</div>
+					        <div class="col-sm-6">
+                        		<div class="radio-inline"><input type="radio" id="female" name="gender" value="1" onclick="loadThe()">Thẻ Visa, Master, JCB<br></div>
+					        </div>
+					    </div>
+				      </div>
+				    </div>
+				  </div>
+
+				  <div id="The" class ="row">
+				  </div>
+
+				  <div class="form-group row">
+				  	<div class="col-sm-3"></div>
+				    <div>
+				      <button type="submit" class="btn btn-danger" id="btn" style="width:280px">
+                            Đặt mua
+                        </button>
+				    </div>
+				  </div>
+
+				  
+				</form>
+				</div>
+			</div>
+		</div>
+		<div style="height: 60px"></div>
+	</div>
