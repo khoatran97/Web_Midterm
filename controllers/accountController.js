@@ -18,6 +18,7 @@ var isReady = false;
 async function loadHome() {
     var brands;
     var topView;
+    var Newest;
     var topSell;
     var topPopular;
 
@@ -27,6 +28,10 @@ async function loadHome() {
 
     await productRepo.loadByView().then(rows => {
         topView = rows;
+    })
+
+    await productRepo.loadByNew().then(rows => {
+        Newest = rows;
     })
 
     await productRepo.loadBySell().then(rows => {
@@ -40,6 +45,7 @@ async function loadHome() {
     return {
         brands: brands,
         topView: topView,
+        Newest: Newest,
         topSell: topSell,
         topPopular: topPopular
     }
@@ -116,6 +122,7 @@ router.get('/', (req, res) => {
             brands: result.brands,
             topView: result.topView,
             topSell: result.topSell,
+            newest: result.Newest,
             topPopular: result.topPopular
         });
     })
