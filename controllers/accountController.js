@@ -227,6 +227,13 @@ router.post('/Gio_hang',(req, res) => {
         total: req.body.total,
     };
     var cart = req.session.cart;
+    var cartQua = req.body.quantity;
+    for(var i = 0; i < cart.length; i++ )
+    {
+        cart[i].Quantity = cartQua[i];
+        console.log(cart[i].Quantity);
+    }
+
     var Ma;
     order.add(donhang).then(a =>{
         order.max(req.session.user.mathanhvien).then( result => {
