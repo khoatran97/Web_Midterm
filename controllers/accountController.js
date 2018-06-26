@@ -12,6 +12,7 @@ var productRepo = require('../repos/productRepo');
 var pro_BillRepo = require('../repos/pro_BillRepo');
 var order = require('../repos/orderRepo');
 var cartRepo = require('../repos/cartRepo');
+var billRepo = require('../repos/billRepo');
 
 // GET
 
@@ -19,10 +20,15 @@ router.get('/History', (req, res) => {
     // Cái loadbyUser() là load dữ liệu theo mã thành viên,
     // truyền vào phải là mã thành viên đang đăng nhập
     order.loadbyUser(req.session.user.mathanhvien).then (row =>{
+        for(var i = 0; i < row.length/2; i++)
+        {
+            var tmp = row[i];
+            row[i] = row[row.length - 1 - i];
+            row[row.length - 1 - i] = tmp;
+        }
         res.render('account/History',{
             his: row
         });
-        console.log(row);
     })
 });
 
@@ -37,7 +43,6 @@ router.get('/Hoa_don', (req, res) => {
             vmMadon: row[0].madon,
             vmNgay: row[0].ngaydat
         });
-
     })
 });
 
@@ -208,7 +213,6 @@ router.post('/cart/add',(req, res) => {
         Quantity: +req.body.quant
     };
     cartRepo.add(req.session.cart, pro);
-    console.log(req.session.cart);
     res.redirect(req.headers.referer);
 });
 
@@ -222,37 +226,50 @@ router.post('/Gio_hang',(req, res) => {
         user1: req.session.user.mathanhvien,
         total: req.body.total,
     };
-
-    order.add(donhang);
-    order.max(req.session.user.mathanhvien).then( result => {
-        var pro_Qua = {
-            madon: result[0].m,
-            pro: req.body.proID,
-            Qua: req.body.proQua
-        };
-        for(var i = 0; i < pro_Qua.pro.length;i++)
-        {
-            var pro_Qua1 = {
-                madon: pro_Qua.madon,
-                pro: pro_Qua.pro[i],
-                proQua: pro_Qua.Qua[i]
+    var cart = req.session.cart;
+    var Ma;
+    order.add(donhang).then(a =>{
+        order.max(req.session.user.mathanhvien).then( result => {
+            var pro_Qua = {
+                madon: result[0].m,
+                pro: cart,
             };
-            productRepo.loadById(pro_Qua1.pro).then( row =>{
-                var up = {
-                    QuatBuy: parseInt(row[0].luotmua) +parseInt( pro_Qua1.proQua),
-                    Quant: parseInt(row[0].soluong) - parseInt(pro_Qua1.proQua),
-                    proID: pro_Qua1.pro
+            Ma = result[0].m;
+            for(var i = 0; i < pro_Qua.pro.length;i++)
+            {
+                var pro_Qua1 = {
+                    madon: pro_Qua.madon,
+                    pro: pro_Qua.pro[i].proID,
+                    proQua: pro_Qua.pro[i].Quantity
                 };
-                console.log(up);
-                productRepo.updateQua(up);
                 pro_BillRepo.add(pro_Qua1); 
-            });             
-        }
+                productRepo.loadById(pro_Qua1.pro).then( row =>{
+                    var up = {
+                        QuatBuy: parseInt(row[0].luotmua) +parseInt( pro_Qua1.proQua),
+                        Quant: parseInt(row[0].soluong) - parseInt(pro_Qua1.proQua),
+                        proID: pro_Qua1.pro
+                    };
+                    productRepo.updateQua(up);
+                });             
+            }
+
+            req.session.cart=[];
+            var url = '/account/Thanh_toan?Ma=' + Ma;
+            res.redirect(url);
+        });
     });
-    console.log(req.body);
-    req.session.cart=[];
-    res.redirect('/account/Thanh_toan');
+   
 });
 
+router.post('/Thanh_toan',(req, res) =>{
+    var bill = {
+        magiaodich: req.query.Ma,
+        diachi: req.body.address + ' '+ req.body.qh + ' ' + req.body.tp,
+        conggiaodich: req.body.thanhtoan,
+    };
 
+    console.log(bill);
+    billRepo.add(bill);
+    res.redirect('/account/Hoa_don?Ma=' + req.query.Ma);
+});
 module.exports.router = router;

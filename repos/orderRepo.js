@@ -26,7 +26,9 @@ module.exports.update = (o) => {
 }
 
 module.exports.loadbyUser = (user) =>{
-    var sql = `select * from thanhvien t, donhang d where t.mathanhvien = d.makhachhang and d.makhachhang = ${user}`;
+    var sql = `select d.madon,DATE_FORMAT(d.ngaydat, '%Y-%m-%d') as ngaydat, d.tonggiatri, d.trangthai, gd.diachi, gd.conggiaodich
+    from thanhvien t, donhang d, giaodich gd
+    where t.mathanhvien = d.makhachhang and d.makhachhang = ${user} and gd.magiaodich = d.madon`;
     return db.load(sql);
 }
 

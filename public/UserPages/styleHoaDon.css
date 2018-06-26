@@ -1,5 +1,5 @@
 #History{
-	background-color: white;
+	background-color: #e6e6e6;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	border-bottom: solid 2px white;
@@ -59,8 +59,10 @@
 		line-height: 35px;
 	}
 	#History:hover{
-		background-color: #fbfbfb; 
+		background-color: #ebebeb; 
 		border-bottom: solid 2px #0e8ce4;
+		border-top: solid 2px #0e8ce4;
+		
 	}
 #Ngay{
 	height: 50px;

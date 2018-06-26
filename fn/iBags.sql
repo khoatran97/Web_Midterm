@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2018 at 06:09 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Generation Time: Jun 26, 2018 at 07:01 AM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -45,7 +45,23 @@ INSERT INTO `donhang` (`madon`, `makhachhang`, `magiaodich`, `ngaydat`, `tonggia
 (1, NULL, NULL, '2018-01-01', 9397, 'đang giao'),
 (2, NULL, NULL, '2018-02-01', 9397, 'chưa giao'),
 (3, NULL, NULL, '2017-01-01', 9097, 'đã giao'),
-(4, NULL, NULL, '2018-01-06', 9397, 'đã giao');
+(4, NULL, NULL, '2018-01-06', 9397, 'đã giao'),
+(27, 1, NULL, '2018-06-26', 1150000, '0'),
+(28, 1, NULL, '2018-06-26', 575000, '0'),
+(30, 1, NULL, '2018-06-26', 575000, '0'),
+(31, 1, NULL, '2018-06-26', 575000, '0'),
+(36, 1, NULL, '2018-06-26', 575000, '0'),
+(37, 1, NULL, '2018-06-26', 575000, '0'),
+(38, 1, NULL, '2018-06-26', 575000, '0'),
+(39, 1, NULL, '2018-06-26', 575000, '0'),
+(40, 1, NULL, '2018-06-26', 575000, '0'),
+(41, 1, NULL, '2018-06-26', 575000, '0'),
+(42, 1, NULL, '2018-06-26', 575000, '0'),
+(43, 1, NULL, '2018-06-26', 575000, '0'),
+(44, 1, NULL, '2018-06-26', 575000, '0'),
+(45, 1, NULL, '2018-06-26', 575000, '0'),
+(46, 1, NULL, '2018-06-26', 575000, '0'),
+(47, 1, NULL, '2018-06-26', 575000, '0');
 
 -- --------------------------------------------------------
 
@@ -57,8 +73,17 @@ CREATE TABLE `giaodich` (
   `magiaodich` int(11) NOT NULL,
   `makhach` int(11) DEFAULT NULL,
   `sotien` int(11) DEFAULT NULL,
-  `conggiaodich` varchar(40) CHARACTER SET utf8 DEFAULT NULL
+  `conggiaodich` int(11) DEFAULT NULL,
+  `diachi` varchar(50) CHARACTER SET utf8 DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `giaodich`
+--
+
+INSERT INTO `giaodich` (`magiaodich`, `makhach`, `sotien`, `conggiaodich`, `diachi`) VALUES
+(1, NULL, NULL, 1, 'thủ đức'),
+(47, NULL, NULL, 0, 'khu b thủ đức tp');
 
 -- --------------------------------------------------------
 
@@ -127,18 +152,18 @@ INSERT INTO `sanpham` (`masanpham`, `maloai`, `mathuonghieu`, `ten`, `xuatxu`, `
 (3, 1, 3, 'Túi DC_003', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 0, 10, '2017-01-01 00:00:00'),
 (4, 1, 4, 'Túi DC_004', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 0, 10, '2017-01-01 00:00:00'),
 (5, 1, 5, 'Túi DC_005', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 0, 10, '2017-01-02 00:00:00'),
-(6, 1, 6, 'Túi DC_006', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 0, 10, '2017-01-03 00:00:00'),
+(6, 1, 6, 'Túi DC_006', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 3, 0, 7, '2017-01-03 00:00:00'),
 (7, 1, 7, 'Túi DC_007', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 0, 10, '2017-01-04 00:00:00'),
 (8, 1, 8, 'Túi DC_008', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 0, 10, '2017-01-05 00:00:00'),
 (9, 1, 9, 'Túi DC_009', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 0, 10, '2017-01-05 00:00:00'),
 (10, 2, 1, 'Túi TX_001', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 0, 10, '2017-01-05 00:00:00'),
 (11, 2, 2, 'Túi TX_002', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 0, 10, '2017-01-05 00:00:00'),
-(12, 2, 3, 'Túi TX_003', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 2, 10, '2017-01-05 00:00:00'),
+(12, 2, 3, 'Túi TX_003', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 3, 2, 7, '2017-01-05 00:00:00'),
 (13, 2, 4, 'Túi TX_004', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 3, 10, '2017-01-05 00:00:00'),
-(14, 2, 5, 'Túi TX_005', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 2, 10, '2017-01-05 00:00:00'),
-(15, 2, 6, 'Túi TX_006', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 3, 10, '2017-01-05 00:00:00'),
-(16, 2, 7, 'Túi TX_007', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 17, 10, '2017-01-05 00:00:00'),
-(17, 2, 8, 'Túi TX_008', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 1, 10, '2017-01-05 00:00:00'),
+(14, 2, 5, 'Túi TX_005', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 3, 2, 7, '2017-01-05 00:00:00'),
+(15, 2, 6, 'Túi TX_006', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 1, 7, 9, '2017-01-05 00:00:00'),
+(16, 2, 7, 'Túi TX_007', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 9, 17, 29, '2017-01-05 00:00:00'),
+(17, 2, 8, 'Túi TX_008', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 1, 1, 9, '2017-01-05 00:00:00'),
 (18, 3, 1, 'Túi BL_001', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 0, 10, '2017-01-05 00:00:00'),
 (19, 3, 2, 'Túi BL_002', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 0, 10, '2017-01-05 00:00:00'),
 (20, 3, 3, 'Túi BL_003', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 0, 10, '2017-01-05 00:00:00'),
@@ -151,8 +176,15 @@ INSERT INTO `sanpham` (`masanpham`, `maloai`, `mathuonghieu`, `ten`, `xuatxu`, `
 (27, 4, 3, 'Túi V_003', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 0, 10, '2017-10-10 00:00:00'),
 (28, 4, 4, 'Túi V_004', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 0, 10, '2017-10-10 00:00:00'),
 (29, 4, 5, 'Túi V_005', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 0, 10, '2017-10-10 00:00:00'),
-(30, 4, 6, 'Túi V_006', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 5, 10, '2017-10-02 00:00:00'),
-(31, 1, 6, 'Túi DC_006', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 0, 10, '2017-01-03 00:00:00');
+(30, 4, 6, 'Túi V_006', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 3, 5, 7, '2017-10-02 00:00:00'),
+(31, 1, 6, 'Túi DC_006', 'Mỹ', 575000, 'Da tổng hợp', '20.5 x 7 x 14.5 cm', '300', 0, 0, 10, '2017-01-03 00:00:00'),
+(36, 6, 5, 'Túi Kheaa', 'VN', 40000, 'Cotton', '60x100', '1', NULL, NULL, 10, NULL),
+(37, 2, 5, 'Balo Mare', 'VN', 40000, 'Cotton', '60x100', '1', NULL, NULL, 10, NULL),
+(38, 5, 5, 'Túi sách Koro', 'VN', 40000, 'Cotton', '60x100', '1', NULL, NULL, 10, NULL),
+(39, 6, 5, 'Túi sách Dore', 'VN', 40000, 'Cotton', '60x100', '1', NULL, NULL, 10, NULL),
+(40, 2, 5, 'Balo LUXA', 'VN', 40000, 'Cotton', '60x100', '1', NULL, NULL, 10, NULL),
+(41, 5, 5, 'Balo Namio', 'VN', 40000, 'Cotton', '60x100', '1', NULL, NULL, 10, NULL),
+(42, 6, 5, 'Túi Kiria', 'VN', 40000, 'Cotton', '60x100', '1', NULL, NULL, 10, NULL);
 
 -- --------------------------------------------------------
 
@@ -175,7 +207,28 @@ INSERT INTO `sanpham_donhang` (`madon`, `masanpham`, `soluong`) VALUES
 (1, 2, 1),
 (1, 3, 1),
 (2, 1, 1),
-(2, 2, 1);
+(2, 2, 1),
+(27, 30, 1),
+(28, 14, 1),
+(28, 16, 1),
+(28, 17, 1),
+(30, 16, 1),
+(31, 6, 1),
+(31, 12, 1),
+(31, 14, 1),
+(31, 16, 1),
+(36, 15, 1),
+(37, 6, 1),
+(38, 14, 1),
+(39, 16, 1),
+(40, 16, 1),
+(41, 12, 1),
+(42, 16, 1),
+(43, 6, 1),
+(44, 16, 1),
+(45, 16, 1),
+(46, 12, 1),
+(47, 30, 1);
 
 -- --------------------------------------------------------
 
@@ -194,8 +247,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`session_id`, `expires`, `data`) VALUES
-('T1-e93f2mf6fI-buFzdj08dy18bizD2r', 1529942090, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"isLogged\":true,\"Sumproduct\":32,\"user\":{\"mathanhvien\":2,\"tenthanhvien\":\"Nguyễn Ngọc Xuân Mỹ\",\"username\":\"nana\",\"password\":\"7a509120a5fdce91a31d96e4dc43e93c26f16a6ce74f08e634d14a892ee021e2\",\"quyenhan\":1,\"sdt\":null,\"email\":null,\"diachi\":null,\"gioitinh\":null,\"ngaysinh\":null},\"cart\":[]}'),
-('tehGxEqa-uCD0LBGhCiXYoLUlZEQ4BDL', 1529923608, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"isLogged\":false,\"Sumproduct\":30,\"user\":null,\"cart\":[]}');
+('421EeQr7A-TBPfC0GVBxozwfieocf2Bx', 1530039054, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"isLogged\":true,\"Sumproduct\":38,\"user\":{\"mathanhvien\":1,\"tenthanhvien\":\"Mark Tuan\",\"username\":\"myna\",\"password\":\"7a509120a5fdce91a31d96e4dc43e93c26f16a6ce74f08e634d14a892ee021e2\",\"quyenhan\":0,\"sdt\":\"0974410174\",\"email\":\"yukutat91@gmail.com\",\"diachi\":\"Phan Thiết\",\"gioitinh\":0,\"ngaysinh\":\"1997-01-08T17:00:00.000Z\"},\"cart\":[{\"proID\":\"16\",\"Quantity\":1},{\"proID\":\"14\",\"Quantity\":1}]}'),
+('IfffWHXMbogJy8ss9A10ygsXPn4NJAss', 1530075296, '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"httpOnly\":true,\"path\":\"/\"},\"isLogged\":true,\"Sumproduct\":38,\"user\":{\"mathanhvien\":1,\"tenthanhvien\":\"Mark Tuan\",\"username\":\"myna\",\"password\":\"7a509120a5fdce91a31d96e4dc43e93c26f16a6ce74f08e634d14a892ee021e2\",\"quyenhan\":0,\"sdt\":\"0974410174\",\"email\":\"yukutat91@gmail.com\",\"diachi\":\"Phan Thiết\",\"gioitinh\":0,\"ngaysinh\":\"1997-01-08T17:00:00.000Z\"},\"cart\":[]}');
 
 -- --------------------------------------------------------
 
@@ -326,13 +379,13 @@ ALTER TABLE `thuonghieu`
 -- AUTO_INCREMENT for table `donhang`
 --
 ALTER TABLE `donhang`
-  MODIFY `madon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `madon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `giaodich`
 --
 ALTER TABLE `giaodich`
-  MODIFY `magiaodich` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `magiaodich` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `hinhanh`
@@ -350,7 +403,7 @@ ALTER TABLE `loaisanpham`
 -- AUTO_INCREMENT for table `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `masanpham` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `masanpham` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `thanhvien`

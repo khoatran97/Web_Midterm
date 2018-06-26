@@ -21,8 +21,10 @@
 		<div class="col-sm-12" id="Ngay">
 			<div class="row">
 				<div class="col-sm-2" style="border-right: solid 2px white;text-align: center"> Mã hóa đơn</div>
-				<div class="col-sm-5" style="border-right: solid 2px white;text-align: center"> Ngày đặt</div>
-				<div class="col-sm-3" style="border-right: solid 2px white;text-align: center"> Tổng giá trị</div>
+				<div class="col-sm-2" style="border-right: solid 2px white;text-align: center"> Ngày đặt</div>
+				<div class="col-sm-1" style="border-right: solid 2px white;text-align: center"> Tổng giá</div>
+				<div class="col-sm-3" style="border-right: solid 2px white;text-align: center"> Địa chỉ</div>
+				<div class="col-sm-2" style="border-right: solid 2px white;text-align: center"> Thanh toán</div>
 				<div class="col-sm-2" style="text-align:center"> Trạng thái</div>
 			</div>
 		</div>
@@ -32,8 +34,10 @@
 					<div class="col-sm-2" style="border-right: solid 2px white;text-align: center; font-size: 18px; height: 80px; line-height:80px">
 						<a style="line-height:80px" href="/account/Hoa_don?Ma={{madon}}">{{madon}}</a>
 					</div>
-					<div class="col-sm-5" style="border-right: solid 2px white;line-height:80px; text-align:center">{{ngaydat}}</div>
-					<div class="col-sm-3" style="border-right: solid 2px white;line-height:80px; text-align:center" > {{tonggiatri}}</div>
+					<div class="col-sm-2" style="border-right: solid 2px white;line-height:80px; text-align:center">{{ngaydat}}</div>
+					<div class="col-sm-1" style="border-right: solid 2px white;line-height:80px; text-align:center" > {{tonggiatri}}</div>
+					<div class="col-sm-3" style="border-right: solid 2px white;line-height:80px; text-align:center" > {{diachi}}</div>
+					<div class="col-sm-2" style="border-right: solid 2px white; line-height:80px; text-align:center"> {{#if conggiaodich}} Bằng thẻ {{else}} Tiền mặt {{/if}}</div>
 					<div class="col-sm-2" style="line-height:80px; text-align:center"> {{#if trangthai}} Chưa giao {{else}} Đã giao {{/if}}</div>
 				</div>
 			</div>
