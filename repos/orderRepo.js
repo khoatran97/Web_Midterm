@@ -39,7 +39,7 @@ module.exports.loadDetail = (id) => {
 }
 
 module.exports.add = (a) => {
-    var sql = `insert into donhang(makhachhang,magiaodich,ngaydat,tonggiatri,trangthai) values (${a.user1},null,now(),${a.total},0)`;
+    var sql = `insert into donhang(makhachhang,magiaodich,ngaydat,tonggiatri,trangthai) values (${a.user1},null,now(),${a.total},N'chưa giao')`;
     return db.save(sql);
 }
 
