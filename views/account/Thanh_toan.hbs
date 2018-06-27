@@ -34,6 +34,7 @@
 		if(gen === '1'){
 			$('#female').prop("checked", true);
 		}
+
 	});
 	function loadThe() {
 		var tmp = `<div id="b1" class="col-sm-2"></div>
@@ -63,6 +64,16 @@
 		element2.parentNode.removeChild(element2);
 
 	}
+
+	$('#btn').click(function(e){
+		e.preventDefault();
+		if($('#txtAddress').val().length===0 || $('#qh').val().length===0 || $('#tp').val().length===0){
+			alert('hãy điền đầy đủ địa chỉ trước khi đặt mua');
+		}
+		else{
+			$('#form-main').submit();
+		}
+	})
 	</script>
 {{/section}}
 
@@ -79,7 +90,7 @@
 			<div class="col-sm-10">
 			<div id = "form" class="col-lg-9 col-md-12 char_col">
 				<div style="height: 50px;"></div>
-				<form id="form-main" method="post" role="form" onsubmit="return validate();">
+				<form id="form-main" method="post" role="form">
 				  <div class="form-group row">
 				  	<div class="col-sm-2"></div>
 				    <label for="txtName" class="col-sm-2 col-form-label" style="font-weight: bold;">Họ tên</label>
@@ -96,16 +107,16 @@
 				  </div>
 				  <div class="form-group row">
 				  	<div class="col-sm-2"></div>
-				    <label for="phone_number" class="col-sm-2 col-form-label" style="font-weight: bold;">Tỉnh/Thành phố</label>
+				    <label for="tp" class="col-sm-2 col-form-label" style="font-weight: bold;">Tỉnh/Thành phố</label>
 				    <div class="col-sm-6">
-				      <input type="text" class="form-control" id="phone_number" placeholder="Tỉnh/Thành phố" name="tp">
+				      <input type="text" class="form-control" id="tp" placeholder="Tỉnh/Thành phố" name="tp">
 				    </div>
 				  </div>
 				  <div class="form-group row">
 				  	<div class="col-sm-2"></div>
-				    <label for="phone_number" class="col-sm-2 col-form-label" style="font-weight: bold;">Quận/Huyện</label>
+				    <label for="qh" class="col-sm-2 col-form-label" style="font-weight: bold;">Quận/Huyện</label>
 				    <div class="col-sm-6">
-				      <input type="text" class="form-control" id="phone_number" placeholder="Quận/Huyện" name="qh">
+				      <input type="text" class="form-control" id="qh" placeholder="Quận/Huyện" name="qh">
 				    </div>
 				  </div>
 				  <div class="form-group row">

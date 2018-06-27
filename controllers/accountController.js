@@ -221,6 +221,19 @@ router.post('/cart/remove', (req, res) => {
     res.redirect(req.headers.referer);
 })
 
+router.post('/cart/update', (req,res) => {
+    
+    var quant = req.body.quantity;
+    var l = quant.length;
+    for(var i=0;i<l;i++)
+    {
+        req.session.cart[l-i-1].Quantity=quant[i];
+    }
+    Promise.all(req.session.cart).then(result => {
+        res.redirect(req.headers.referer);
+    })
+})
+
 router.post('/Gio_hang',(req, res) => {
     var donhang = {
         user1: req.session.user.mathanhvien,
