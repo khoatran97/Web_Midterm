@@ -85,7 +85,7 @@ module.exports.update = (prod) => {
 
 
 module.exports.updateQua = (pro) => {
-    var sql = `update sanpham set luotmua=${pro.QuatBuy}  where masanpham=${pro.proID}`;
+    var sql = `update sanpham set luotmua=${pro.QuatBuy}, soluong=${pro.Remai} where masanpham=${pro.proID}`;
     return db.save(sql);
 }
 

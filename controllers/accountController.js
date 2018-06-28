@@ -2,6 +2,8 @@ var express = require('express'),
 	SHA256 = require('crypto-js/sha256'),
     moment = require('moment');
 
+
+
 var accountRepo = require('../repos/accountRepo');
 var restrict = require('../middle-wares/restrict');
 
@@ -250,7 +252,7 @@ router.post('/Gio_hang',(req, res) => {
    
 });
 
-router.post('/Thanh_toan',(req, res) =>{
+router.post('/Thanh_toan', (req, res) =>{
     var bill = {
         makhach: req.session.user.mathanhvien,
         sotien: req.query.total,
@@ -262,7 +264,7 @@ router.post('/Thanh_toan',(req, res) =>{
 
     billRepo.max(bill.makhach).then(a =>{
         order.add(bill.makhach,a[0].m, bill.sotien).then( result => {
-            order.max(bill.makhach).then(r => {
+            order.max(bill.makhach).then(async r => {
                 var Ma=r[0].m;
                 var pro_order = {
                     madon: r[0].m,
@@ -276,13 +278,16 @@ router.post('/Thanh_toan',(req, res) =>{
                         pro: pro_order.pro[i].proID,
                         proQua: pro_order.pro[i].Quantity
                     };
-                    pro_BillRepo.add(pro_order1); 
-                    productRepo.loadById(pro_order1.pro).then( row =>{
-                        var up = {
-                            QuatBuy: parseInt(row[0].luotmua) +parseInt( pro_order1.proQua),
-                            proID: pro_order1.pro
-                        };
-                        productRepo.updateQua(up);
+                     await pro_BillRepo.add(pro_order1).then( async b =>{
+                        await productRepo.loadById(pro_order1.pro).then( async row =>{
+                            var up = {
+                                QuatBuy: parseInt(row[0].luotmua) +parseInt( pro_order1.proQua),
+                                Remai:  parseInt(row[0].soluong) - parseInt( pro_order1.proQua),
+                                proID: pro_order1.pro
+                            };
+                            console.log(up);
+                            await productRepo.updateQua(up);
+                        }); 
                     });             
                 }
                 req.session.cart=[];
