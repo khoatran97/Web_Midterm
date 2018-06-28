@@ -1,5 +1,18 @@
 var db = require('../fn/dbAccess');
 
+module.exports.searchBysearchByName = (name) => {
+    var sql = `select * from sanpham where ten like "%${name}%"`;
+    return db.load(sql);
+}
+module.exports.searchBysearchByCategory = (category) => {
+    var sql = `select sanpham.* from sanpham join loaisanpham on sanpham.maloai = loaisanpham.maloai where loaisanpham.tenloai like "%${category}%"`;
+    return db.load(sql);
+}
+module.exports.searchBysearchByBrand = (brand) => {
+    var sql = `select sanpham.* from sanpham join thuonghieu on sanpham.mathuonghieu = thuonghieu.mathuonghieu where thuonghieu.tenthuonghieu like "%${brand}%"`;
+    return db.load(sql);
+}
+
 module.exports.loadAll = () => {
     var sql = `select * from sanpham`;
     return db.load(sql);

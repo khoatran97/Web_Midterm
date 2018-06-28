@@ -44,7 +44,7 @@ async function loadHome() {
 }
 
 // Load du lieu cho trang tat ca san pham
-async function loadAll(categoryId, brandId) {
+async function loadAll(categoryId, brandId, searchId, str) {
     var brands;
     var products;
 
@@ -52,26 +52,48 @@ async function loadAll(categoryId, brandId) {
         brands = rows;
     });
 
-    if (brandId != undefined && categoryId != undefined) {
-        await productRepo.loadByCategoryBrand(categoryId, brandId).then(rows => {
-            products = rows;
-        });
-    }
-    else if (brandId != undefined) {
-        await productRepo.loadByBrand(brandId).then(rows => {
-            products = rows;
-        });
-    }
-    else if (categoryId != undefined) {
-        await productRepo.loadByCategory(categoryId).then(rows => {
-            products = rows;
-        });
+    if (searchId == undefined) {
+        if (brandId != undefined && categoryId != undefined) {
+            await productRepo.loadByCategoryBrand(categoryId, brandId).then(rows => {
+                products = rows;
+            });
+        }
+        else if (brandId != undefined) {
+            await productRepo.loadByBrand(brandId).then(rows => {
+                products = rows;
+            });
+        }
+        else if (categoryId != undefined) {
+            await productRepo.loadByCategory(categoryId).then(rows => {
+                products = rows;
+            });
+        }
+        else {
+            await productRepo.loadAll().then(rows => {
+                products = rows;
+            });
+        }
     }
     else {
-        await productRepo.loadAll().then(rows => {
-            products = rows;
-        });
+        switch (+searchId) {
+            case 1:
+                await productRepo.searchBysearchByName(str).then(rows => {
+                    products = rows;
+                })
+                break;
+            case 3:
+                await productRepo.searchBysearchByCategory(str).then(rows => {
+                    products = rows;
+                })
+                break;
+            case 4:
+                await productRepo.searchBysearchByBrand(str).then(rows => {
+                    products = rows;
+                })
+                break;
+        }
     }
+    
 
     return {
         brands: brands,
@@ -122,7 +144,17 @@ router.get('/', (req, res) => {
 });
 
 router.get('/Tat_ca/', (req, res) => {
-    loadAll(req.query.DanhMuc, req.query.ThuongHieu).then((result) => {
+    loadAll(req.query.DanhMuc, req.query.ThuongHieu, req.query.Theo, req.query.TimKiem).then((result) => {
+        res.render('Tat_ca', {
+            brands: result.brands,
+            products: result.products,
+            countProduct: result.products.lenght
+        });
+    })
+});
+
+router.post('/Tat_ca', (req, res) => {
+    loadAll(null, null, req.body.Theo, req.body.TimKiem).then((result) => {
         res.render('Tat_ca', {
             brands: result.brands,
             products: result.products,

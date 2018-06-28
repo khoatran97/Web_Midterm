@@ -135,31 +135,35 @@
 							<div class="header_search">
 								<div class="header_search_content">
 									<div class="header_search_form_container">
-										<form action="#" class="header_search_form clearfix">
-											<input id="search" type="search" required="required" class="header_search_input" placeholder="Tìm sản phẩm">
+										<form action="GET" class="header_search_form clearfix">
+											<input id="timkiem" type="search" required="required" class="header_search_input" placeholder="Tìm sản phẩm">
 											<div class="custom_dropdown">
-												<div class="custom_dropdown_list">
-													<span class="custom_dropdown_placeholder clc">Tất cả</span>
+												<div id="khoa" class="custom_dropdown_list">
+													<span class="custom_dropdown_placeholder clc">Chọn cách tìm</span>
 													<i class="fas fa-chevron-down"></i>
 													<ul class="custom_list clc" id="Danh_muc_Tim_kiem">
 														<li>
-															<a class="clc" href="#">Tìm theo tên</a>
+															<a name="search" data-search="1" class="clc" href="#">Tìm theo tên</a>
 														</li>
 														<li>
-															<a class="clc" href="#">Tìm theo giá</a>
+															<a name="search" data-search="2" class="clc" href="#">Tìm theo giá</a>
 														</li>
 														<li>
-															<a class="clc" href="#">Tìm theo loại</a>
+															<a name="search" data-search="3" class="clc" href="#">Tìm theo loại</a>
 														</li>
 														<li>
-															<a class="clc" href="#">Tìm theo nhà sản xuất</a>
+															<a name="search" data-search="4" class="clc" href="#">Tìm theo nhà sản xuất</a>
 														</li>
 													</ul>
 												</div>
 											</div>
-											<button type="submit" class="header_search_button trans_300" value="Submit">
+											<button type="button" class="header_search_button trans_300" onclick="Search()" value="Submit">
 												<img src="Hinh_anh/Giao_dien/search.png" alt="">
 											</button>
+										</form>
+										<form action="/Tat_ca" id="searchForm" method="POST" hidden>
+											<input id="searchStr" name="TimKiem"/>
+											<input id="searchId" name="Theo"/>
 										</form>
 									</div>
 								</div>
@@ -468,6 +472,21 @@
 	            sessionStorage.removeItem(i);
 	        }
     	}
+		var searchId = 0;
+		$('a[name=search]').on('click', function () {
+			searchId = +($(this).attr('data-search'));
+		})
+
+		function Search() {
+			if (searchId === 0) {
+				alert("Xin quý khách vui lòng chọn cách tìm");
+			}
+			else {
+				$('#searchId').val(searchId);
+				$('#searchStr').val($('#timkiem').val());
+				$('#searchForm').submit();
+			}
+		}
 	</script>
 	
 
