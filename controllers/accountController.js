@@ -282,7 +282,6 @@ router.post('/Thanh_toan', (req, res) =>{
                         await productRepo.loadById(pro_order1.pro).then( async row =>{
                             var up = {
                                 QuatBuy: parseInt(row[0].luotmua) +parseInt( pro_order1.proQua),
-                                Remai:  parseInt(row[0].soluong) - parseInt( pro_order1.proQua),
                                 proID: pro_order1.pro
                             };
                             console.log(up);
