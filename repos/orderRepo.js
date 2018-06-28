@@ -38,8 +38,8 @@ module.exports.loadDetail = (id) => {
     return db.load(sql);
 }
 
-module.exports.add = (a) => {
-    var sql = `insert into donhang(makhachhang,magiaodich,ngaydat,tonggiatri,trangthai) values (${a.user1},null,now(),${a.total},N'chưa giao')`;
+module.exports.add = (a,b,c) => {
+    var sql = `insert into donhang(makhachhang,magiaodich,ngaydat,tonggiatri,trangthai) values (${a},${b},now(),${c},N'chưa giao')`;
     return db.save(sql);
 }
 
