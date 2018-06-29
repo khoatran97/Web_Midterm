@@ -2,6 +2,8 @@ var express = require('express'),
 	SHA256 = require('crypto-js/sha256'),
     moment = require('moment');
 
+
+
 var accountRepo = require('../repos/accountRepo');
 var restrict = require('../middle-wares/restrict');
 
@@ -235,61 +237,63 @@ router.post('/cart/update', (req,res) => {
 })
 
 router.post('/Gio_hang',(req, res) => {
-    var donhang = {
-        user1: req.session.user.mathanhvien,
-        total: req.body.total,
-    };
-    var cart = req.session.cart;
-    var cartQua = req.body.quantity;
-    for(var i = 0; i < cart.length; i++ )
+    var total = req.body.total;
+    var quant = req.body.quantity;
+    var l = quant.length;
+    for(var i=0;i<l;i++)
     {
-        cart[i].Quantity = cartQua[i];
-        console.log(cart[i].Quantity);
+        req.session.cart[l-i-1].Quantity=quant[i];
     }
-
-    var Ma;
-    order.add(donhang).then(a =>{
-        order.max(req.session.user.mathanhvien).then( result => {
-            var pro_Qua = {
-                madon: result[0].m,
-                pro: cart,
-            };
-            Ma = result[0].m;
-            for(var i = 0; i < pro_Qua.pro.length;i++)
-            {
-                var pro_Qua1 = {
-                    madon: pro_Qua.madon,
-                    pro: pro_Qua.pro[i].proID,
-                    proQua: pro_Qua.pro[i].Quantity
-                };
-                pro_BillRepo.add(pro_Qua1); 
-                productRepo.loadById(pro_Qua1.pro).then( row =>{
-                    var up = {
-                        QuatBuy: parseInt(row[0].luotmua) +parseInt( pro_Qua1.proQua),
-                        Quant: parseInt(row[0].soluong) - parseInt(pro_Qua1.proQua),
-                        proID: pro_Qua1.pro
-                    };
-                    productRepo.updateQua(up);
-                });             
-            }
-
-            req.session.cart=[];
-            var url = '/account/Thanh_toan?Ma=' + Ma;
-            res.redirect(url);
-        });
+    
+    Promise.all(req.session.cart).then(result => {
+        var url = '/account/Thanh_toan?total=' + total;
+        res.redirect(url);
     });
    
 });
 
-router.post('/Thanh_toan',(req, res) =>{
+router.post('/Thanh_toan', (req, res) =>{
     var bill = {
-        magiaodich: req.query.Ma,
-        diachi: req.body.address + ' '+ req.body.qh + ' ' + req.body.tp,
+        makhach: req.session.user.mathanhvien,
+        sotien: req.query.total,
+        diachi: req.body.address + ' - '+ req.body.qh + ' - ' + req.body.tp,
         conggiaodich: req.body.thanhtoan,
     };
-
-    console.log(bill);
+    
     billRepo.add(bill);
-    res.redirect('/account/Hoa_don?Ma=' + req.query.Ma);
+
+    billRepo.max(bill.makhach).then(a =>{
+        order.add(bill.makhach,a[0].m, bill.sotien).then( result => {
+            order.max(bill.makhach).then(async r => {
+                var Ma=r[0].m;
+                var pro_order = {
+                    madon: r[0].m,
+                    pro: req.session.cart
+                };
+
+                for(var i = 0; i < pro_order.pro.length;i++)
+                {
+                    var pro_order1 = {
+                        madon: pro_order.madon,
+                        pro: pro_order.pro[i].proID,
+                        proQua: pro_order.pro[i].Quantity
+                    };
+                     await pro_BillRepo.add(pro_order1).then( async b =>{
+                        await productRepo.loadById(pro_order1.pro).then( async row =>{
+                            var up = {
+                                QuatBuy: parseInt(row[0].luotmua) +parseInt( pro_order1.proQua),
+                                proID: pro_order1.pro
+                            };
+                            console.log(up);
+                            await productRepo.updateQua(up);
+                        }); 
+                    });             
+                }
+                req.session.cart=[];
+                res.redirect('/account/Hoa_don?Ma=' + Ma);
+            })
+        })
+    })
+      
 });
 module.exports.router = router;

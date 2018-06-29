@@ -14,8 +14,21 @@
     $('#btnAdd').click(function(e){
         e.preventDefault();
         if($('#valid').length){
-            $('#myForm').submit();
-            $('#myModal2').modal('show');
+            var total = $('#total').val(), sold = $('#sold').val(), q = $('#quantity_input').val();
+            var stock = total - sold;
+            if(stock > 0)
+            {               
+                if(stock>=q){
+                    $('#myForm').submit();
+                    $('#myModal2').modal('show');
+                }
+                else{
+                    alert('hiện chỉ còn '+stock+' sản phẩm');
+                }
+            }
+            else{
+                alert('sản phẩm đã hết hàng');   
+            }
         }
         else{
             $('#myModal').modal('show');
@@ -77,6 +90,8 @@
                         <form method ="post" action="/account/cart/add" id="myForm">
                             <div class="clearfix" style="z-index: 1000;">
                             <input type="hidden" value={{masanpham}} name="proID">
+                            <input type="hidden" value={{soluong}} id="total">
+                            <input type="hidden" value={{luotmua}} id="sold">
                                 <!-- Product Quantity -->
                                 <div class="product_quantity clearfix">
                                     <span>Số lượng: </span>
