@@ -98,7 +98,8 @@ async function loadAll(categoryId, brandId, searchId, str) {
     return {
         brands: brands,
         products: products,
-        countProduct: Object.keys(products).length
+        countProduct: Object.keys(products).length,
+        numberPage: Object.keys(products).length/10,
     };
 }
 
@@ -145,10 +146,16 @@ router.get('/', (req, res) => {
 
 router.get('/Tat_ca/', (req, res) => {
     loadAll(req.query.DanhMuc, req.query.ThuongHieu, req.query.Theo, req.query.TimKiem).then((result) => {
+        var Page = [];
+        for(var i = 1; i <= result.numberPage; i++)
+        {
+            Page.push(i);
+        }
         res.render('Tat_ca', {
             brands: result.brands,
             products: result.products,
-            countProduct: result.products.lenght
+            countProduct: result.countProduct
+
         });
     })
 });

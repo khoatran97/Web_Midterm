@@ -108,6 +108,7 @@ router.get('/orders/edit', (req, res) => {
 });
 
 router.post('/orders/edit', (req, res) => {
+	console.log(req.body);
 	orderRepo.update(req.body).then(value => {
 		res.redirect('/admin/orders');
 	})

@@ -48,7 +48,7 @@ router.get('/Hoa_don', (req, res) => {
     })
 });
 
-router.get('/Gio_hang', (req, res) => {
+router.get('/Gio_hang',restrict.profile, (req, res) => {
     if(req.session.cart.length)
     {
         var cart=[];
@@ -98,7 +98,7 @@ router.get('/profile', restrict.profile, (req, res) => {
     res.render('account/profile');
 });
 
-router.get('/Thanh_toan',(req,res) => {
+router.get('/Thanh_toan',restrict.profile,(req,res) => {
     res.render('account/Thanh_toan');
 });
 //post
@@ -282,9 +282,9 @@ router.post('/Thanh_toan', (req, res) =>{
                         await productRepo.loadById(pro_order1.pro).then( async row =>{
                             var up = {
                                 QuatBuy: parseInt(row[0].luotmua) +parseInt( pro_order1.proQua),
+                                Remain: parseInt(row[0].soluongcon) - parseInt( pro_order1.proQua),
                                 proID: pro_order1.pro
                             };
-                            console.log(up);
                             await productRepo.updateQua(up);
                         }); 
                     });             

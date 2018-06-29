@@ -47,7 +47,7 @@ module.exports.loadByCategoryBrand = (categoryId, brandId) => {
 }
 
 module.exports.loadByView = () => {
-    var sql = `select * from sanpham order by luotxem desc `
+    var sql = `select * from sanpham order by luotxem desc limit 10 `
     return db.load(sql);
 }
 
@@ -85,7 +85,7 @@ module.exports.update = (prod) => {
 
 
 module.exports.updateQua = (pro) => {
-    var sql = `update sanpham set luotmua=${pro.QuatBuy} where masanpham=${pro.proID}`;
+    var sql = `update sanpham set luotmua=${pro.QuatBuy}, soluongcon=${pro.Remain} where masanpham=${pro.proID}`;
     return db.save(sql);
 }
 
