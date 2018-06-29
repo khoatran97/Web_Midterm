@@ -40,11 +40,11 @@ app.use(bodyParser.urlencoded({
 }));
 
 var sessionStore = new MySQLStore({
-    host: 'localhost',
+    host: 'db4free.net',
     port: '3306',
-    user: 'root',
-    password: '',
-    database: 'ibags',
+    user: 'ibags_root_1',
+    password: 'ibagshcmus',
+    database: 'ibags_1',
     createDatabaseTable: true,
     schema: {
         tableName: 'sessions',
@@ -72,4 +72,4 @@ app.use('/admin', restrict.admin, adminController.router);
 
 app.use(handle404MDW);
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
